@@ -46,6 +46,7 @@ namespace Lab03_Cases_Region
             this.btnReset = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.btnTest = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblCases
@@ -128,7 +129,7 @@ namespace Lab03_Cases_Region
             // lblAverage1
             // 
             this.lblAverage1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.lblAverage1.Location = new System.Drawing.Point(29, 325);
+            this.lblAverage1.Location = new System.Drawing.Point(28, 325);
             this.lblAverage1.Name = "lblAverage1";
             this.lblAverage1.Size = new System.Drawing.Size(115, 23);
             this.lblAverage1.TabIndex = 8;
@@ -138,7 +139,7 @@ namespace Lab03_Cases_Region
             // lblAverage2
             // 
             this.lblAverage2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.lblAverage2.Location = new System.Drawing.Point(170, 325);
+            this.lblAverage2.Location = new System.Drawing.Point(169, 325);
             this.lblAverage2.Name = "lblAverage2";
             this.lblAverage2.Size = new System.Drawing.Size(115, 23);
             this.lblAverage2.TabIndex = 9;
@@ -148,7 +149,7 @@ namespace Lab03_Cases_Region
             // lblAverage3
             // 
             this.lblAverage3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.lblAverage3.Location = new System.Drawing.Point(312, 325);
+            this.lblAverage3.Location = new System.Drawing.Point(310, 325);
             this.lblAverage3.Name = "lblAverage3";
             this.lblAverage3.Size = new System.Drawing.Size(115, 23);
             this.lblAverage3.TabIndex = 10;
@@ -158,12 +159,13 @@ namespace Lab03_Cases_Region
             // lblTotalAverage
             // 
             this.lblTotalAverage.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.lblTotalAverage.Location = new System.Drawing.Point(29, 369);
+            this.lblTotalAverage.Location = new System.Drawing.Point(28, 362);
             this.lblTotalAverage.Name = "lblTotalAverage";
-            this.lblTotalAverage.Size = new System.Drawing.Size(398, 23);
+            this.lblTotalAverage.Size = new System.Drawing.Size(397, 23);
             this.lblTotalAverage.TabIndex = 11;
             this.lblTotalAverage.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.toolTip1.SetToolTip(this.lblTotalAverage, "Average of all Regions");
+            this.lblTotalAverage.Click += new System.EventHandler(this.lblTotalAverage_Click);
             // 
             // btnEnter
             // 
@@ -197,6 +199,16 @@ namespace Lab03_Cases_Region
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
+            // btnTest
+            // 
+            this.btnTest.Location = new System.Drawing.Point(290, 25);
+            this.btnTest.Name = "btnTest";
+            this.btnTest.Size = new System.Drawing.Size(75, 23);
+            this.btnTest.TabIndex = 15;
+            this.btnTest.Text = "Test Info";
+            this.btnTest.UseVisualStyleBackColor = true;
+            this.btnTest.Click += new System.EventHandler(this.btnTest_Click);
+            // 
             // frmRegionCases
             // 
             this.AcceptButton = this.btnEnter;
@@ -204,6 +216,7 @@ namespace Lab03_Cases_Region
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnReset;
             this.ClientSize = new System.Drawing.Size(454, 460);
+            this.Controls.Add(this.btnTest);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnReset);
             this.Controls.Add(this.btnEnter);
@@ -224,6 +237,7 @@ namespace Lab03_Cases_Region
             this.Name = "frmRegionCases";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Average Weekly Cases by Region";
+            this.Load += new System.EventHandler(this.frmRegionCases_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -247,6 +261,7 @@ namespace Lab03_Cases_Region
         private System.Windows.Forms.Button btnReset;
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.Button btnTest;
     }
 }
 

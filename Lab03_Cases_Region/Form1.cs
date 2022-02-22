@@ -1,4 +1,17 @@
-﻿using System;
+﻿#region Program Written By:
+/*
+ * Author:          Martin Barber
+ * Date:            Feb 22nd, 2022
+ * Student ID:      100368442
+ * Title: NETD:     Lab 3: Regional Cases
+ * Description:     This application will get 3 regions of their weekly numbers and get the averages of each
+ * https://github.com/Ritz-Bitz13/NETD2022_WInter2022_04
+ * 
+ */
+#endregion
+
+#region using systems
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,6 +20,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+#endregion
 
 namespace Lab03_Cases_Region
 {
@@ -15,6 +29,11 @@ namespace Lab03_Cases_Region
         public frmRegionCases()
         {
             InitializeComponent();
+        }
+
+        private void frmRegionCases_Load(object sender, EventArgs e)
+        {
+
         }
 
         #region Exit Button
@@ -31,6 +50,7 @@ namespace Lab03_Cases_Region
         }
         #endregion
 
+        #region Custom Functions
         #region Set Defaults Function
         /// <summary>
         /// Resets the list boxes, text boxes, Enter Button and Labels displaying the averages.
@@ -56,6 +76,7 @@ namespace Lab03_Cases_Region
         }
         #endregion
 
+        #region FocusTextBox Function
         /// <summary>
         /// If there is an Error in the textbox when you click the enter button while verifying, This will select everything in the textbox and focus it
         /// </summary>
@@ -64,14 +85,16 @@ namespace Lab03_Cases_Region
             txtCases.SelectAll();
             txtCases.Focus();
         }
+        #endregion
 
+        #region Validation Function
         /// <summary>
         /// This will Validate the input text box to input casess. If there is something entered that isnt right, this will catch it.
         /// </summary>
         private void Validation()
         {
             int tempNumber;
-            if (txtCases.TextLength == 0)
+            if (txtCases.TextLength != 0)
             {
                 if (int.TryParse(txtCases.Text.Trim(), out tempNumber))
                 {
@@ -95,8 +118,45 @@ namespace Lab03_Cases_Region
                 }
             }
             else
+                //If there is nothing written in the textbox, a message box will appear telling you to enter information
                 MessageBox.Show("Please enter a number in the text box to input it to the region");
                 FocusTextBox();
+        }
+        #endregion
+
+        #endregion
+
+        private void lblTotalAverage_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnTest_Click(object sender, EventArgs e)
+        {
+            lbxRegion1.Items.Add("123");
+            lbxRegion1.Items.Add("234");
+            lbxRegion1.Items.Add("345");
+            lbxRegion1.Items.Add("456");
+            lbxRegion1.Items.Add("567");
+            lbxRegion1.Items.Add("678");
+            lbxRegion1.Items.Add("789");
+
+            lbxRegion2.Items.Add("123");
+            lbxRegion2.Items.Add("234");
+            lbxRegion2.Items.Add("345");
+            lbxRegion2.Items.Add("456");
+            lbxRegion2.Items.Add("567");
+            lbxRegion2.Items.Add("678");
+            lbxRegion2.Items.Add("789");
+
+            lbxRegion3.Items.Add("123");
+            lbxRegion3.Items.Add("234");
+            lbxRegion3.Items.Add("345");
+            lbxRegion3.Items.Add("456");
+            lbxRegion3.Items.Add("567");
+            lbxRegion3.Items.Add("678");
+            lbxRegion3.Items.Add("789");
+
         }
     }
 }
