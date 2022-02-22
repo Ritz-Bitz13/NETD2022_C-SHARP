@@ -37,12 +37,12 @@ namespace Lab03_Cases_Region
         /// </summary>
         private void SetDefaults()
         {
-            //Clear all the Average labels to blank
+            // Clears all the Average labels to blank
             lblAverage1.Text = "";
             lblAverage2.Text = "";
             lblAverage3.Text = "";
             lblTotalAverage.Text = "";
-            // Clears the textbox at the top, disables read only it and focuses after clear
+            // Clears the textbox at the top, disables read only it and focuses after clearing
             txtCases.Clear();
             txtCases.ReadOnly = false;
             txtCases.Focus();
@@ -50,7 +50,7 @@ namespace Lab03_Cases_Region
             lbxRegion1.Items.Clear();
             lbxRegion2.Items.Clear();
             lbxRegion3.Items.Clear();
-            //Re-enables the button if it has been disabled. if it isnt, this does nothing because the button is already enabled.
+            // Re-enables the button if it has been disabled. if it isnt, this does nothing because the button is already enabled.
             btnEnter.Enabled = true;
 
         }
@@ -65,6 +65,9 @@ namespace Lab03_Cases_Region
             txtCases.Focus();
         }
 
+        /// <summary>
+        /// This will Validate the input text box to input casess. If there is something entered that isnt right, this will catch it.
+        /// </summary>
         private void Validation()
         {
             int tempNumber;
@@ -92,7 +95,7 @@ namespace Lab03_Cases_Region
                 }
             }
             else
-                MessageBox.Show("Please enter a number to input it to the region");
+                MessageBox.Show("Please enter a number in the text box to input it to the region");
                 FocusTextBox();
         }
     }

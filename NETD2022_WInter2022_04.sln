@@ -29,7 +29,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lab02_Semester_Grades", "La
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Week05_Demo_ColourSwatch", "Week05_Demo\Week05_Demo_ColourSwatch.csproj", "{2C2C11ED-1F71-4030-9383-142E97E128AC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Week06_Demo_EnterNameHere", "Week06_Demo_EnterNameHere\Week06_Demo_EnterNameHere.csproj", "{06BED1A2-FAD8-4C53-BF3A-14D174DE20EB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Week06_Demo_EnterNameHere", "Week06_Demo_EnterNameHere\Week06_Demo_EnterNameHere.csproj", "{06BED1A2-FAD8-4C53-BF3A-14D174DE20EB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lab03_Cases_Region", "Lab03_Cases_Region\Lab03_Cases_Region.csproj", "{3F420FAD-8E37-495A-9C8B-8C5E88422045}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -93,6 +95,10 @@ Global
 		{06BED1A2-FAD8-4C53-BF3A-14D174DE20EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{06BED1A2-FAD8-4C53-BF3A-14D174DE20EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{06BED1A2-FAD8-4C53-BF3A-14D174DE20EB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3F420FAD-8E37-495A-9C8B-8C5E88422045}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3F420FAD-8E37-495A-9C8B-8C5E88422045}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3F420FAD-8E37-495A-9C8B-8C5E88422045}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3F420FAD-8E37-495A-9C8B-8C5E88422045}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
