@@ -372,7 +372,7 @@ namespace W7_Demo_Classes1
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.ClientSize = new System.Drawing.Size(914, 636);
+            this.ClientSize = new System.Drawing.Size(914, 634);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.grpSavedDroids);
             this.Controls.Add(this.grpCreator);

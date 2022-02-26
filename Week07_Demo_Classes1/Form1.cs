@@ -26,12 +26,17 @@ namespace W7_Demo_Classes1
         }
 
         #region GLOBAL VARIABLES
+
+
+
+
         #endregion
 
         #region Control Event Handlers
         private void Form1_Load(object sender, EventArgs e)
         {
             SetDefaults();
+
         }
 
         private void btnExit_Click(object sender, EventArgs e)
@@ -56,7 +61,9 @@ namespace W7_Demo_Classes1
 
         private void lboxDroids_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            string tempDesig;
+            tempDesig = lboxDroids.SelectedItem.ToString();
+            PopulateDetails(tempDesig);
         }
 
         private void btnResetDroid_Click(object sender, EventArgs e)
@@ -66,8 +73,20 @@ namespace W7_Demo_Classes1
 
         private void btnSaveDroid_Click(object sender, EventArgs e)
         {
-            // do stuff here first
-            
+            Droid tempDroid = new Droid();
+            tempDroid.Designation = this.txtDesignation.Text.Trim();
+            tempDroid.Owner = this.txtOwner.Text.Trim();
+            tempDroid.IsInService = this.chkInService.Checked;
+            tempDroid.PrimaryColor = this.lblPrimaryColour.BackColor;
+            tempDroid.SecondaryColor = this.lblSecondaryColour.BackColor;
+
+
+            // add this droid to the global list
+            Droid.Droids.Add(tempDroid);
+
+            PopulateDroidList();
+
+            //set everything to defaults once information is saved
             SetDefaults();
         }
         #endregion
@@ -82,8 +101,35 @@ namespace W7_Demo_Classes1
             lblSecondaryColour.BackColor = Color.Gray;
         }
 
+        private void PopulateDroidList()
+        {
+            lboxDroids.Items.Clear();
+            foreach (Droid d in Droid.Droids)
+            {
+                lboxDroids.Items.Add(d.Designation);
+            }
+        }
+
+        private void PopulateDetails(string designation)
+        {
+            // Look through the LIST to find the specified droid designation
+            // Create a new droid instance using that droid info
+            // Fill in the form details
+            Droid ourDroid = Droid.FindDroid(designation);
+            
+
+            this.lblDetailsDesignation.Text = ourDroid.Designation;
+            this.chkDetailsInService.Checked = ourDroid.IsInService;
+            this.lblDetailsOwner.Text = ourDroid.Owner;
+            this.lblDetailsPrimaryColour.BackColor = ourDroid.PrimaryColor;
+            this.lblDetailsSecondaryColour.BackColor = ourDroid.SecondaryColor;
+
+            
+
+
+        }
+
         #endregion
 
- 
     }
 }
