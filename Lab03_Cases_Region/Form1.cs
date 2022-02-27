@@ -51,7 +51,7 @@ namespace Lab03_Cases_Region
         
         #endregion
 
-        #region Form Load Arrays
+        #region Form Load Array
         private void frmRegionCases_Load(object sender, EventArgs e)
         {
             Cases = new int[MaxRegionLimit, MaxCaseLimit];
@@ -59,7 +59,7 @@ namespace Lab03_Cases_Region
         }
         #endregion
 
-            #region Enter Button
+        #region Enter Button
         private void btnEnter_Click(object sender, EventArgs e)
         {
             if (Validation()) // If the validation does not catch the textbox with any problem it will continue and run the input
@@ -77,8 +77,7 @@ namespace Lab03_Cases_Region
                         //The array will get each number entered into the textbox and add it to the array
                         Cases[region, region1Days] = cases;
                         lbxRegion1.Items.Add(cases); //Adds the textbox number to the listbox
-                        txtCases.Clear();
-                        txtCases.Focus();
+                        ClearInput();
                         region1Days++; // Adds 1 to region1Days variable to count up the array [0,0] to [0,6]
                     }
                     //Once there is 7 items in the list box, this if statement will run and will get the average for the first region
@@ -108,8 +107,7 @@ namespace Lab03_Cases_Region
                         Cases[region, region2Days] = cases; // Array adds cases to [1,0] - [1,6]
                         lbxRegion2.Items.Add(cases); //enter case number to list box
                         // clears and resets the text box to get the next number
-                        txtCases.Clear();
-                        txtCases.Focus();
+                        ClearInput();
                         region2Days++; // add 1 to region2days to get the next number for the array
                     }
                     if (lbxRegion2.Items.Count == MaxCaseLimit)
@@ -135,8 +133,7 @@ namespace Lab03_Cases_Region
                         Cases[region, region3Days] = cases; // add to array [2,0] - [2-6]
                         lbxRegion3.Items.Add(cases); // adds number to the listbox 3
                         // clears and focus the textbox to get ready for the next case input
-                        txtCases.Clear();
-                        txtCases.Focus();
+                        ClearInput();
                         region3Days++; // adds 1 to the day to count up the 'y' of the array
                     }
 
@@ -242,6 +239,16 @@ namespace Lab03_Cases_Region
         }
         #endregion
 
+        #region 
+        /// <summary>
+        /// This will clear the text box with the case numbers entered and refocus so you can enter a new input right away
+        /// </summary>
+        private void ClearInput()
+        {
+            txtCases.Clear();
+            txtCases.Focus();
+        }
+
         #region Validation Function
         /// <summary>
         /// This will Validate the input text box to input casess. If there is something entered that isnt right, this will catch it.
@@ -281,6 +288,7 @@ namespace Lab03_Cases_Region
             }
             retVal = false;
             MessageBox.Show("You did not enter a number. Please enter a Case number.", "Error"); // If text box is blank and you hit enter, give this error.
+            txtCases.Focus();
             return retVal;
         }
         #endregion
