@@ -239,7 +239,7 @@ namespace Lab03_Cases_Region
         }
         #endregion
 
-        #region 
+        #region Clear input
         /// <summary>
         /// This will clear the text box with the case numbers entered and refocus so you can enter a new input right away
         /// </summary>
@@ -248,6 +248,7 @@ namespace Lab03_Cases_Region
             txtCases.Clear();
             txtCases.Focus();
         }
+        #endregion
 
         #region Validation Function
         /// <summary>
