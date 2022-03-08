@@ -6,7 +6,6 @@
  * Title: NETD:     Lab 3: Regional Cases
  * Description:     This application will get 3 regions of their weekly numbers and get the averages of each
  * https://github.com/Ritz-Bitz13/NETD2022_WInter2022_04
- * 
  */
 #endregion
 
