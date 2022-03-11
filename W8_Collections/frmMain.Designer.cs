@@ -1,5 +1,5 @@
 ﻿
-namespace W8_Collections
+namespace Week08_Collections
 {
     partial class frmMain
     {
@@ -61,6 +61,7 @@ namespace W8_Collections
             this.lblDesignation = new System.Windows.Forms.Label();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.lblTitleBar = new System.Windows.Forms.Label();
+            this.cboUnits = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClones)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudDesignation)).BeginInit();
@@ -84,7 +85,6 @@ namespace W8_Collections
             this.colHairColor,
             this.colEyeColor});
             this.dgvClones.Location = new System.Drawing.Point(12, 39);
-            this.dgvClones.MultiSelect = false;
             this.dgvClones.Name = "dgvClones";
             this.dgvClones.ReadOnly = true;
             this.dgvClones.RowHeadersVisible = false;
@@ -96,9 +96,10 @@ namespace W8_Collections
             this.dgvClones.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvClones.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvClones.ShowEditingIcon = false;
-            this.dgvClones.Size = new System.Drawing.Size(911, 222);
+            this.dgvClones.Size = new System.Drawing.Size(911, 220);
             this.dgvClones.TabIndex = 1;
             this.dgvClones.VirtualMode = true;
+            this.dgvClones.SelectionChanged += new System.EventHandler(this.dgvClone_SelectionChanged);
             // 
             // colDesignation
             // 
@@ -137,21 +138,21 @@ namespace W8_Collections
             // 
             // colDefective
             // 
-            this.colDefective.DataPropertyName = "Defective";
+            this.colDefective.DataPropertyName = "IsDefective";
             this.colDefective.HeaderText = "Defective";
             this.colDefective.Name = "colDefective";
             this.colDefective.ReadOnly = true;
             // 
             // colHairColor
             // 
-            this.colHairColor.DataPropertyName = "HairColour";
+            this.colHairColor.DataPropertyName = "HairColor";
             this.colHairColor.HeaderText = "Hair Colour";
             this.colHairColor.Name = "colHairColor";
             this.colHairColor.ReadOnly = true;
             // 
             // colEyeColor
             // 
-            this.colEyeColor.DataPropertyName = "EyeColour";
+            this.colEyeColor.DataPropertyName = "EyeColor";
             this.colEyeColor.HeaderText = "Eye Colour";
             this.colEyeColor.Name = "colEyeColor";
             this.colEyeColor.ReadOnly = true;
@@ -371,13 +372,21 @@ namespace W8_Collections
             this.lblTitleBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.lblTitleBar.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lblTitleBar.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblTitleBar.ForeColor = System.Drawing.Color.Black;
+            this.lblTitleBar.ForeColor = System.Drawing.Color.Transparent;
             this.lblTitleBar.Location = new System.Drawing.Point(1, 1);
             this.lblTitleBar.Name = "lblTitleBar";
             this.lblTitleBar.Size = new System.Drawing.Size(933, 35);
             this.lblTitleBar.TabIndex = 3;
-            this.lblTitleBar.Text = "Clone Inventory";
+            this.lblTitleBar.Text = "Storm Trooper Inventory";
             this.lblTitleBar.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // cboUnits
+            // 
+            this.cboUnits.FormattingEnabled = true;
+            this.cboUnits.Location = new System.Drawing.Point(482, 302);
+            this.cboUnits.Name = "cboUnits";
+            this.cboUnits.Size = new System.Drawing.Size(121, 23);
+            this.cboUnits.TabIndex = 4;
             // 
             // frmMain
             // 
@@ -386,6 +395,7 @@ namespace W8_Collections
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(935, 558);
+            this.Controls.Add(this.cboUnits);
             this.Controls.Add(this.lblTitleBar);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.dgvClones);
@@ -403,14 +413,6 @@ namespace W8_Collections
 
         #endregion
         private System.Windows.Forms.DataGridView dgvClones;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colDesignation;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colNickName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colBorn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn colDefective;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colHairColor;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colEyeColor;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.ComboBox cboPlanets;
         private System.Windows.Forms.Label lblHomeWorld;
@@ -433,6 +435,15 @@ namespace W8_Collections
         private System.Windows.Forms.CheckBox chkDefective;
         private System.Windows.Forms.ColorDialog colorDialog1;
         private System.Windows.Forms.Label lblTitleBar;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colDesignation;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colNickName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colBorn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn colDefective;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colHairColor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colEyeColor;
+        private System.Windows.Forms.ComboBox cboUnits;
     }
 }
 

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Week08_Collections
+namespace ICE04_Classes
 {
     static class Program
     {
@@ -17,7 +17,7 @@ namespace Week08_Collections
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmMain());
+            Application.Run(new frmFavouriteGame());
         }
     }
 }
