@@ -29,6 +29,7 @@ namespace ICE04_Classes
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.lblTitle = new System.Windows.Forms.Label();
             this.gbxSelection = new System.Windows.Forms.GroupBox();
             this.btnSave = new System.Windows.Forms.Button();
@@ -48,6 +49,7 @@ namespace ICE04_Classes
             this.colConsole = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colFavouritePart = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colReplayable = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.gbxSelection.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudDesignation)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvGames)).BeginInit();
@@ -96,6 +98,7 @@ namespace ICE04_Classes
             this.btnSave.Size = new System.Drawing.Size(81, 34);
             this.btnSave.TabIndex = 10;
             this.btnSave.Text = "&Save";
+            this.toolTip1.SetToolTip(this.btnSave, "Save your game to the list");
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
@@ -106,6 +109,7 @@ namespace ICE04_Classes
             this.btnReset.Size = new System.Drawing.Size(81, 34);
             this.btnReset.TabIndex = 9;
             this.btnReset.Text = "R&eset";
+            this.toolTip1.SetToolTip(this.btnReset, "Reset the add / Edit area");
             this.btnReset.UseVisualStyleBackColor = true;
             this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
             // 
@@ -117,6 +121,7 @@ namespace ICE04_Classes
             this.cbxReplay.Size = new System.Drawing.Size(83, 19);
             this.cbxReplay.TabIndex = 8;
             this.cbxReplay.Text = "Re&playable";
+            this.toolTip1.SetToolTip(this.cbxReplay, "Are you able to replay the game over and over again");
             this.cbxReplay.UseVisualStyleBackColor = true;
             // 
             // cboFavourite
@@ -126,6 +131,7 @@ namespace ICE04_Classes
             this.cboFavourite.Name = "cboFavourite";
             this.cboFavourite.Size = new System.Drawing.Size(150, 23);
             this.cboFavourite.TabIndex = 7;
+            this.toolTip1.SetToolTip(this.cboFavourite, "What was your favourite part of the game");
             // 
             // lblFavourite
             // 
@@ -143,6 +149,7 @@ namespace ICE04_Classes
             this.cboConsole.Name = "cboConsole";
             this.cboConsole.Size = new System.Drawing.Size(150, 23);
             this.cboConsole.TabIndex = 5;
+            this.toolTip1.SetToolTip(this.cboConsole, "Select what console you played the game on");
             // 
             // lblConsole
             // 
@@ -159,6 +166,7 @@ namespace ICE04_Classes
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(252, 23);
             this.txtName.TabIndex = 3;
+            this.toolTip1.SetToolTip(this.txtName, "Enter the Name of the game");
             // 
             // lblName
             // 
@@ -175,6 +183,7 @@ namespace ICE04_Classes
             this.nudDesignation.Name = "nudDesignation";
             this.nudDesignation.Size = new System.Drawing.Size(84, 23);
             this.nudDesignation.TabIndex = 1;
+            this.toolTip1.SetToolTip(this.nudDesignation, "Enter the designation Number");
             // 
             // lblDesignation
             // 
@@ -189,9 +198,13 @@ namespace ICE04_Classes
             // 
             this.dgvGames.AllowUserToAddRows = false;
             this.dgvGames.AllowUserToDeleteRows = false;
+            this.dgvGames.AllowUserToResizeColumns = false;
+            this.dgvGames.AllowUserToResizeRows = false;
             this.dgvGames.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvGames.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgvGames.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvGames.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvGames.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colDesignation,
@@ -203,32 +216,33 @@ namespace ICE04_Classes
             this.dgvGames.Name = "dgvGames";
             this.dgvGames.ReadOnly = true;
             this.dgvGames.RowHeadersVisible = false;
+            this.dgvGames.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgvGames.RowTemplate.Height = 25;
             this.dgvGames.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvGames.ShowEditingIcon = false;
             this.dgvGames.Size = new System.Drawing.Size(729, 198);
             this.dgvGames.TabIndex = 2;
+            this.toolTip1.SetToolTip(this.dgvGames, "This shows the saved Games that are your favourite");
             this.dgvGames.VirtualMode = true;
             // 
             // colDesignation
             // 
-            this.colDesignation.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.colDesignation.DataPropertyName = "Designation";
             this.colDesignation.HeaderText = "Designation";
             this.colDesignation.Name = "colDesignation";
             this.colDesignation.ReadOnly = true;
             this.colDesignation.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.colDesignation.Width = 95;
             // 
             // colGameName
             // 
-            this.colGameName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.colGameName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.colGameName.DataPropertyName = "GameName";
             this.colGameName.HeaderText = "Game Name";
             this.colGameName.MinimumWidth = 250;
             this.colGameName.Name = "colGameName";
             this.colGameName.ReadOnly = true;
             this.colGameName.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.colGameName.Width = 250;
             // 
             // colConsole
             // 
@@ -237,7 +251,7 @@ namespace ICE04_Classes
             this.colConsole.Name = "colConsole";
             this.colConsole.ReadOnly = true;
             this.colConsole.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.colConsole.Width = 119;
+            this.colConsole.Width = 75;
             // 
             // colFavouritePart
             // 
@@ -246,7 +260,7 @@ namespace ICE04_Classes
             this.colFavouritePart.Name = "colFavouritePart";
             this.colFavouritePart.ReadOnly = true;
             this.colFavouritePart.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.colFavouritePart.Width = 119;
+            this.colFavouritePart.Width = 105;
             // 
             // colReplayable
             // 
@@ -255,7 +269,7 @@ namespace ICE04_Classes
             this.colReplayable.Name = "colReplayable";
             this.colReplayable.ReadOnly = true;
             this.colReplayable.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.colReplayable.Width = 119;
+            this.colReplayable.Width = 89;
             // 
             // frmFavouriteGame
             // 
@@ -269,6 +283,7 @@ namespace ICE04_Classes
             this.Controls.Add(this.gbxSelection);
             this.Controls.Add(this.lblTitle);
             this.Name = "frmFavouriteGame";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Favourite Game";
             this.Load += new System.EventHandler(this.frmFavouriteGame_Load);
             this.gbxSelection.ResumeLayout(false);
@@ -295,6 +310,7 @@ namespace ICE04_Classes
         private System.Windows.Forms.CheckBox cbxReplay;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnReset;
+        private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.DataGridViewTextBoxColumn colDesignation;
         private System.Windows.Forms.DataGridViewTextBoxColumn colGameName;
         private System.Windows.Forms.DataGridViewTextBoxColumn colConsole;
