@@ -180,10 +180,26 @@ namespace ICE04_Classes
             // nudDesignation
             // 
             this.nudDesignation.Location = new System.Drawing.Point(94, 30);
+            this.nudDesignation.Maximum = new decimal(new int[] {
+            500,
+            0,
+            0,
+            0});
+            this.nudDesignation.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.nudDesignation.Name = "nudDesignation";
             this.nudDesignation.Size = new System.Drawing.Size(84, 23);
             this.nudDesignation.TabIndex = 1;
+            this.nudDesignation.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.toolTip1.SetToolTip(this.nudDesignation, "Enter the designation Number");
+            this.nudDesignation.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // lblDesignation
             // 

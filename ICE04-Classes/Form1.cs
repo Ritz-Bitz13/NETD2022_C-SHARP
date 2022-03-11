@@ -31,21 +31,26 @@ namespace ICE04_Classes
         }
 
         #region Global Variables
-        List<String> Consoles = new List<String>();
-        List<String> Moments = new List<String>();
+        List<String> Consoles = new List<String>(); // List for the Consoles Combo Box
+        List<String> Moments = new List<String>(); // List for the Favourites Combo Box
 
-        List<Games> Game = new List<Games>();
+        List<Games> Game = new List<Games>(); // List for the games being put into the list
 
-        bool isValid = true;
+        bool isValid = true; // Checking validation. If isValid is false, there is a problem with the information being put in.
         #endregion
 
         #region Form Load
+        /// <summary>
+        /// When the form loads is has to place the combo box information into the drop down box.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void frmFavouriteGame_Load(object sender, EventArgs e)
         {
-            PopulateConsole();
-            PopulateFavourite();
-            cboConsole.DataSource = Consoles;
-            cboFavourite.DataSource = Moments;
+            PopulateConsole(); // Populate the Console Combo Box
+            PopulateFavourite(); // Populate the Favourites combo Box
+            cboConsole.DataSource = Consoles; // Get data from the Consoles List
+            cboFavourite.DataSource = Moments; // Get data from Favourite moments List
 
             Game = Games.GetSampleGames(); // Displays the 3 sample games to make sure the Grid displays the information properly
             PopulateGames(); // Populates the datagrid view.
@@ -53,6 +58,11 @@ namespace ICE04_Classes
         #endregion
 
         #region Reset Button
+        /// <summary>
+        /// Resets the Form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnReset_Click(object sender, EventArgs e)
         {
             SetDefaults();
@@ -60,16 +70,21 @@ namespace ICE04_Classes
         #endregion
 
         #region Save Button
+        /// <summary>
+        /// When you hit save, if all the inputs are done properly then a new game will be inserted into the list
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnSave_Click(object sender, EventArgs e)
         {
 
             Games g = new Games();
 
-
+            // Could not get the list checking for designation....
             g.Designation = decimal.ToInt32(this.nudDesignation.Value); // Gets the designation of the game. have to convert from a decimal to int because a numeric up down is a decimal.
 
             /*************************** Game Name Validation **********************/
-            if (txtName.TextLength < 2)
+            if (txtName.TextLength < 2 || txtName.Text.Trim() =="") // Text must be at least 2 characters long and text cant be empty
             {
                 MessageBox.Show("Please enter a game Title to add to the list", "Error in Game Name");
                 isValid = false; // set isValid to false so it does not add the game to the list
@@ -81,7 +96,7 @@ namespace ICE04_Classes
             /*************************** Console Validation **********************/
             if (cboConsole.SelectedValue == null)
             {
-                MessageBox.Show("Please select a Console.", "Error in Console");
+                MessageBox.Show("Please select the console you played the game on.", "Error in Console");
                 isValid = false;
             }else
             {
@@ -92,7 +107,7 @@ namespace ICE04_Classes
             /*************************** Favourite Validation **********************/
             if (cboFavourite.SelectedValue == null)
             {
-                MessageBox.Show("Please select a Favourite part of the gameplay.", "Error in Favourites");
+                MessageBox.Show("Please select your favourite part of the game.", "Error in Favourites");
                 isValid = false;
             }
             else
@@ -116,15 +131,25 @@ namespace ICE04_Classes
 
         #region Custom Methods
 
+        #region Set Defaults
+        /// <summary>
+        /// Resets everyhting to a blank screen for new inputs
+        /// </summary>
         private void SetDefaults()
         {
-            nudDesignation.Value = 0;
-            txtName.Clear();
-            cboConsole.SelectedIndex = -1;
-            cboFavourite.SelectedIndex = -1;
-            cbxReplay.Checked = false;
+            nudDesignation.Value = 0; //Resets Designation Value to 0
+            txtName.Clear(); // Clears txt Box
+            cboConsole.SelectedIndex = -1; // Resets combo box
+            cboFavourite.SelectedIndex = -1;// Resets combo box
+            cbxReplay.Checked = false; // Unchecks replay if it is checked
+            nudDesignation.Focus(); // Focuses up down box to start next input
         }
+        #endregion
 
+        #region Console used List
+        /// <summary>
+        /// This will be all the selections in the combo box for Consoles
+        /// </summary>
         private void PopulateConsole()
         {
             Consoles.Add("PC");
@@ -144,7 +169,12 @@ namespace ICE04_Classes
             Consoles.Add("Super Nintendo");
             Consoles.Add("Sega");
         }
+        #endregion
 
+        #region Favourite Part List
+        /// <summary>
+        /// This will be the list of items you can select for your favourite part in the game
+        /// </summary>
         private void PopulateFavourite()
         {
             Moments.Add("Storyline");
@@ -156,7 +186,12 @@ namespace ICE04_Classes
             Moments.Add("Weapons");
             Moments.Add("Constant Laughs");
         }
+        #endregion
 
+        #region Populate Games
+        /// <summary>
+        /// This will clear the Data Grid and insert it again with any new information that was placed.
+        /// </summary>
         private void PopulateGames()
         {
             this.dgvGames.ClearSelection();
@@ -164,7 +199,7 @@ namespace ICE04_Classes
             this.dgvGames.DataSource = Game;
             this.dgvGames.ClearSelection();
         }
-
+        #endregion
 
         #endregion
     }
