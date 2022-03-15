@@ -13,6 +13,7 @@ namespace ICE04_Classes
         public String Console { get; set; }
         public String Favourite { get; set; }
         public Boolean Replayable { get; set; }
+        public int MyProperty { get; set; }
 
         #region Constructors
         public Games() { }
