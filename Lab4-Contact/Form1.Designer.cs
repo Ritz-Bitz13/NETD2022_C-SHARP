@@ -41,15 +41,16 @@ namespace Lab4_Contact
             this.lblPhone = new System.Windows.Forms.Label();
             this.chkContacted = new System.Windows.Forms.CheckBox();
             this.dgvTracing = new System.Windows.Forms.DataGridView();
-            this.colContacted = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colFirstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colLastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colEmail = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colPhone = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lblErrors = new System.Windows.Forms.Label();
             this.btnEnter = new System.Windows.Forms.Button();
             this.btnClear = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
+            this.colFirstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colLastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colEmail = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colPhone = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colContacted = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTracing)).BeginInit();
             this.SuspendLayout();
             // 
@@ -141,11 +142,12 @@ namespace Lab4_Contact
             this.dgvTracing.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvTracing.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvTracing.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.colContacted,
             this.colFirstName,
             this.colLastName,
             this.colEmail,
-            this.colPhone});
+            this.colPhone,
+            this.colContacted,
+            this.colDate});
             this.dgvTracing.Location = new System.Drawing.Point(12, 158);
             this.dgvTracing.Name = "dgvTracing";
             this.dgvTracing.ReadOnly = true;
@@ -156,13 +158,48 @@ namespace Lab4_Contact
             this.dgvTracing.Size = new System.Drawing.Size(558, 195);
             this.dgvTracing.TabIndex = 9;
             // 
-            // colContacted
+            // lblErrors
             // 
-            this.colContacted.DataPropertyName = "Contacted";
-            this.colContacted.HeaderText = "Contacted";
-            this.colContacted.Name = "colContacted";
-            this.colContacted.ReadOnly = true;
-            this.colContacted.Width = 87;
+            this.lblErrors.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblErrors.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lblErrors.Location = new System.Drawing.Point(9, 359);
+            this.lblErrors.Name = "lblErrors";
+            this.lblErrors.Size = new System.Drawing.Size(561, 105);
+            this.lblErrors.TabIndex = 10;
+            // 
+            // btnEnter
+            // 
+            this.btnEnter.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnEnter.Location = new System.Drawing.Point(318, 470);
+            this.btnEnter.Name = "btnEnter";
+            this.btnEnter.Size = new System.Drawing.Size(75, 23);
+            this.btnEnter.TabIndex = 11;
+            this.btnEnter.Text = "&Enter";
+            this.btnEnter.UseVisualStyleBackColor = true;
+            this.btnEnter.Click += new System.EventHandler(this.btnEnter_Click);
+            // 
+            // btnClear
+            // 
+            this.btnClear.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnClear.Location = new System.Drawing.Point(399, 470);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(75, 23);
+            this.btnClear.TabIndex = 12;
+            this.btnClear.Text = "Re&set";
+            this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
+            // 
+            // btnExit
+            // 
+            this.btnExit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnExit.Location = new System.Drawing.Point(480, 470);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(75, 23);
+            this.btnExit.TabIndex = 13;
+            this.btnExit.Text = "E&xit";
+            this.btnExit.UseVisualStyleBackColor = true;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // colFirstName
             // 
@@ -196,45 +233,21 @@ namespace Lab4_Contact
             this.colPhone.ReadOnly = true;
             this.colPhone.Width = 113;
             // 
-            // lblErrors
+            // colContacted
             // 
-            this.lblErrors.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblErrors.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.lblErrors.Location = new System.Drawing.Point(9, 359);
-            this.lblErrors.Name = "lblErrors";
-            this.lblErrors.Size = new System.Drawing.Size(561, 105);
-            this.lblErrors.TabIndex = 10;
+            this.colContacted.DataPropertyName = "Contacted";
+            this.colContacted.HeaderText = "Contacted";
+            this.colContacted.Name = "colContacted";
+            this.colContacted.ReadOnly = true;
+            this.colContacted.Width = 87;
             // 
-            // btnEnter
+            // colDate
             // 
-            this.btnEnter.Location = new System.Drawing.Point(318, 470);
-            this.btnEnter.Name = "btnEnter";
-            this.btnEnter.Size = new System.Drawing.Size(75, 23);
-            this.btnEnter.TabIndex = 11;
-            this.btnEnter.Text = "&Enter";
-            this.btnEnter.UseVisualStyleBackColor = true;
-            this.btnEnter.Click += new System.EventHandler(this.btnEnter_Click);
-            // 
-            // btnClear
-            // 
-            this.btnClear.Location = new System.Drawing.Point(399, 470);
-            this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(75, 23);
-            this.btnClear.TabIndex = 12;
-            this.btnClear.Text = "Re&set";
-            this.btnClear.UseVisualStyleBackColor = true;
-            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
-            // 
-            // btnExit
-            // 
-            this.btnExit.Location = new System.Drawing.Point(480, 470);
-            this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(75, 23);
-            this.btnExit.TabIndex = 13;
-            this.btnExit.Text = "E&xit";
-            this.btnExit.UseVisualStyleBackColor = true;
-            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+            this.colDate.DataPropertyName = "Date";
+            this.colDate.HeaderText = "Date";
+            this.colDate.Name = "colDate";
+            this.colDate.ReadOnly = true;
+            this.colDate.Width = 56;
             // 
             // frmContactTracing
             // 
@@ -279,15 +292,16 @@ namespace Lab4_Contact
         private System.Windows.Forms.Label lblPhone;
         private System.Windows.Forms.CheckBox chkContacted;
         private System.Windows.Forms.DataGridView dgvTracing;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colContacted;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colFirstName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colLastName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colEmail;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colPhone;
         private System.Windows.Forms.Label lblErrors;
         private System.Windows.Forms.Button btnEnter;
         private System.Windows.Forms.Button btnClear;
         private System.Windows.Forms.Button btnExit;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colFirstName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colLastName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colEmail;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colPhone;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colContacted;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colDate;
     }
 }
 

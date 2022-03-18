@@ -38,9 +38,9 @@ namespace ICE04_Classes
         {
             List<ContactTracing> returnList = new List<ContactTracing>();
 
-            returnList.Add(new ContactTracing("Martin", "Barber", "martin.barber13@hotmail.com", "905-555-1234", true));
-            returnList.Add(new ContactTracing("Gillian", "Young", "gillian.young@gmail.com", "905-312-5995", true));
-            returnList.Add(new ContactTracing("Thomas", "Jackel", "thomas.jackel123@hotmail.com", "416-767-9173", false));
+            returnList.Add(new ContactTracing("Martin", "Barber", "martin.barber13@hotmail.com", "9055551234", true));
+            returnList.Add(new ContactTracing("Gillian", "Young", "gillian.young@gmail.ca", "9053125995", true));
+            returnList.Add(new ContactTracing("Thomas", "Jackel", "thomas.jackel123@hotmail.com", "4167679173", false));
 
             return returnList;
         }

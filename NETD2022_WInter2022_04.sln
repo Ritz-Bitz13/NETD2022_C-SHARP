@@ -39,7 +39,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Week08_Collections", "W8_Co
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ICE04-Classes", "ICE04-Classes\ICE04-Classes.csproj", "{5F0C500F-D561-4CC3-B230-53C5EED1EC76}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lab4-Contact", "Lab4-Contact\Lab4-Contact.csproj", "{F4DA9EC7-297F-4961-8883-6F3D1FF37D7B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lab4-Contact", "Lab4-Contact\Lab4-Contact.csproj", "{F4DA9EC7-297F-4961-8883-6F3D1FF37D7B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Week09_MultiForms2", "Week09_MultiForms2\Week09_MultiForms\Week09_MultiForms2.csproj", "{BF6659C7-3847-474C-8BAF-F6D9F1F3EABA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -123,6 +125,10 @@ Global
 		{F4DA9EC7-297F-4961-8883-6F3D1FF37D7B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F4DA9EC7-297F-4961-8883-6F3D1FF37D7B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F4DA9EC7-297F-4961-8883-6F3D1FF37D7B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BF6659C7-3847-474C-8BAF-F6D9F1F3EABA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BF6659C7-3847-474C-8BAF-F6D9F1F3EABA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BF6659C7-3847-474C-8BAF-F6D9F1F3EABA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BF6659C7-3847-474C-8BAF-F6D9F1F3EABA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

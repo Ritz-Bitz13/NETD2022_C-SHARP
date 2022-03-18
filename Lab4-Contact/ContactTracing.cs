@@ -13,6 +13,7 @@ namespace Lab4_Contact
         public String Email { get; set; }
         public String Phone { get; set; }
         public Boolean Contacted { get; set; }
+        public DateTime Date { get; set; }
 
         #region Constructor
         public ContactTracing() { }
@@ -25,10 +26,11 @@ namespace Lab4_Contact
         /// <param name="email">enter their email address</param>
         /// <param name="phone">enter their phone number</param>
         /// <param name="contact">Were they contacted? true or false</param>
-        public ContactTracing(String firstName, String lastName, String email, String phone, Boolean contact)
+        public ContactTracing(String firstName, String lastName, DateTime date, String email, String phone, Boolean contact)
         {
             FirstName = firstName;
             LastName = lastName;
+            Date = date;
             Email = email;
             Phone = phone;
             Contacted = contact;
@@ -50,9 +52,9 @@ namespace Lab4_Contact
         {
             List<ContactTracing> returnList = new List<ContactTracing>();
 
-            returnList.Add(new ContactTracing("Martin", "Barber", "martin.barber13@hotmail.com", "905-555-1234", true));
-            returnList.Add(new ContactTracing("Gillian", "Young", "gillian.young@gmail.com", "905-312-5995", true));
-            returnList.Add(new ContactTracing("Thomas", "Jackel", "thomas.jackel123@hotmail.com", "416-767-9173", false));
+            returnList.Add(new ContactTracing("Martin", "Barber", DateTime.Now, "martin.barber13@hotmail.com", "9055551234", true));
+            returnList.Add(new ContactTracing("Gillian", "Young", DateTime.Now, "gillian.young@gmail.com", "9053125995", true));
+            returnList.Add(new ContactTracing("Thomas", "Jackel", DateTime.Now, "thomas.jackel123@hotmail.com", "4167679173", false));
 
             return returnList;
         }
