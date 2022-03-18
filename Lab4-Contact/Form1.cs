@@ -98,7 +98,7 @@ namespace Lab4_Contact
 
         private void btnClear_Click(object sender, EventArgs e)
         {
-            SetDefaults();
+            SetDefaults(); // set everything back to default values
         }
 
         private void SetDefaults()
