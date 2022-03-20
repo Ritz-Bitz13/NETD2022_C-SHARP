@@ -41,16 +41,16 @@ namespace Lab4_Contact
             this.lblPhone = new System.Windows.Forms.Label();
             this.chkContacted = new System.Windows.Forms.CheckBox();
             this.dgvTracing = new System.Windows.Forms.DataGridView();
-            this.lblErrors = new System.Windows.Forms.Label();
-            this.btnEnter = new System.Windows.Forms.Button();
-            this.btnClear = new System.Windows.Forms.Button();
-            this.btnExit = new System.Windows.Forms.Button();
             this.colFirstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colLastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colEmail = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colPhone = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colContacted = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lblErrors = new System.Windows.Forms.Label();
+            this.btnEnter = new System.Windows.Forms.Button();
+            this.btnClear = new System.Windows.Forms.Button();
+            this.btnExit = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTracing)).BeginInit();
             this.SuspendLayout();
             // 
@@ -69,6 +69,7 @@ namespace Lab4_Contact
             this.txtFirstName.Name = "txtFirstName";
             this.txtFirstName.Size = new System.Drawing.Size(160, 23);
             this.txtFirstName.TabIndex = 1;
+            this.toolTip1.SetToolTip(this.txtFirstName, "Enter the users First Name");
             // 
             // txtLastName
             // 
@@ -76,6 +77,7 @@ namespace Lab4_Contact
             this.txtLastName.Name = "txtLastName";
             this.txtLastName.Size = new System.Drawing.Size(160, 23);
             this.txtLastName.TabIndex = 3;
+            this.toolTip1.SetToolTip(this.txtLastName, "Enter the users last name");
             // 
             // lblLastName
             // 
@@ -92,6 +94,7 @@ namespace Lab4_Contact
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(160, 23);
             this.txtEmail.TabIndex = 5;
+            this.toolTip1.SetToolTip(this.txtEmail, "Enter a valid email address");
             // 
             // lblEmail
             // 
@@ -108,6 +111,7 @@ namespace Lab4_Contact
             this.txtPhone.Name = "txtPhone";
             this.txtPhone.Size = new System.Drawing.Size(160, 23);
             this.txtPhone.TabIndex = 7;
+            this.toolTip1.SetToolTip(this.txtPhone, "Enter the contacts phone number");
             // 
             // lblPhone
             // 
@@ -127,6 +131,7 @@ namespace Lab4_Contact
             this.chkContacted.Size = new System.Drawing.Size(81, 19);
             this.chkContacted.TabIndex = 8;
             this.chkContacted.Text = "&Contacted";
+            this.toolTip1.SetToolTip(this.chkContacted, "Have they been contacted?");
             this.chkContacted.UseVisualStyleBackColor = true;
             // 
             // dgvTracing
@@ -157,49 +162,8 @@ namespace Lab4_Contact
             this.dgvTracing.ShowEditingIcon = false;
             this.dgvTracing.Size = new System.Drawing.Size(558, 195);
             this.dgvTracing.TabIndex = 9;
-            // 
-            // lblErrors
-            // 
-            this.lblErrors.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblErrors.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.lblErrors.Location = new System.Drawing.Point(9, 359);
-            this.lblErrors.Name = "lblErrors";
-            this.lblErrors.Size = new System.Drawing.Size(561, 105);
-            this.lblErrors.TabIndex = 10;
-            // 
-            // btnEnter
-            // 
-            this.btnEnter.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnEnter.Location = new System.Drawing.Point(318, 470);
-            this.btnEnter.Name = "btnEnter";
-            this.btnEnter.Size = new System.Drawing.Size(75, 23);
-            this.btnEnter.TabIndex = 11;
-            this.btnEnter.Text = "&Enter";
-            this.btnEnter.UseVisualStyleBackColor = true;
-            this.btnEnter.Click += new System.EventHandler(this.btnEnter_Click);
-            // 
-            // btnClear
-            // 
-            this.btnClear.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnClear.Location = new System.Drawing.Point(399, 470);
-            this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(75, 23);
-            this.btnClear.TabIndex = 12;
-            this.btnClear.Text = "Re&set";
-            this.btnClear.UseVisualStyleBackColor = true;
-            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
-            // 
-            // btnExit
-            // 
-            this.btnExit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnExit.Location = new System.Drawing.Point(480, 470);
-            this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(75, 23);
-            this.btnExit.TabIndex = 13;
-            this.btnExit.Text = "E&xit";
-            this.btnExit.UseVisualStyleBackColor = true;
-            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+            this.toolTip1.SetToolTip(this.dgvTracing, "List of Patients");
+            this.dgvTracing.SelectionChanged += new System.EventHandler(this.dgvTracing_SelectionChanged);
             // 
             // colFirstName
             // 
@@ -248,6 +212,53 @@ namespace Lab4_Contact
             this.colDate.Name = "colDate";
             this.colDate.ReadOnly = true;
             this.colDate.Width = 56;
+            // 
+            // lblErrors
+            // 
+            this.lblErrors.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblErrors.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lblErrors.Location = new System.Drawing.Point(9, 359);
+            this.lblErrors.Name = "lblErrors";
+            this.lblErrors.Size = new System.Drawing.Size(561, 105);
+            this.lblErrors.TabIndex = 10;
+            this.toolTip1.SetToolTip(this.lblErrors, "If there are any errors, they will appear here.");
+            // 
+            // btnEnter
+            // 
+            this.btnEnter.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnEnter.Location = new System.Drawing.Point(318, 470);
+            this.btnEnter.Name = "btnEnter";
+            this.btnEnter.Size = new System.Drawing.Size(75, 23);
+            this.btnEnter.TabIndex = 11;
+            this.btnEnter.Text = "&Enter";
+            this.toolTip1.SetToolTip(this.btnEnter, "Enter the Contact Information");
+            this.btnEnter.UseVisualStyleBackColor = true;
+            this.btnEnter.Click += new System.EventHandler(this.btnEnter_Click);
+            // 
+            // btnClear
+            // 
+            this.btnClear.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnClear.Location = new System.Drawing.Point(399, 470);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(75, 23);
+            this.btnClear.TabIndex = 12;
+            this.btnClear.Text = "Re&set";
+            this.toolTip1.SetToolTip(this.btnClear, "Reset the input boxes");
+            this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
+            // 
+            // btnExit
+            // 
+            this.btnExit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnExit.Location = new System.Drawing.Point(480, 470);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(75, 23);
+            this.btnExit.TabIndex = 13;
+            this.btnExit.Text = "E&xit";
+            this.toolTip1.SetToolTip(this.btnExit, "Close the app");
+            this.btnExit.UseVisualStyleBackColor = true;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // frmContactTracing
             // 
