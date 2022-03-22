@@ -252,8 +252,10 @@ namespace Lab4_Contact
             0,
             0});
             this.nudID.Name = "nudID";
+            this.nudID.ReadOnly = true;
             this.nudID.Size = new System.Drawing.Size(52, 23);
             this.nudID.TabIndex = 14;
+            this.nudID.TabStop = false;
             this.toolTip1.SetToolTip(this.nudID, "Hidden counter");
             this.nudID.Value = new decimal(new int[] {
             1,

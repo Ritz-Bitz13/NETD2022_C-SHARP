@@ -39,6 +39,7 @@ namespace Lab4_Contact
         #region Form Load
         private void frmContactTracing_Load(object sender, EventArgs e)
         {
+            // YOU WILL NOTICE A NUMERIC UP DOWN THAT IS INVISIBLE. IT IS TO SHOW THE "ID" OR "DESIGNATION" OF EACH CONTACT.
         }
         #endregion
 
