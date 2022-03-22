@@ -1,10 +1,9 @@
 ﻿#region Class Created by:
 /*
  * Author:          Martin Barber
- * Date:            March 13th, 2022
+ * Date:            March 13th, 2022 - March 22nd, 2022
  * Student ID:      100368442
  * Title: NETD:     Lab 4: Contact Tracing
- * File:            Contact Tracing Class page
  * https://github.com/Ritz-Bitz13/NETD2022_WInter2022_04
  */
 #endregion
@@ -19,6 +18,9 @@ using System.Threading.Tasks;
 
 namespace Lab4_Contact
 {
+    /// <summary>
+    /// This is the class Contact Tracing, Which will store the information for every contact.
+    /// </summary>
     class ContactTracing
     {
         #region Class
@@ -34,7 +36,6 @@ namespace Lab4_Contact
         #region Constructor
         public ContactTracing() { }
 
-       
         /// <summary>
         /// This will input all the variables for the Patients
         /// </summary>
@@ -76,6 +77,12 @@ namespace Lab4_Contact
             return returnList;
         }
 
+        /// <summary>
+        /// Finds the specific contact in the Class
+        /// </summary>
+        /// <param name="inputContact"></param>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public static ContactTracing GetStatus(List<ContactTracing> inputContact, int id)
         {
             return inputContact.Find(c => c.ID == id);
@@ -83,10 +90,18 @@ namespace Lab4_Contact
 
         #endregion
 
+        #region ContactExist
+        /// <summary>
+        /// Creates a boolean to check is the contact exists or not
+        /// </summary>
+        /// <param name="inputContact"></param>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public static Boolean ContactExists(List<ContactTracing> inputContact, int id)
         {
             return inputContact.FindAll(c => c.ID == id).Count > 0;
         }
+        #endregion
 
         #endregion
     }

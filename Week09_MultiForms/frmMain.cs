@@ -1,15 +1,4 @@
-﻿#region Program Written By:
-/*
- * Author:          Martin Barber & Clint MacDonald
- * Date:            March 8th, 2022
- * Student ID:      100368442
- * Title: NETD:     Week 8: Collections
- * Description:     
- * https://github.com/Ritz-Bitz13/NETD2022_WInter2022_04
- */
-#endregion
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -19,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Week09_Multiforms
+namespace Week09_MultiForms
 {
     public partial class frmMain : Form
     {
@@ -29,12 +18,11 @@ namespace Week09_Multiforms
         }
 
         #region GLOBAL VARS
-        List<String> Planets = new List<String>(); //The planet list in the drop down box
+        List<String> Planets = new List<String>();
 
         public static List<Trooper> Troopers = new List<Trooper>();
 
         Boolean DoSelectionChange = true;
-
         #endregion
 
         #region EVENT HANDLERS
@@ -46,27 +34,30 @@ namespace Week09_Multiforms
         private void frmMain_Load(object sender, EventArgs e)
         {
             PopulatePlanets();
-            cboPlanets.DataSource = Planets; // Brings the list into the form. (Combobox)
-            Troopers = Trooper.GetSampleTroopers();
-            DoSelectionChange = false; // WE ARE DOING THIS SO IT DOESNT AUTOMATICALLY LOAD UP THE ADD EDIT
+            cboPlanets.DataSource = Planets;
+            //Troopers = Trooper.GetSampleTroopers();
+            DoSelectionChange = false;
             PopulateTroopers();
             DoSelectionChange = true;
-            //this.dgvClones.DataSource = Troopers;     // this adds the default values to the data grid view
         }
+
         private void btnSetHairColour_Click(object sender, EventArgs e)
         {
             colorDialog1.ShowDialog();
             lblHairColour.BackColor = colorDialog1.Color;
         }
+
         private void btnSetEyeColour_Click(object sender, EventArgs e)
         {
             colorDialog1.ShowDialog();
             lblEyeColour.BackColor = colorDialog1.Color;
         }
+
         private void btnReset_Click(object sender, EventArgs e)
         {
             SetDefaults();
         }
+
         #endregion
 
         #region CUSTOM METHODS
@@ -103,18 +94,20 @@ namespace Week09_Multiforms
 
         private void PopulateTroopers()
         {
-            this.dgvClones.ClearSelection(); // if you have anything selected it will deselect it
-            this.dgvClones.DataSource = null; // Set the datasource to nothing
-            this.dgvClones.DataSource = Troopers; // Reload the list and the form will have the new updated list if a new value was added
-            this.dgvClones.ClearSelection(); // have it after because it will automatically select the first from in the databox.
+            this.dgvClones.ClearSelection();
+            this.dgvClones.DataSource = null;
+            this.dgvClones.DataSource = Troopers;
+            this.dgvClones.ClearSelection();
+
+            dgvClones.Columns[2].Width = 250;
 
             this.cboUnits.DataSource = null;
             this.cboUnits.DataSource = Trooper.GetUniqueUnits(Troopers);
-        }
 
+        }
         #endregion
+
         
-    
         private void btnSave_Click(object sender, EventArgs e)
         {
             Trooper t = new Trooper();
@@ -124,21 +117,17 @@ namespace Week09_Multiforms
             t.IsDefective = this.chkDefective.Checked;
             t.HairColor = this.lblHairColour.BackColor;
             t.EyeColor = this.lblEyeColour.BackColor;
+            t.HomeWorld = this.cboPlanets.SelectedValue.ToString();
             t.Born = this.dtpBorn.Value;
-            t.HomeWorld = this.cboPlanets.SelectedValue.ToString(); //Make sure you use Selected Value, NOT SELECTED ITEM!!!!!
 
             if (Trooper.TrooperExists(Troopers, t.Designation))
             {
                 Trooper FoundTrooper = Trooper.FindTrooper(Troopers, t.Designation);
                 Troopers.Remove(FoundTrooper);
             }
-                Troopers.Add(t);
 
-            // Once you have all the information, add it to the list
-            
+            Troopers.Add(t);
             PopulateTroopers();
-
-            // Refresh the grind to add the new value
             SetDefaults();
         }
 
@@ -146,21 +135,19 @@ namespace Week09_Multiforms
         {
             if (dgvClones.SelectedRows.Count > 0)
             {
-                //  in datagrid, the first row selected [0], then in that row the first cell (designation) get the value.
                 int selectedDesignation = Convert.ToInt32(dgvClones.SelectedRows[0].Cells[0].Value);
                 Trooper t = Trooper.FindTrooper(Troopers, selectedDesignation);
                 PopulateTrooper(t);
 
                 if (DoSelectionChange)
                 {
-                    frmAddEdit newf = new frmAddEdit(t);
-                    newf.ShowDialog();
-                    newf.Dispose();
-                   // dgvClones.Columns[2].Width = 250; CHANGE THE WIDTH OF THE COLUMN
+                    frmAddEdit newF = new frmAddEdit(t);
+                    newF.ShowDialog();
+                    newF.Dispose();
+                    
                 }
-                
 
-            }else
+            } else
             {
                 SetDefaults();
             }
@@ -174,23 +161,49 @@ namespace Week09_Multiforms
             this.chkDefective.Checked = t.IsDefective;
             this.lblHairColour.BackColor = t.HairColor;
             this.lblEyeColour.BackColor = t.EyeColor;
-            this.dtpBorn.Value = t.Born;
             this.cboPlanets.SelectedItem = t.HomeWorld;
+            this.dtpBorn.Value = t.Born;
         }
 
         private void btnAbout_Click(object sender, EventArgs e)
         {
-            frmAbout newForm = new frmAbout(); // Creates a New form
-            newForm.ShowDialog(); // opens the form you called, ShowDialog Takes over and does not allow you to get back to the main form.
-            //Once you close the app, the code will continue to the next line
-            newForm.Dispose(); // Deletes the form you just closed from the memory.
+            frmAbout newForm = new frmAbout();
+            newForm.ShowDialog();
+            newForm.Dispose();
         }
 
-        private void FormFocus(object sender, EventArgs e)
+        private void UpdateGrid(object sender, EventArgs e)
         {
             DoSelectionChange = false;
             PopulateTroopers();
             DoSelectionChange = true;
+        }
+
+        private void btnSavetoFile_Click(object sender, EventArgs e)
+        {
+            string fileName = string.Empty;
+
+            if (saveFileDialog1.ShowDialog() == DialogResult.OK) // OK means save, there is no save name, save = OK
+            {
+                fileName = saveFileDialog1.FileName;
+                Trooper.FileWrite(Troopers, fileName);
+                MessageBox.Show("Save Complete", "Save Confirmation", MessageBoxButtons.OK);
+            }
+
+                //MessageBox.Show(saveFileDialog1.FileName);
+        }
+
+        private void btnLoad_Click(object sender, EventArgs e)
+        {
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                Troopers.Clear();
+                Troopers = Trooper.LoadFromCSV(openFileDialog1.FileName);
+
+                DoSelectionChange = false;
+                PopulateTroopers();
+                DoSelectionChange = true;
+            }
         }
     }
 }

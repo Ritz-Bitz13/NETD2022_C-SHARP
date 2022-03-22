@@ -32,7 +32,7 @@ namespace Lab4_Contact
         #region GLOBAL VARS
 
         List<ContactTracing> Contacts = new List<ContactTracing>();
-        int count = 1;
+        int count = 1; // counts the amount of contacts input to the Data Grid Viewer.
 
         #endregion
 
@@ -45,7 +45,7 @@ namespace Lab4_Contact
         #region Enter Button
         private void btnEnter_Click(object sender, EventArgs e)
         {
-            bool isValid = true;
+            bool isValid = true; // Sets bool to check is all values are true.
             ContactTracing c = new ContactTracing();
             lblErrors.Text = ""; // Clears the Error Text box so if you have constant errors it does not stack
 
@@ -55,7 +55,7 @@ namespace Lab4_Contact
                 lblErrors.Text += "Please enter the first name.";
                 txtFirstName.Focus();
                 txtFirstName.SelectAll(); // Focus and highlights the error
-                isValid = false;
+                isValid = false; // set to false because it failed validation
             }else
                 c.FirstName = this.txtFirstName.Text.Trim(); // Add First name to the form
 
@@ -65,7 +65,7 @@ namespace Lab4_Contact
                 lblErrors.Text += "\nPlease enter the last name.";
                 txtLastName.Focus();
                 txtLastName.SelectAll();
-                isValid = false;
+                isValid = false; // set to false because it failed validation
             }
             else
                 c.LastName = this.txtLastName.Text.Trim(); // Add Last name to the form
@@ -76,7 +76,7 @@ namespace Lab4_Contact
                 lblErrors.Text += "\nPlease enter a proper email, 'example_email@live.ca' for example";
                 txtEmail.Focus();
                 txtEmail.SelectAll();
-                isValid = false;
+                isValid = false; // set to false because it failed validation
             }
             else
                 c.Email = this.txtEmail.Text.Trim();// If validation is successful, add to class
@@ -87,33 +87,31 @@ namespace Lab4_Contact
                 lblErrors.Text += "\nPlease enter a proper phone number: '9055551234' for example.";
                 txtPhone.Focus();
                 txtPhone.SelectAll();
-                isValid = false;
+                isValid = false; // set to false because it failed validation
             }
             else
                 c.Phone = this.txtPhone.Text.Trim(); // If validation is successful, add to class
 
-            c.Contacted = this.chkContacted.Checked;
+            c.Contacted = this.chkContacted.Checked; // Checks if it is checked or no
             c.Date = DateTime.Now; //Receives the date and time the information was entered.
-            c.ID = decimal.ToInt32(this.nudID.Value);
+            c.ID = decimal.ToInt32(this.nudID.Value); // Hidden on form but it is the unique ID for contacts.
 
             // If Everything is Validated, Add the rest of the variables and populate the new contact to the Data Grid View
             if (isValid)
             {
+                // Checks is the contact exists, and if they do, allow the edit to be done.
                 if (ContactTracing.ContactExists(Contacts, c.ID))
                 {
                     ContactTracing FoundContact = ContactTracing.GetStatus(Contacts, c.ID);
                     Contacts.Remove(FoundContact);
-                    count--;
+                    count--; // subtract the normal count because you are editing, so you are not making a new contact.
                 }
-                // Contacted does not need to be validated because it is a check box
                 Contacts.Add(c); // Once you have all the information, add it to the list.
-
-                    
                 PopulateContacts(); // Refresh the grid to add the new value.
                 SetDefaults();
-                 // Sets ID to count so when a new person is created, it will be a new Id
-                count++; //  add to the count for the amount of people
-                nudID.Value += 1; // Add to ID for the next unique input
+                 // Sets ID to count so when a new person is created, it will be a new Id.
+                count++; //  add to the count for the amount of people.
+                nudID.Value += 1; // Add to ID for the next unique input.
             }            
         }
         #endregion
@@ -126,6 +124,11 @@ namespace Lab4_Contact
         #endregion
 
         #region Clear Button
+        /// <summary>
+        /// Resets All inputs to defaults (when form loads up)
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnClear_Click(object sender, EventArgs e)
         {
             SetDefaults(); // set everything back to default values
@@ -140,14 +143,15 @@ namespace Lab4_Contact
         /// </summary>
         private void SetDefaults()
         {
+            // Clears all the text fields
             txtFirstName.Clear();
             txtLastName.Clear();
             txtEmail.Clear();
             txtPhone.Clear();
             chkContacted.Checked = false;
-            txtFirstName.Focus();
-            this.dgvTracing.ClearSelection();
-            nudID.Value = count;
+            txtFirstName.Focus(); // focuses first text box
+            this.dgvTracing.ClearSelection(); // clears selection on the DGV.
+            nudID.Value = count; // Sets invisible nud to the count so every user is unique if you create a new one.
         }
         #endregion
 
@@ -189,7 +193,7 @@ namespace Lab4_Contact
                     if (tempNumber > 0) // If the number isnt negaive, pass the check.
                         {
                             retVal = true;
-                            return retVal;
+                            return retVal; // return true
                         }
                         else
                             retVal = false;
@@ -214,7 +218,7 @@ namespace Lab4_Contact
             bool retVal = true;
             string input;
 
-            input = txtEmail.Text; // Create a variable from the textbox to be able to compare
+            input = txtEmail.Text.Trim(); // Create a variable from the textbox to be able to compare
             if (input.Contains(".com") || input.Contains(".ca") && input.Contains("@")) // Check for the main requirements for an email
             {
                 // Check further into the domain of the email
@@ -262,6 +266,7 @@ namespace Lab4_Contact
         /// <param name="c"></param>
         private void FillContact(ContactTracing c)
         {
+            // fills in the textboxes with the information from the table.
             this.nudID.Value = c.ID;
             this.txtFirstName.Text = c.FirstName;
             this.txtLastName.Text = c.LastName;

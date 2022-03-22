@@ -2,12 +2,10 @@
  * Author: Clint MacDonald
  * Date: March 8, 2022
  */
-#region
+#region Using
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.IO;
 using System.Drawing;
 #endregion
 
@@ -127,6 +125,115 @@ namespace Week09_MultiForms
         }
 
         #endregion
+
+        public static void FileWrite(List<Trooper> troopers, String fileName)
+        {
+            FileStream fs = new FileStream(fileName, FileMode.Create, FileAccess.Write);
+            StreamWriter sw = new StreamWriter(fs); // The only thing this needs is the file stream
+            sw.Write(FileCreateCSV(troopers));
+            sw.Close();
+        }
+
+        private static String FileCreateCSV(List<Trooper> troopers)
+        {
+            String returnString = string.Empty;
+            
+            foreach (Trooper t in troopers)
+            {
+                returnString += t.Designation.ToString() + ", "
+                                + t.NickName + ", "
+                                + t.Unit + ", "
+                                // Start   how many characters we want
+                                + t.Born.ToString().Substring(0, 10) + ", " // year/month/day = 2022/04/05
+                                + t.HomeWorld + ", "
+                                + t.IsDefective + ", "
+                                + ConvertColourToString(t.HairColor) + ", "
+                                + ConvertColourToString(t.EyeColor) + "\n";
+
+
+            } 
+
+
+            return returnString;
+        }
+
+        private static String ConvertColourToString(Color clr)
+        {
+            return clr.ToString()
+                .Replace("Color [", "")  // ("replace this", "with this")
+                .Replace("]", "")
+                .Replace(" ", "")
+                .Replace("A=", "")
+                .Replace("R=", "")
+                .Replace("G=", "")
+                .Replace("B=", "")
+                .Replace(",", ";");
+        }
+
+        public static List<Trooper> LoadFromCSV(String fileName)
+        {
+            List<Trooper> returnList = new List<Trooper>();
+
+            FileStream fs = new FileStream(fileName, FileMode.Open, FileAccess.Read);
+            StreamReader sr = new StreamReader(fs);
+
+            String lineContent = string.Empty;
+            String[] items = new string[8];
+            String[] dateItems = new string[2];
+            Trooper t;
+
+            while (!sr.EndOfStream)
+            {
+                try
+                {
+                    lineContent = sr.ReadLine();
+                    items = lineContent.Split(",");
+                    t = new Trooper();
+                    t.Designation = Convert.ToInt32(items[0]);
+                    t.NickName = items[1];
+                    t.Unit = items[2];
+                    //t.Born
+                    dateItems = items[3].Split("-");
+                    t.Born = new DateTime(Convert.ToInt32(dateItems[0]),
+                                          Convert.ToInt32(dateItems[1]),
+                                          Convert.ToInt32(dateItems[2]));
+
+                    t.HomeWorld = items[4];
+                    t.IsDefective = Convert.ToBoolean(items[5]);
+                    t.HairColor = ConvertStringToColour(items[6]);
+                    t.EyeColor = ConvertStringToColour(items[7]);
+
+                    returnList.Add(t);
+                }
+                catch { 
+                
+                }
+            }
+
+
+            return returnList;
+        }
+
+        private static Color ConvertStringToColour(String clr)
+        {
+            Color rc;
+
+            if (clr.Contains(";"))
+            {
+                string[] items = new string[3];
+                items = clr.Split(";");
+                rc = Color.FromArgb(Convert.ToInt32(items[0]),
+                                    Convert.ToInt32(items[1]),
+                                    Convert.ToInt32(items[2]),
+                                    Convert.ToInt32(items[3]));
+            }
+            else
+            {
+                rc = Color.FromName(clr);
+            }
+
+            return rc;
+        }
 
         #endregion
     }

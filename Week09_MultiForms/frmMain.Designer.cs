@@ -59,11 +59,14 @@ namespace Week09_MultiForms
             this.lblNickName = new System.Windows.Forms.Label();
             this.nudDesignation = new System.Windows.Forms.NumericUpDown();
             this.lblDesignation = new System.Windows.Forms.Label();
-            this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.lblTitleBar = new System.Windows.Forms.Label();
             this.cboUnits = new System.Windows.Forms.ComboBox();
             this.btnAbout = new System.Windows.Forms.Button();
-            this.btnAdd = new System.Windows.Forms.Button();
+            this.btnSavetoFile = new System.Windows.Forms.Button();
+            this.btnLoad = new System.Windows.Forms.Button();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClones)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudDesignation)).BeginInit();
@@ -423,19 +426,43 @@ namespace Week09_MultiForms
             this.btnAbout.UseVisualStyleBackColor = false;
             this.btnAbout.Click += new System.EventHandler(this.btnAbout_Click);
             // 
-            // btnAdd
+            // btnSavetoFile
             // 
-            this.btnAdd.BackColor = System.Drawing.Color.Maroon;
-            this.btnAdd.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnAdd.ForeColor = System.Drawing.Color.White;
-            this.btnAdd.Location = new System.Drawing.Point(488, 386);
-            this.btnAdd.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(115, 53);
-            this.btnAdd.TabIndex = 6;
-            this.btnAdd.Text = "&Add";
-            this.btnAdd.UseVisualStyleBackColor = false;
-            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            this.btnSavetoFile.BackColor = System.Drawing.Color.Maroon;
+            this.btnSavetoFile.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnSavetoFile.ForeColor = System.Drawing.Color.White;
+            this.btnSavetoFile.Location = new System.Drawing.Point(609, 322);
+            this.btnSavetoFile.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnSavetoFile.Name = "btnSavetoFile";
+            this.btnSavetoFile.Size = new System.Drawing.Size(115, 53);
+            this.btnSavetoFile.TabIndex = 6;
+            this.btnSavetoFile.Text = "&Save to File";
+            this.btnSavetoFile.UseVisualStyleBackColor = false;
+            this.btnSavetoFile.Click += new System.EventHandler(this.btnSavetoFile_Click);
+            // 
+            // btnLoad
+            // 
+            this.btnLoad.BackColor = System.Drawing.Color.Maroon;
+            this.btnLoad.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnLoad.ForeColor = System.Drawing.Color.White;
+            this.btnLoad.Location = new System.Drawing.Point(609, 379);
+            this.btnLoad.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnLoad.Name = "btnLoad";
+            this.btnLoad.Size = new System.Drawing.Size(115, 53);
+            this.btnLoad.TabIndex = 7;
+            this.btnLoad.Text = "&Load from File";
+            this.btnLoad.UseVisualStyleBackColor = false;
+            this.btnLoad.Click += new System.EventHandler(this.btnLoad_Click);
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            this.openFileDialog1.Filter = "CSV Files|*.csv|Text Files|*.txt";
+            // 
+            // saveFileDialog1
+            // 
+            this.saveFileDialog1.DefaultExt = "csv";
+            this.saveFileDialog1.Filter = "CSV Files|*.csv|Text Files|*.txt";
             // 
             // frmMain
             // 
@@ -444,7 +471,8 @@ namespace Week09_MultiForms
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(935, 558);
-            this.Controls.Add(this.btnAdd);
+            this.Controls.Add(this.btnLoad);
+            this.Controls.Add(this.btnSavetoFile);
             this.Controls.Add(this.btnAbout);
             this.Controls.Add(this.cboUnits);
             this.Controls.Add(this.lblTitleBar);
@@ -485,7 +513,6 @@ namespace Week09_MultiForms
         private System.Windows.Forms.Button btnReset;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.CheckBox chkDefective;
-        private System.Windows.Forms.ColorDialog colorDialog1;
         private System.Windows.Forms.Label lblTitleBar;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.ComboBox cboUnits;
@@ -498,7 +525,11 @@ namespace Week09_MultiForms
         private System.Windows.Forms.DataGridViewTextBoxColumn colHairColor;
         private System.Windows.Forms.DataGridViewTextBoxColumn colEyeColor;
         private System.Windows.Forms.Button btnAbout;
-        private System.Windows.Forms.Button btnAdd;
+        private System.Windows.Forms.Button btnSavetoFile;
+        private System.Windows.Forms.Button btnLoad;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
+        private System.Windows.Forms.ColorDialog colorDialog1;
     }
 }
 

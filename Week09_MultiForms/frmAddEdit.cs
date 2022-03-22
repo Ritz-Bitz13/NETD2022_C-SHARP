@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Week09_Multiforms
+namespace Week09_MultiForms
 {
     public partial class frmAddEdit : Form
     {
@@ -24,24 +24,11 @@ namespace Week09_Multiforms
             InitializeComponent();
             currentTrooper = new Trooper();
             currentTrooper = t;
+            
         }
 
         List<String> Planets = new List<String>();
 
-
-
-        private void frmAddEdit_Load(object sender, EventArgs e)
-        {
-            PopulatePlanets();
-            this.cboPlanets.DataSource = Planets;
-
-            if (currentTrooper.Designation > 0)
-            {
-                PopulateTrooper(currentTrooper);
-            }
-                
-
-        }
 
         #region Custom Methods
         private void PopulatePlanets()
@@ -74,6 +61,7 @@ namespace Week09_Multiforms
             nudDesignation.Value = 0;
             chkDefective.Checked = false;
         }
+
         private void PopulateTrooper(Trooper t)
         {
             this.nudDesignation.Value = t.Designation;
@@ -82,10 +70,19 @@ namespace Week09_Multiforms
             this.chkDefective.Checked = t.IsDefective;
             this.lblHairColour.BackColor = t.HairColor;
             this.lblEyeColour.BackColor = t.EyeColor;
-            this.dtpBorn.Value = t.Born;
             this.cboPlanets.SelectedItem = t.HomeWorld;
+            this.dtpBorn.Value = t.Born;
         }
         #endregion
+
+        private void frmAddEdit_Load(object sender, EventArgs e)
+        {
+            PopulatePlanets();
+            this.cboPlanets.DataSource = Planets;
+
+            if (currentTrooper.Designation > 0) PopulateTrooper(currentTrooper); 
+
+        }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
@@ -108,18 +105,16 @@ namespace Week09_Multiforms
             t.IsDefective = this.chkDefective.Checked;
             t.HairColor = this.lblHairColour.BackColor;
             t.EyeColor = this.lblEyeColour.BackColor;
+            t.HomeWorld = this.cboPlanets.SelectedValue.ToString();
             t.Born = this.dtpBorn.Value;
-            t.HomeWorld = this.cboPlanets.SelectedValue.ToString(); //Make sure you use Selected Value, NOT SELECTED ITEM!!!!!
 
             if (Trooper.TrooperExists(frmMain.Troopers, t.Designation))
             {
-                Trooper FoundTrooper = Trooper.FindTrooper(frmMain.Troopers, t.Designation); // ONly reason we can refrence this is because the list is static.
+                Trooper FoundTrooper = Trooper.FindTrooper(frmMain.Troopers, t.Designation);
                 frmMain.Troopers.Remove(FoundTrooper);
             }
-            frmMain.Troopers.Add(t);
 
-            // Refresh the grind to add the new value
-            SetDefaults();
+            frmMain.Troopers.Add(t);
         }
     }
 }

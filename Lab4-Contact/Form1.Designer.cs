@@ -48,11 +48,11 @@ namespace Lab4_Contact
             this.btnEnter = new System.Windows.Forms.Button();
             this.btnClear = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
+            this.nudID = new System.Windows.Forms.NumericUpDown();
             this.lblFirstName = new System.Windows.Forms.Label();
             this.lblLastName = new System.Windows.Forms.Label();
             this.lblEmail = new System.Windows.Forms.Label();
             this.lblPhone = new System.Windows.Forms.Label();
-            this.nudID = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTracing)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudID)).BeginInit();
             this.SuspendLayout();
@@ -238,6 +238,30 @@ namespace Lab4_Contact
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
+            // nudID
+            // 
+            this.nudID.Location = new System.Drawing.Point(27, 20);
+            this.nudID.Maximum = new decimal(new int[] {
+            999,
+            0,
+            0,
+            0});
+            this.nudID.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.nudID.Name = "nudID";
+            this.nudID.Size = new System.Drawing.Size(52, 23);
+            this.nudID.TabIndex = 14;
+            this.toolTip1.SetToolTip(this.nudID, "Hidden counter");
+            this.nudID.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.nudID.Visible = false;
+            // 
             // lblFirstName
             // 
             this.lblFirstName.AutoSize = true;
@@ -274,35 +298,12 @@ namespace Lab4_Contact
             this.lblPhone.TabIndex = 6;
             this.lblPhone.Text = "&Phone Number:";
             // 
-            // nudID
-            // 
-            this.nudID.Location = new System.Drawing.Point(27, 20);
-            this.nudID.Maximum = new decimal(new int[] {
-            999,
-            0,
-            0,
-            0});
-            this.nudID.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.nudID.Name = "nudID";
-            this.nudID.Size = new System.Drawing.Size(52, 23);
-            this.nudID.TabIndex = 14;
-            this.toolTip1.SetToolTip(this.nudID, "Hidden counter");
-            this.nudID.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.nudID.Visible = false;
-            // 
             // frmContactTracing
             // 
             this.AcceptButton = this.btnEnter;
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.CancelButton = this.btnClear;
             this.ClientSize = new System.Drawing.Size(584, 501);
             this.Controls.Add(this.nudID);
@@ -320,6 +321,7 @@ namespace Lab4_Contact
             this.Controls.Add(this.lblLastName);
             this.Controls.Add(this.txtFirstName);
             this.Controls.Add(this.lblFirstName);
+            this.MinimumSize = new System.Drawing.Size(600, 540);
             this.Name = "frmContactTracing";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Contact Tracing";
