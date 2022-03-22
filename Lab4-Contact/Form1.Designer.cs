@@ -31,37 +31,31 @@ namespace Lab4_Contact
         {
             this.components = new System.ComponentModel.Container();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.lblFirstName = new System.Windows.Forms.Label();
             this.txtFirstName = new System.Windows.Forms.TextBox();
             this.txtLastName = new System.Windows.Forms.TextBox();
-            this.lblLastName = new System.Windows.Forms.Label();
             this.txtEmail = new System.Windows.Forms.TextBox();
-            this.lblEmail = new System.Windows.Forms.Label();
             this.txtPhone = new System.Windows.Forms.TextBox();
-            this.lblPhone = new System.Windows.Forms.Label();
             this.chkContacted = new System.Windows.Forms.CheckBox();
             this.dgvTracing = new System.Windows.Forms.DataGridView();
+            this.colID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colFirstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colLastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colEmail = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colPhone = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colContacted = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colContacted = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.colDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lblErrors = new System.Windows.Forms.Label();
             this.btnEnter = new System.Windows.Forms.Button();
             this.btnClear = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
+            this.lblFirstName = new System.Windows.Forms.Label();
+            this.lblLastName = new System.Windows.Forms.Label();
+            this.lblEmail = new System.Windows.Forms.Label();
+            this.lblPhone = new System.Windows.Forms.Label();
+            this.nudID = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTracing)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudID)).BeginInit();
             this.SuspendLayout();
-            // 
-            // lblFirstName
-            // 
-            this.lblFirstName.AutoSize = true;
-            this.lblFirstName.Location = new System.Drawing.Point(180, 20);
-            this.lblFirstName.Name = "lblFirstName";
-            this.lblFirstName.Size = new System.Drawing.Size(67, 15);
-            this.lblFirstName.TabIndex = 0;
-            this.lblFirstName.Text = "&First Name:";
             // 
             // txtFirstName
             // 
@@ -79,15 +73,6 @@ namespace Lab4_Contact
             this.txtLastName.TabIndex = 3;
             this.toolTip1.SetToolTip(this.txtLastName, "Enter the users last name");
             // 
-            // lblLastName
-            // 
-            this.lblLastName.AutoSize = true;
-            this.lblLastName.Location = new System.Drawing.Point(180, 49);
-            this.lblLastName.Name = "lblLastName";
-            this.lblLastName.Size = new System.Drawing.Size(66, 15);
-            this.lblLastName.TabIndex = 2;
-            this.lblLastName.Text = "&Last Name:";
-            // 
             // txtEmail
             // 
             this.txtEmail.Location = new System.Drawing.Point(253, 75);
@@ -96,15 +81,6 @@ namespace Lab4_Contact
             this.txtEmail.TabIndex = 5;
             this.toolTip1.SetToolTip(this.txtEmail, "Enter a valid email address");
             // 
-            // lblEmail
-            // 
-            this.lblEmail.AutoSize = true;
-            this.lblEmail.Location = new System.Drawing.Point(157, 78);
-            this.lblEmail.Name = "lblEmail";
-            this.lblEmail.Size = new System.Drawing.Size(89, 15);
-            this.lblEmail.TabIndex = 4;
-            this.lblEmail.Text = "E-&Mail Address:";
-            // 
             // txtPhone
             // 
             this.txtPhone.Location = new System.Drawing.Point(253, 104);
@@ -112,15 +88,6 @@ namespace Lab4_Contact
             this.txtPhone.Size = new System.Drawing.Size(160, 23);
             this.txtPhone.TabIndex = 7;
             this.toolTip1.SetToolTip(this.txtPhone, "Enter the contacts phone number");
-            // 
-            // lblPhone
-            // 
-            this.lblPhone.AutoSize = true;
-            this.lblPhone.Location = new System.Drawing.Point(155, 107);
-            this.lblPhone.Name = "lblPhone";
-            this.lblPhone.Size = new System.Drawing.Size(91, 15);
-            this.lblPhone.TabIndex = 6;
-            this.lblPhone.Text = "&Phone Number:";
             // 
             // chkContacted
             // 
@@ -147,6 +114,7 @@ namespace Lab4_Contact
             this.dgvTracing.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvTracing.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvTracing.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.colID,
             this.colFirstName,
             this.colLastName,
             this.colEmail,
@@ -164,6 +132,14 @@ namespace Lab4_Contact
             this.dgvTracing.TabIndex = 9;
             this.toolTip1.SetToolTip(this.dgvTracing, "List of Patients");
             this.dgvTracing.SelectionChanged += new System.EventHandler(this.dgvTracing_SelectionChanged);
+            // 
+            // colID
+            // 
+            this.colID.DataPropertyName = "ID";
+            this.colID.HeaderText = "ID";
+            this.colID.Name = "colID";
+            this.colID.ReadOnly = true;
+            this.colID.Width = 43;
             // 
             // colFirstName
             // 
@@ -203,6 +179,8 @@ namespace Lab4_Contact
             this.colContacted.HeaderText = "Contacted";
             this.colContacted.Name = "colContacted";
             this.colContacted.ReadOnly = true;
+            this.colContacted.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.colContacted.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.colContacted.Width = 87;
             // 
             // colDate
@@ -260,6 +238,66 @@ namespace Lab4_Contact
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
+            // lblFirstName
+            // 
+            this.lblFirstName.AutoSize = true;
+            this.lblFirstName.Location = new System.Drawing.Point(180, 20);
+            this.lblFirstName.Name = "lblFirstName";
+            this.lblFirstName.Size = new System.Drawing.Size(67, 15);
+            this.lblFirstName.TabIndex = 0;
+            this.lblFirstName.Text = "&First Name:";
+            // 
+            // lblLastName
+            // 
+            this.lblLastName.AutoSize = true;
+            this.lblLastName.Location = new System.Drawing.Point(180, 49);
+            this.lblLastName.Name = "lblLastName";
+            this.lblLastName.Size = new System.Drawing.Size(66, 15);
+            this.lblLastName.TabIndex = 2;
+            this.lblLastName.Text = "&Last Name:";
+            // 
+            // lblEmail
+            // 
+            this.lblEmail.AutoSize = true;
+            this.lblEmail.Location = new System.Drawing.Point(157, 78);
+            this.lblEmail.Name = "lblEmail";
+            this.lblEmail.Size = new System.Drawing.Size(89, 15);
+            this.lblEmail.TabIndex = 4;
+            this.lblEmail.Text = "E-&Mail Address:";
+            // 
+            // lblPhone
+            // 
+            this.lblPhone.AutoSize = true;
+            this.lblPhone.Location = new System.Drawing.Point(155, 107);
+            this.lblPhone.Name = "lblPhone";
+            this.lblPhone.Size = new System.Drawing.Size(91, 15);
+            this.lblPhone.TabIndex = 6;
+            this.lblPhone.Text = "&Phone Number:";
+            // 
+            // nudID
+            // 
+            this.nudID.Location = new System.Drawing.Point(27, 20);
+            this.nudID.Maximum = new decimal(new int[] {
+            999,
+            0,
+            0,
+            0});
+            this.nudID.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.nudID.Name = "nudID";
+            this.nudID.Size = new System.Drawing.Size(52, 23);
+            this.nudID.TabIndex = 14;
+            this.toolTip1.SetToolTip(this.nudID, "Hidden counter");
+            this.nudID.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.nudID.Visible = false;
+            // 
             // frmContactTracing
             // 
             this.AcceptButton = this.btnEnter;
@@ -267,6 +305,7 @@ namespace Lab4_Contact
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnClear;
             this.ClientSize = new System.Drawing.Size(584, 501);
+            this.Controls.Add(this.nudID);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.btnEnter);
@@ -282,9 +321,11 @@ namespace Lab4_Contact
             this.Controls.Add(this.txtFirstName);
             this.Controls.Add(this.lblFirstName);
             this.Name = "frmContactTracing";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Contact Tracing";
             this.Load += new System.EventHandler(this.frmContactTracing_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvTracing)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudID)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -307,11 +348,13 @@ namespace Lab4_Contact
         private System.Windows.Forms.Button btnEnter;
         private System.Windows.Forms.Button btnClear;
         private System.Windows.Forms.Button btnExit;
+        private System.Windows.Forms.NumericUpDown nudID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colID;
         private System.Windows.Forms.DataGridViewTextBoxColumn colFirstName;
         private System.Windows.Forms.DataGridViewTextBoxColumn colLastName;
         private System.Windows.Forms.DataGridViewTextBoxColumn colEmail;
         private System.Windows.Forms.DataGridViewTextBoxColumn colPhone;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colContacted;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn colContacted;
         private System.Windows.Forms.DataGridViewTextBoxColumn colDate;
     }
 }

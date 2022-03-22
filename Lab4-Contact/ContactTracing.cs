@@ -22,7 +22,6 @@ namespace Lab4_Contact
     class ContactTracing
     {
         #region Class
-        public int Count { get; set; }
         public int ID { get; set; }
         public String FirstName { get; set; }
         public String LastName { get; set; }
@@ -47,16 +46,15 @@ namespace Lab4_Contact
         /// <param name="contact">Were they contacted and notified</param>
         /// <param name="count"></param>
         /// <param name="id"></param>
-        public ContactTracing(String firstName, String lastName, DateTime date, String email, String phone, Boolean contact, int count, int id)
+        public ContactTracing(int id, String firstName, String lastName, DateTime date, String email, String phone, Boolean contact)
         {
+            ID = id;
             FirstName = firstName;
             LastName = lastName;
             Date = date;
             Email = email;
             Phone = phone;
             Contacted = contact;
-            Count = count;
-            ID = id;
         }
         #endregion
 
@@ -71,19 +69,24 @@ namespace Lab4_Contact
         {
             List<ContactTracing> returnList = new List<ContactTracing>();
 
-            returnList.Add(new ContactTracing("Martin", "Barber", DateTime.Now, "martin.barber13@hotmail.com", "9055551234", true, 1, 1 ));
-            returnList.Add(new ContactTracing("Gillian", "Young", DateTime.Now, "gillian.young@gmail.com", "9053125995", true, 2, 2));
-            returnList.Add(new ContactTracing("Thomas", "Jackel", DateTime.Now, "thomas.jackel123@hotmail.com", "4167679173", false,3,3));
+            returnList.Add(new ContactTracing( 1, "Martin", "Barber", DateTime.Now, "martin.barber13@hotmail.com", "9055551234", true ));
+            returnList.Add(new ContactTracing(2, "Gillian", "Young", DateTime.Now, "gillian.young@gmail.com", "9053125995", true));
+            returnList.Add(new ContactTracing(3, "Thomas", "Jackel", DateTime.Now, "thomas.jackel123@hotmail.com", "4167679173", false));
 
             return returnList;
         }
 
-        public static ContactTracing GetStatus(List<ContactTracing> inputContact, int ID)
+        public static ContactTracing GetStatus(List<ContactTracing> inputContact, int id)
         {
-            return inputContact.Find(c => c.ID == ID);
+            return inputContact.Find(c => c.ID == id);
         }
 
         #endregion
+
+        public static Boolean ContactExists(List<ContactTracing> inputContact, int id)
+        {
+            return inputContact.FindAll(c => c.ID == id).Count > 0;
+        }
 
         #endregion
     }

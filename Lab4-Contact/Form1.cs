@@ -32,17 +32,13 @@ namespace Lab4_Contact
         #region GLOBAL VARS
 
         List<ContactTracing> Contacts = new List<ContactTracing>();
-        bool isValid = true;
-        int ID = 4;
-        int count = 4;
+        int count = 1;
 
         #endregion
 
         #region Form Load
         private void frmContactTracing_Load(object sender, EventArgs e)
         {
-            Contacts = ContactTracing.GetSampleContacts();
-            PopulateContacts();
         }
         #endregion
 
@@ -96,21 +92,28 @@ namespace Lab4_Contact
             else
                 c.Phone = this.txtPhone.Text.Trim(); // If validation is successful, add to class
 
+            c.Contacted = this.chkContacted.Checked;
+            c.Date = DateTime.Now; //Receives the date and time the information was entered.
+            c.ID = decimal.ToInt32(this.nudID.Value);
 
             // If Everything is Validated, Add the rest of the variables and populate the new contact to the Data Grid View
             if (isValid)
             {
-                c.Contacted = this.chkContacted.Checked; //DateTime is automatic so does not need to be validated
-                c.Date = DateTime.Now; //Receives the date and time the information was entered.
-                c.ID = ID;
-                c.Count = count;
+                if (ContactTracing.ContactExists(Contacts, c.ID))
+                {
+                    ContactTracing FoundContact = ContactTracing.GetStatus(Contacts, c.ID);
+                    Contacts.Remove(FoundContact);
+                    count--;
+                }
                 // Contacted does not need to be validated because it is a check box
                 Contacts.Add(c); // Once you have all the information, add it to the list.
+
+                    
                 PopulateContacts(); // Refresh the grid to add the new value.
-                dgvTracing.Columns[0].Visible = false; // This will hide the count Column in the dgvTracing.
                 SetDefaults();
-                ID++; // Add to ID for the next unique input
-                count++; //  add to the count for the amount of peop
+                 // Sets ID to count so when a new person is created, it will be a new Id
+                count++; //  add to the count for the amount of people
+                nudID.Value += 1; // Add to ID for the next unique input
             }            
         }
         #endregion
@@ -144,6 +147,7 @@ namespace Lab4_Contact
             chkContacted.Checked = false;
             txtFirstName.Focus();
             this.dgvTracing.ClearSelection();
+            nudID.Value = count;
         }
         #endregion
 
@@ -258,6 +262,7 @@ namespace Lab4_Contact
         /// <param name="c"></param>
         private void FillContact(ContactTracing c)
         {
+            this.nudID.Value = c.ID;
             this.txtFirstName.Text = c.FirstName;
             this.txtLastName.Text = c.LastName;
             this.txtPhone.Text = c.Phone;

@@ -129,7 +129,7 @@ namespace Week08_Collections
                 Trooper FoundTrooper = Trooper.FindTrooper(Troopers, t.Designation);
                 Troopers.Remove(FoundTrooper);
             }
-                Troopers.Add(t);
+            Troopers.Add(t);
 
             // Once you have all the information, add it to the list
             
