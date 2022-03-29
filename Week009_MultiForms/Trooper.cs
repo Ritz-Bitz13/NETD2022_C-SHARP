@@ -2,11 +2,11 @@
  * Author: Clint MacDonald
  * Date: March 8, 2022
  */
-#region USING
+#region Using
 using System;
 using System.Collections.Generic;
-using System.Drawing;
 using System.IO;
+using System.Drawing;
 #endregion
 
 namespace Week09_MultiForms
@@ -124,42 +124,43 @@ namespace Week09_MultiForms
             return inputTroopers.FindAll(t => t.Designation == designation).Count > 0;
         }
 
-        public static List<Trooper> GetUnitTroopers(List<Trooper> inputTroopers, String unit)
+        #endregion
+
+        public static void FileWrite(List<Trooper> troopers, String fileName)
         {
-            return inputTroopers.FindAll(t => t.Unit == unit);
-        }
-       
-        public static void FileWrite(List<Trooper> troopers, String filename)
-        {
-            FileStream fs = new FileStream(filename, FileMode.Create, FileAccess.Write);
-            StreamWriter sw = new StreamWriter(fs);
+            FileStream fs = new FileStream(fileName, FileMode.Create, FileAccess.Write);
+            StreamWriter sw = new StreamWriter(fs); // The only thing this needs is the file stream
             sw.Write(FileCreateCSV(troopers));
             sw.Close();
         }
 
         private static String FileCreateCSV(List<Trooper> troopers)
         {
-            String rs = string.Empty;
-
+            String returnString = string.Empty;
+            
             foreach (Trooper t in troopers)
             {
-                rs += t.Designation.ToString() + ","
-                    + t.NickName + ","
-                    + t.Unit + ","
-                    + t.Born.ToString().Substring(0, 10) + ","
-                    + t.HomeWorld + ","
-                    + t.IsDefective + ","
-                    + ConvertColourToString(t.HairColor) + ","
-                    + ConvertColourToString(t.EyeColor) + "\n";
-            }
+                returnString += t.Designation.ToString() + ", "
+                                + t.NickName + ", "
+                                + t.Unit + ", "
+                                // Start   how many characters we want
+                                + t.Born.ToString().Substring(0, 10) + ", " // year/month/day = 2022/04/05
+                                + t.HomeWorld + ", "
+                                + t.IsDefective + ", "
+                                + ConvertColourToString(t.HairColor) + ", "
+                                + ConvertColourToString(t.EyeColor) + "\n";
 
-            return rs;
+
+            } 
+
+
+            return returnString;
         }
 
         private static String ConvertColourToString(Color clr)
         {
             return clr.ToString()
-                .Replace("Color [", "")
+                .Replace("Color [", "")  // ("replace this", "with this")
                 .Replace("]", "")
                 .Replace(" ", "")
                 .Replace("A=", "")
@@ -169,12 +170,11 @@ namespace Week09_MultiForms
                 .Replace(",", ";");
         }
 
-
-        public static List<Trooper> LoadFromCSV(String filename)
+        public static List<Trooper> LoadFromCSV(String fileName)
         {
-            List<Trooper> rl = new List<Trooper>();
+            List<Trooper> returnList = new List<Trooper>();
 
-            FileStream fs = new FileStream(filename, FileMode.Open, FileAccess.Read);
+            FileStream fs = new FileStream(fileName, FileMode.Open, FileAccess.Read);
             StreamReader sr = new StreamReader(fs);
 
             String lineContent = string.Empty;
@@ -192,30 +192,29 @@ namespace Week09_MultiForms
                     t.Designation = Convert.ToInt32(items[0]);
                     t.NickName = items[1];
                     t.Unit = items[2];
-
-                    //date
+                    //t.Born
                     dateItems = items[3].Split("-");
-                    t.Born = new DateTime( Convert.ToInt32(dateItems[0]),
-                                           Convert.ToInt32(dateItems[1]),
-                                           Convert.ToInt32(dateItems[2]) );
+                    t.Born = new DateTime(Convert.ToInt32(dateItems[0]),
+                                          Convert.ToInt32(dateItems[1]),
+                                          Convert.ToInt32(dateItems[2]));
 
                     t.HomeWorld = items[4];
                     t.IsDefective = Convert.ToBoolean(items[5]);
-                    t.HairColor = ConvertStringToColor(items[6]);
-                    t.EyeColor = ConvertStringToColor(items[7]);
-                    rl.Add(t);
+                    t.HairColor = ConvertStringToColour(items[6]);
+                    t.EyeColor = ConvertStringToColour(items[7]);
+
+                    returnList.Add(t);
                 }
                 catch { 
                 
                 }
-
-
             }
-            sr.Close();
-            return rl;
+
+
+            return returnList;
         }
 
-        private static Color ConvertStringToColor(String clr)
+        private static Color ConvertStringToColour(String clr)
         {
             Color rc;
 
@@ -224,18 +223,17 @@ namespace Week09_MultiForms
                 string[] items = new string[3];
                 items = clr.Split(";");
                 rc = Color.FromArgb(Convert.ToInt32(items[0]),
-                                        Convert.ToInt32(items[1]),
-                                        Convert.ToInt32(items[2]),
-                                        Convert.ToInt32(items[3])
-                                        );
-            } else
+                                    Convert.ToInt32(items[1]),
+                                    Convert.ToInt32(items[2]),
+                                    Convert.ToInt32(items[3]));
+            }
+            else
             {
                 rc = Color.FromName(clr);
             }
 
             return rc;
         }
-        #endregion
 
         #endregion
     }

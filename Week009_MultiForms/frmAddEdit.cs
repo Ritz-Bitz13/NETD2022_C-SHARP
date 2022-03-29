@@ -18,14 +18,13 @@ namespace Week09_MultiForms
         {
             InitializeComponent();
             currentTrooper = new Trooper();
-            lblTrooper.Text = currentTrooper.Designation.ToString();
         }
         public frmAddEdit(Trooper t)
         {
             InitializeComponent();
             currentTrooper = new Trooper();
             currentTrooper = t;
-            lblTrooper.Text = currentTrooper.Designation.ToString();
+            
         }
 
         List<String> Planets = new List<String>();
@@ -61,8 +60,6 @@ namespace Week09_MultiForms
             dtpBorn.Value = DateTime.Now;
             nudDesignation.Value = 0;
             chkDefective.Checked = false;
-
-            lblTrooper.Text = "0";
         }
 
         private void PopulateTrooper(Trooper t)
@@ -101,7 +98,6 @@ namespace Week09_MultiForms
 
         private void SaveTrooper()
         {
-            // do data validation
             Trooper t = new Trooper();
             t.Designation = decimal.ToInt32(this.nudDesignation.Value);
             t.NickName = this.txtNickName.Text.Trim();
@@ -123,19 +119,7 @@ namespace Week09_MultiForms
 
         private void btnReset_Click(object sender, EventArgs e)
         {
-            SetDefaults();
-        }
 
-        private void btnSetHairColour_Click(object sender, EventArgs e)
-        {
-            colorDialog1.ShowDialog();
-            lblHairColour.BackColor = colorDialog1.Color;
-        }
-
-        private void btnSetEyeColour_Click(object sender, EventArgs e)
-        {
-            colorDialog1.ShowDialog();
-            lblEyeColour.BackColor = colorDialog1.Color;
         }
     }
 }

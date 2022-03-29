@@ -39,37 +39,15 @@ namespace Week09_MultiForms
             this.colDefective = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.colHairColor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colEyeColor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.btnReset = new System.Windows.Forms.Button();
-            this.btnSave = new System.Windows.Forms.Button();
-            this.chkDefective = new System.Windows.Forms.CheckBox();
-            this.btnSetEyeColour = new System.Windows.Forms.Button();
-            this.lblEyeColour = new System.Windows.Forms.Label();
-            this.lblSecondColourLabel = new System.Windows.Forms.Label();
-            this.btnSetHairColour = new System.Windows.Forms.Button();
-            this.lblHairColour = new System.Windows.Forms.Label();
-            this.lblColour1Label = new System.Windows.Forms.Label();
-            this.txtUnit = new System.Windows.Forms.TextBox();
-            this.lblUnit = new System.Windows.Forms.Label();
-            this.dtpBorn = new System.Windows.Forms.DateTimePicker();
-            this.lblBorn = new System.Windows.Forms.Label();
-            this.cboPlanets = new System.Windows.Forms.ComboBox();
-            this.lblHomeWorld = new System.Windows.Forms.Label();
-            this.txtNickName = new System.Windows.Forms.TextBox();
-            this.lblNickName = new System.Windows.Forms.Label();
-            this.nudDesignation = new System.Windows.Forms.NumericUpDown();
-            this.lblDesignation = new System.Windows.Forms.Label();
             this.lblTitleBar = new System.Windows.Forms.Label();
             this.cboUnits = new System.Windows.Forms.ComboBox();
             this.btnAbout = new System.Windows.Forms.Button();
-            this.btnSavetoFile = new System.Windows.Forms.Button();
-            this.btnLoad = new System.Windows.Forms.Button();
+            this.btnAdd = new System.Windows.Forms.Button();
+            this.btnSaveToFile = new System.Windows.Forms.Button();
+            this.btnLoadFromFile = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
-            this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClones)).BeginInit();
-            this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nudDesignation)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvClones
@@ -89,7 +67,8 @@ namespace Week09_MultiForms
             this.colDefective,
             this.colHairColor,
             this.colEyeColor});
-            this.dgvClones.Location = new System.Drawing.Point(12, 39);
+            this.dgvClones.Location = new System.Drawing.Point(14, 52);
+            this.dgvClones.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dgvClones.MultiSelect = false;
             this.dgvClones.Name = "dgvClones";
             this.dgvClones.ReadOnly = true;
@@ -103,7 +82,7 @@ namespace Week09_MultiForms
             this.dgvClones.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvClones.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvClones.ShowEditingIcon = false;
-            this.dgvClones.Size = new System.Drawing.Size(911, 222);
+            this.dgvClones.Size = new System.Drawing.Size(1041, 296);
             this.dgvClones.TabIndex = 1;
             this.dgvClones.VirtualMode = true;
             this.dgvClones.SelectionChanged += new System.EventHandler(this.dgvClone_SelectionChanged);
@@ -180,214 +159,6 @@ namespace Week09_MultiForms
             this.colEyeColor.ReadOnly = true;
             this.colEyeColor.Width = 125;
             // 
-            // groupBox1
-            // 
-            this.groupBox1.BackColor = System.Drawing.Color.Transparent;
-            this.groupBox1.Controls.Add(this.btnReset);
-            this.groupBox1.Controls.Add(this.btnSave);
-            this.groupBox1.Controls.Add(this.chkDefective);
-            this.groupBox1.Controls.Add(this.btnSetEyeColour);
-            this.groupBox1.Controls.Add(this.lblEyeColour);
-            this.groupBox1.Controls.Add(this.lblSecondColourLabel);
-            this.groupBox1.Controls.Add(this.btnSetHairColour);
-            this.groupBox1.Controls.Add(this.lblHairColour);
-            this.groupBox1.Controls.Add(this.lblColour1Label);
-            this.groupBox1.Controls.Add(this.txtUnit);
-            this.groupBox1.Controls.Add(this.lblUnit);
-            this.groupBox1.Controls.Add(this.dtpBorn);
-            this.groupBox1.Controls.Add(this.lblBorn);
-            this.groupBox1.Controls.Add(this.cboPlanets);
-            this.groupBox1.Controls.Add(this.lblHomeWorld);
-            this.groupBox1.Controls.Add(this.txtNickName);
-            this.groupBox1.Controls.Add(this.lblNickName);
-            this.groupBox1.Controls.Add(this.nudDesignation);
-            this.groupBox1.Controls.Add(this.lblDesignation);
-            this.groupBox1.ForeColor = System.Drawing.Color.White;
-            this.groupBox1.Location = new System.Drawing.Point(12, 285);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(447, 254);
-            this.groupBox1.TabIndex = 2;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Add/Edit";
-            // 
-            // btnReset
-            // 
-            this.btnReset.ForeColor = System.Drawing.Color.Black;
-            this.btnReset.Location = new System.Drawing.Point(285, 204);
-            this.btnReset.Name = "btnReset";
-            this.btnReset.Size = new System.Drawing.Size(75, 43);
-            this.btnReset.TabIndex = 19;
-            this.btnReset.Text = "&Reset";
-            this.btnReset.UseVisualStyleBackColor = true;
-            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
-            // 
-            // btnSave
-            // 
-            this.btnSave.ForeColor = System.Drawing.Color.Black;
-            this.btnSave.Location = new System.Drawing.Point(366, 204);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(75, 43);
-            this.btnSave.TabIndex = 18;
-            this.btnSave.Text = "&Save";
-            this.btnSave.UseVisualStyleBackColor = true;
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
-            // 
-            // chkDefective
-            // 
-            this.chkDefective.AutoSize = true;
-            this.chkDefective.Location = new System.Drawing.Point(103, 217);
-            this.chkDefective.Name = "chkDefective";
-            this.chkDefective.Size = new System.Drawing.Size(75, 19);
-            this.chkDefective.TabIndex = 17;
-            this.chkDefective.Text = "Defective";
-            this.chkDefective.UseVisualStyleBackColor = true;
-            // 
-            // btnSetEyeColour
-            // 
-            this.btnSetEyeColour.ForeColor = System.Drawing.Color.Black;
-            this.btnSetEyeColour.Location = new System.Drawing.Point(385, 63);
-            this.btnSetEyeColour.Name = "btnSetEyeColour";
-            this.btnSetEyeColour.Size = new System.Drawing.Size(45, 38);
-            this.btnSetEyeColour.TabIndex = 16;
-            this.btnSetEyeColour.Text = "Set";
-            this.btnSetEyeColour.UseVisualStyleBackColor = true;
-            this.btnSetEyeColour.Click += new System.EventHandler(this.btnSetEyeColour_Click);
-            // 
-            // lblEyeColour
-            // 
-            this.lblEyeColour.BackColor = System.Drawing.Color.Gray;
-            this.lblEyeColour.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.lblEyeColour.Location = new System.Drawing.Point(335, 63);
-            this.lblEyeColour.Name = "lblEyeColour";
-            this.lblEyeColour.Size = new System.Drawing.Size(43, 38);
-            this.lblEyeColour.TabIndex = 15;
-            // 
-            // lblSecondColourLabel
-            // 
-            this.lblSecondColourLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblSecondColourLabel.Location = new System.Drawing.Point(251, 63);
-            this.lblSecondColourLabel.Name = "lblSecondColourLabel";
-            this.lblSecondColourLabel.Size = new System.Drawing.Size(78, 38);
-            this.lblSecondColourLabel.TabIndex = 14;
-            this.lblSecondColourLabel.Text = "Eye Colour";
-            this.lblSecondColourLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // btnSetHairColour
-            // 
-            this.btnSetHairColour.ForeColor = System.Drawing.Color.Black;
-            this.btnSetHairColour.Location = new System.Drawing.Point(385, 19);
-            this.btnSetHairColour.Name = "btnSetHairColour";
-            this.btnSetHairColour.Size = new System.Drawing.Size(45, 38);
-            this.btnSetHairColour.TabIndex = 13;
-            this.btnSetHairColour.Text = "Set";
-            this.btnSetHairColour.UseVisualStyleBackColor = true;
-            this.btnSetHairColour.Click += new System.EventHandler(this.btnSetHairColour_Click);
-            // 
-            // lblHairColour
-            // 
-            this.lblHairColour.BackColor = System.Drawing.Color.Gray;
-            this.lblHairColour.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.lblHairColour.Location = new System.Drawing.Point(335, 19);
-            this.lblHairColour.Name = "lblHairColour";
-            this.lblHairColour.Size = new System.Drawing.Size(43, 38);
-            this.lblHairColour.TabIndex = 12;
-            // 
-            // lblColour1Label
-            // 
-            this.lblColour1Label.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblColour1Label.Location = new System.Drawing.Point(251, 19);
-            this.lblColour1Label.Name = "lblColour1Label";
-            this.lblColour1Label.Size = new System.Drawing.Size(76, 38);
-            this.lblColour1Label.TabIndex = 11;
-            this.lblColour1Label.Text = "Hair Colour";
-            this.lblColour1Label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // txtUnit
-            // 
-            this.txtUnit.Location = new System.Drawing.Point(103, 174);
-            this.txtUnit.Name = "txtUnit";
-            this.txtUnit.Size = new System.Drawing.Size(100, 23);
-            this.txtUnit.TabIndex = 9;
-            // 
-            // lblUnit
-            // 
-            this.lblUnit.AutoSize = true;
-            this.lblUnit.Location = new System.Drawing.Point(21, 177);
-            this.lblUnit.Name = "lblUnit";
-            this.lblUnit.Size = new System.Drawing.Size(29, 15);
-            this.lblUnit.TabIndex = 8;
-            this.lblUnit.Text = "Unit";
-            // 
-            // dtpBorn
-            // 
-            this.dtpBorn.Location = new System.Drawing.Point(103, 133);
-            this.dtpBorn.Name = "dtpBorn";
-            this.dtpBorn.Size = new System.Drawing.Size(163, 23);
-            this.dtpBorn.TabIndex = 7;
-            // 
-            // lblBorn
-            // 
-            this.lblBorn.AutoSize = true;
-            this.lblBorn.Location = new System.Drawing.Point(21, 139);
-            this.lblBorn.Name = "lblBorn";
-            this.lblBorn.Size = new System.Drawing.Size(32, 15);
-            this.lblBorn.TabIndex = 6;
-            this.lblBorn.Text = "Born";
-            // 
-            // cboPlanets
-            // 
-            this.cboPlanets.FormattingEnabled = true;
-            this.cboPlanets.Location = new System.Drawing.Point(103, 98);
-            this.cboPlanets.Name = "cboPlanets";
-            this.cboPlanets.Size = new System.Drawing.Size(121, 23);
-            this.cboPlanets.TabIndex = 5;
-            // 
-            // lblHomeWorld
-            // 
-            this.lblHomeWorld.AutoSize = true;
-            this.lblHomeWorld.Location = new System.Drawing.Point(21, 101);
-            this.lblHomeWorld.Name = "lblHomeWorld";
-            this.lblHomeWorld.Size = new System.Drawing.Size(75, 15);
-            this.lblHomeWorld.TabIndex = 4;
-            this.lblHomeWorld.Text = "Home World";
-            // 
-            // txtNickName
-            // 
-            this.txtNickName.Location = new System.Drawing.Point(103, 60);
-            this.txtNickName.Name = "txtNickName";
-            this.txtNickName.Size = new System.Drawing.Size(100, 23);
-            this.txtNickName.TabIndex = 3;
-            // 
-            // lblNickName
-            // 
-            this.lblNickName.AutoSize = true;
-            this.lblNickName.Location = new System.Drawing.Point(21, 63);
-            this.lblNickName.Name = "lblNickName";
-            this.lblNickName.Size = new System.Drawing.Size(66, 15);
-            this.lblNickName.TabIndex = 2;
-            this.lblNickName.Text = "Nick Name";
-            // 
-            // nudDesignation
-            // 
-            this.nudDesignation.Location = new System.Drawing.Point(103, 23);
-            this.nudDesignation.Maximum = new decimal(new int[] {
-            9999,
-            0,
-            0,
-            0});
-            this.nudDesignation.Name = "nudDesignation";
-            this.nudDesignation.Size = new System.Drawing.Size(85, 23);
-            this.nudDesignation.TabIndex = 1;
-            // 
-            // lblDesignation
-            // 
-            this.lblDesignation.AutoSize = true;
-            this.lblDesignation.Location = new System.Drawing.Point(21, 25);
-            this.lblDesignation.Name = "lblDesignation";
-            this.lblDesignation.Size = new System.Drawing.Size(70, 15);
-            this.lblDesignation.TabIndex = 0;
-            this.lblDesignation.Text = "Designation";
-            // 
             // lblTitleBar
             // 
             this.lblTitleBar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -398,7 +169,7 @@ namespace Week09_MultiForms
             this.lblTitleBar.ForeColor = System.Drawing.Color.White;
             this.lblTitleBar.Location = new System.Drawing.Point(1, 1);
             this.lblTitleBar.Name = "lblTitleBar";
-            this.lblTitleBar.Size = new System.Drawing.Size(933, 35);
+            this.lblTitleBar.Size = new System.Drawing.Size(1066, 47);
             this.lblTitleBar.TabIndex = 3;
             this.lblTitleBar.Text = "Clone Inventory";
             this.lblTitleBar.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -406,53 +177,63 @@ namespace Week09_MultiForms
             // cboUnits
             // 
             this.cboUnits.FormattingEnabled = true;
-            this.cboUnits.Location = new System.Drawing.Point(488, 296);
-            this.cboUnits.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cboUnits.Location = new System.Drawing.Point(14, 355);
             this.cboUnits.Name = "cboUnits";
-            this.cboUnits.Size = new System.Drawing.Size(133, 23);
+            this.cboUnits.Size = new System.Drawing.Size(151, 28);
             this.cboUnits.TabIndex = 4;
+            this.cboUnits.SelectedIndexChanged += new System.EventHandler(this.cboUnits_SelectedIndexChanged);
             // 
             // btnAbout
             // 
             this.btnAbout.BackColor = System.Drawing.Color.Maroon;
             this.btnAbout.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnAbout.ForeColor = System.Drawing.Color.White;
-            this.btnAbout.Location = new System.Drawing.Point(488, 322);
-            this.btnAbout.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnAbout.Location = new System.Drawing.Point(173, 431);
             this.btnAbout.Name = "btnAbout";
-            this.btnAbout.Size = new System.Drawing.Size(115, 53);
+            this.btnAbout.Size = new System.Drawing.Size(131, 71);
             this.btnAbout.TabIndex = 5;
             this.btnAbout.Text = "A&bout";
             this.btnAbout.UseVisualStyleBackColor = false;
             this.btnAbout.Click += new System.EventHandler(this.btnAbout_Click);
             // 
-            // btnSavetoFile
+            // btnAdd
             // 
-            this.btnSavetoFile.BackColor = System.Drawing.Color.Maroon;
-            this.btnSavetoFile.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnSavetoFile.ForeColor = System.Drawing.Color.White;
-            this.btnSavetoFile.Location = new System.Drawing.Point(609, 322);
-            this.btnSavetoFile.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnSavetoFile.Name = "btnSavetoFile";
-            this.btnSavetoFile.Size = new System.Drawing.Size(115, 53);
-            this.btnSavetoFile.TabIndex = 6;
-            this.btnSavetoFile.Text = "&Save to File";
-            this.btnSavetoFile.UseVisualStyleBackColor = false;
-            this.btnSavetoFile.Click += new System.EventHandler(this.btnSavetoFile_Click);
+            this.btnAdd.BackColor = System.Drawing.Color.Maroon;
+            this.btnAdd.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnAdd.ForeColor = System.Drawing.Color.White;
+            this.btnAdd.Location = new System.Drawing.Point(173, 355);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(131, 71);
+            this.btnAdd.TabIndex = 6;
+            this.btnAdd.Text = "&Add";
+            this.btnAdd.UseVisualStyleBackColor = false;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
-            // btnLoad
+            // btnSaveToFile
             // 
-            this.btnLoad.BackColor = System.Drawing.Color.Maroon;
-            this.btnLoad.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnLoad.ForeColor = System.Drawing.Color.White;
-            this.btnLoad.Location = new System.Drawing.Point(609, 379);
-            this.btnLoad.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnLoad.Name = "btnLoad";
-            this.btnLoad.Size = new System.Drawing.Size(115, 53);
-            this.btnLoad.TabIndex = 7;
-            this.btnLoad.Text = "&Load from File";
-            this.btnLoad.UseVisualStyleBackColor = false;
-            this.btnLoad.Click += new System.EventHandler(this.btnLoad_Click);
+            this.btnSaveToFile.BackColor = System.Drawing.Color.Maroon;
+            this.btnSaveToFile.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnSaveToFile.ForeColor = System.Drawing.Color.White;
+            this.btnSaveToFile.Location = new System.Drawing.Point(320, 355);
+            this.btnSaveToFile.Name = "btnSaveToFile";
+            this.btnSaveToFile.Size = new System.Drawing.Size(131, 71);
+            this.btnSaveToFile.TabIndex = 7;
+            this.btnSaveToFile.Text = "&Save to File";
+            this.btnSaveToFile.UseVisualStyleBackColor = false;
+            this.btnSaveToFile.Click += new System.EventHandler(this.btnSaveToFile_Click);
+            // 
+            // btnLoadFromFile
+            // 
+            this.btnLoadFromFile.BackColor = System.Drawing.Color.Maroon;
+            this.btnLoadFromFile.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnLoadFromFile.ForeColor = System.Drawing.Color.White;
+            this.btnLoadFromFile.Location = new System.Drawing.Point(320, 432);
+            this.btnLoadFromFile.Name = "btnLoadFromFile";
+            this.btnLoadFromFile.Size = new System.Drawing.Size(131, 71);
+            this.btnLoadFromFile.TabIndex = 8;
+            this.btnLoadFromFile.Text = "&Load from File";
+            this.btnLoadFromFile.UseVisualStyleBackColor = false;
+            this.btnLoadFromFile.Click += new System.EventHandler(this.btnLoadFromFile_Click);
             // 
             // openFileDialog1
             // 
@@ -466,53 +247,31 @@ namespace Week09_MultiForms
             // 
             // frmMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(935, 558);
-            this.Controls.Add(this.btnLoad);
-            this.Controls.Add(this.btnSavetoFile);
+            this.ClientSize = new System.Drawing.Size(1069, 744);
+            this.Controls.Add(this.btnLoadFromFile);
+            this.Controls.Add(this.btnSaveToFile);
+            this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.btnAbout);
             this.Controls.Add(this.cboUnits);
             this.Controls.Add(this.lblTitleBar);
-            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.dgvClones);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "frmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Droid Factory";
             this.Activated += new System.EventHandler(this.UpdateGrid);
             this.Load += new System.EventHandler(this.frmMain_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvClones)).EndInit();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nudDesignation)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
         private System.Windows.Forms.DataGridView dgvClones;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.ComboBox cboPlanets;
-        private System.Windows.Forms.Label lblHomeWorld;
-        private System.Windows.Forms.TextBox txtNickName;
-        private System.Windows.Forms.Label lblNickName;
-        private System.Windows.Forms.NumericUpDown nudDesignation;
-        private System.Windows.Forms.Label lblDesignation;
-        private System.Windows.Forms.TextBox txtUnit;
-        private System.Windows.Forms.Label lblUnit;
-        private System.Windows.Forms.DateTimePicker dtpBorn;
-        private System.Windows.Forms.Label lblBorn;
-        private System.Windows.Forms.Button btnSetEyeColour;
-        private System.Windows.Forms.Label lblEyeColour;
-        private System.Windows.Forms.Label lblSecondColourLabel;
-        private System.Windows.Forms.Button btnSetHairColour;
-        private System.Windows.Forms.Label lblHairColour;
-        private System.Windows.Forms.Label lblColour1Label;
-        private System.Windows.Forms.Button btnReset;
-        private System.Windows.Forms.Button btnSave;
-        private System.Windows.Forms.CheckBox chkDefective;
         private System.Windows.Forms.Label lblTitleBar;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.ComboBox cboUnits;
@@ -525,11 +284,11 @@ namespace Week09_MultiForms
         private System.Windows.Forms.DataGridViewTextBoxColumn colHairColor;
         private System.Windows.Forms.DataGridViewTextBoxColumn colEyeColor;
         private System.Windows.Forms.Button btnAbout;
-        private System.Windows.Forms.Button btnSavetoFile;
-        private System.Windows.Forms.Button btnLoad;
+        private System.Windows.Forms.Button btnAdd;
+        private System.Windows.Forms.Button btnSaveToFile;
+        private System.Windows.Forms.Button btnLoadFromFile;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
-        private System.Windows.Forms.ColorDialog colorDialog1;
     }
 }
 

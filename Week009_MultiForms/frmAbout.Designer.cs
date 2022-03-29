@@ -36,9 +36,9 @@ namespace Week09_MultiForms
             // 
             // lblAboutLabel
             // 
-            this.lblAboutLabel.Location = new System.Drawing.Point(13, 13);
+            this.lblAboutLabel.Location = new System.Drawing.Point(11, 10);
             this.lblAboutLabel.Name = "lblAboutLabel";
-            this.lblAboutLabel.Size = new System.Drawing.Size(356, 86);
+            this.lblAboutLabel.Size = new System.Drawing.Size(312, 64);
             this.lblAboutLabel.TabIndex = 0;
             this.lblAboutLabel.Text = "This project was a demonstration project about\r\ngeneric listsand then about openn" +
     "ing \r\nmultiple forms and sending data back and forth.";
@@ -46,19 +46,20 @@ namespace Week09_MultiForms
             // label1
             // 
             this.label1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label1.Location = new System.Drawing.Point(12, 99);
+            this.label1.Location = new System.Drawing.Point(10, 74);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(356, 94);
+            this.label1.Size = new System.Drawing.Size(312, 70);
             this.label1.TabIndex = 1;
-            this.label1.Text = "Author: Clint MacDonald\r\nStudentID: 100######\r\nDate: March 15, 2022\r\nTitle: Week " +
-    "09 - Class Demo";
+            this.label1.Text = "Author: Martin Barber\r\nStudentID: 100368442\r\nDate: March 15, 2022\r\nTitle: Week 09" +
+    " - Class Demo";
             // 
             // btnExit
             // 
             this.btnExit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnExit.Location = new System.Drawing.Point(263, 204);
+            this.btnExit.Location = new System.Drawing.Point(230, 153);
+            this.btnExit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(94, 29);
+            this.btnExit.Size = new System.Drawing.Size(82, 22);
             this.btnExit.TabIndex = 2;
             this.btnExit.Text = "E&xit";
             this.btnExit.UseVisualStyleBackColor = true;
@@ -66,14 +67,15 @@ namespace Week09_MultiForms
             // 
             // frmAbout
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(371, 245);
+            this.ClientSize = new System.Drawing.Size(325, 184);
             this.ControlBox = false;
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lblAboutLabel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "frmAbout";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "About Trooper Factory";

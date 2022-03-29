@@ -52,7 +52,6 @@ namespace Week09_MultiForms
             this.btnReset = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnSaveExit = new System.Windows.Forms.Button();
-            this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudDesignation)).BeginInit();
             this.SuspendLayout();
@@ -124,7 +123,6 @@ namespace Week09_MultiForms
             this.btnSetEyeColour.TabIndex = 16;
             this.btnSetEyeColour.Text = "Set";
             this.btnSetEyeColour.UseVisualStyleBackColor = true;
-            this.btnSetEyeColour.Click += new System.EventHandler(this.btnSetEyeColour_Click);
             // 
             // lblEyeColour
             // 
@@ -154,7 +152,6 @@ namespace Week09_MultiForms
             this.btnSetHairColour.TabIndex = 13;
             this.btnSetHairColour.Text = "Set";
             this.btnSetHairColour.UseVisualStyleBackColor = true;
-            this.btnSetHairColour.Click += new System.EventHandler(this.btnSetHairColour_Click);
             // 
             // lblHairColour
             // 
@@ -309,7 +306,6 @@ namespace Week09_MultiForms
             this.ForeColor = System.Drawing.Color.White;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "frmAddEdit";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmAddEdit";
             this.Load += new System.EventHandler(this.frmAddEdit_Load);
             this.groupBox1.ResumeLayout(false);
@@ -345,6 +341,5 @@ namespace Week09_MultiForms
         private System.Windows.Forms.Button btnReset;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnSaveExit;
-        private System.Windows.Forms.ColorDialog colorDialog1;
     }
 }

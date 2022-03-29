@@ -18,11 +18,11 @@ namespace Week09_MultiForms
         }
 
         #region GLOBAL VARS
-        List<String> Planets = new List<String>();
-
         public static List<Trooper> Troopers = new List<Trooper>();
+        public static List<String> Units = new List<String>();
 
         Boolean DoSelectionChange = true;
+        Boolean DoUnitUpdate = true;
         #endregion
 
         #region EVENT HANDLERS
@@ -33,65 +33,17 @@ namespace Week09_MultiForms
         /// <param name="e"></param>
         private void frmMain_Load(object sender, EventArgs e)
         {
-            PopulatePlanets();
-            cboPlanets.DataSource = Planets;
             //Troopers = Trooper.GetSampleTroopers();
             DoSelectionChange = false;
             PopulateTroopers();
             DoSelectionChange = true;
         }
 
-        private void btnSetHairColour_Click(object sender, EventArgs e)
-        {
-            colorDialog1.ShowDialog();
-            lblHairColour.BackColor = colorDialog1.Color;
-        }
-
-        private void btnSetEyeColour_Click(object sender, EventArgs e)
-        {
-            colorDialog1.ShowDialog();
-            lblEyeColour.BackColor = colorDialog1.Color;
-        }
-
-        private void btnReset_Click(object sender, EventArgs e)
-        {
-            SetDefaults();
-        }
 
         #endregion
 
         #region CUSTOM METHODS
-        private void PopulatePlanets()
-        {
-            Planets.Add("Alderaan");
-            Planets.Add("Bespin");
-            Planets.Add("Coruscant");
-            Planets.Add("Dagobah");
-            Planets.Add("Endor");
-            Planets.Add("Geonosis");
-            Planets.Add("Hoth");
-            Planets.Add("Jakku");
-            Planets.Add("Kamino");
-            Planets.Add("Mandalore");
-            Planets.Add("Mustafar");
-            Planets.Add("Naboo");
-            Planets.Add("Scarif");
-            Planets.Add("Tatooine");
-            Planets.Add("Yavin");
-        }
-
-        private void SetDefaults()
-        {
-            lblHairColour.BackColor = Color.Gray;
-            lblEyeColour.BackColor = Color.Gray;
-            txtNickName.Clear();
-            txtUnit.Clear();
-            cboPlanets.SelectedIndex = -1;
-            dtpBorn.Value = DateTime.Now;
-            nudDesignation.Value = 0;
-            chkDefective.Checked = false;
-        }
-
+        
         private void PopulateTroopers()
         {
             this.dgvClones.ClearSelection();
@@ -101,34 +53,18 @@ namespace Week09_MultiForms
 
             dgvClones.Columns[2].Width = 250;
 
-            this.cboUnits.DataSource = null;
-            this.cboUnits.DataSource = Trooper.GetUniqueUnits(Troopers);
-
+            if (DoUnitUpdate) PopulateUnits();
         }
         #endregion
-
         
-        private void btnSave_Click(object sender, EventArgs e)
+        private void PopulateUnits()
         {
-            Trooper t = new Trooper();
-            t.Designation = decimal.ToInt32(this.nudDesignation.Value);
-            t.NickName = this.txtNickName.Text.Trim();
-            t.Unit = this.txtUnit.Text.Trim();
-            t.IsDefective = this.chkDefective.Checked;
-            t.HairColor = this.lblHairColour.BackColor;
-            t.EyeColor = this.lblEyeColour.BackColor;
-            t.HomeWorld = this.cboPlanets.SelectedValue.ToString();
-            t.Born = this.dtpBorn.Value;
+            Units.Clear();
+            Units.Add("Show All");
+            Units.AddRange(Trooper.GetUniqueUnits(Troopers));
 
-            if (Trooper.TrooperExists(Troopers, t.Designation))
-            {
-                Trooper FoundTrooper = Trooper.FindTrooper(Troopers, t.Designation);
-                Troopers.Remove(FoundTrooper);
-            }
-
-            Troopers.Add(t);
-            PopulateTroopers();
-            SetDefaults();
+            this.cboUnits.DataSource = null;
+            this.cboUnits.DataSource = Units;
         }
 
         private void dgvClone_SelectionChanged(object sender, EventArgs e)
@@ -137,32 +73,14 @@ namespace Week09_MultiForms
             {
                 int selectedDesignation = Convert.ToInt32(dgvClones.SelectedRows[0].Cells[0].Value);
                 Trooper t = Trooper.FindTrooper(Troopers, selectedDesignation);
-                PopulateTrooper(t);
 
                 if (DoSelectionChange)
                 {
                     frmAddEdit newF = new frmAddEdit(t);
                     newF.ShowDialog();
                     newF.Dispose();
-                    
                 }
-
-            } else
-            {
-                SetDefaults();
-            }
-        }
-
-        private void PopulateTrooper(Trooper t)
-        {
-            this.nudDesignation.Value = t.Designation;
-            this.txtNickName.Text = t.NickName;
-            this.txtUnit.Text = t.Unit;
-            this.chkDefective.Checked = t.IsDefective;
-            this.lblHairColour.BackColor = t.HairColor;
-            this.lblEyeColour.BackColor = t.EyeColor;
-            this.cboPlanets.SelectedItem = t.HomeWorld;
-            this.dtpBorn.Value = t.Born;
+            } 
         }
 
         private void btnAbout_Click(object sender, EventArgs e)
@@ -179,27 +97,51 @@ namespace Week09_MultiForms
             DoSelectionChange = true;
         }
 
-        private void btnSavetoFile_Click(object sender, EventArgs e)
+        private void btnAdd_Click(object sender, EventArgs e)
         {
-            string fileName = string.Empty;
+            frmAddEdit frmNew = new frmAddEdit();
+            frmNew.ShowDialog();
+            frmNew.Dispose();
+        }
 
-            if (saveFileDialog1.ShowDialog() == DialogResult.OK) // OK means save, there is no save name, save = OK
+        private void cboUnits_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            DoSelectionChange = false;
+            if (cboUnits.SelectedIndex > 0)
             {
-                fileName = saveFileDialog1.FileName;
-                Trooper.FileWrite(Troopers, fileName);
+                
+                String selectedUnit = cboUnits.SelectedValue.ToString();
+                this.dgvClones.DataSource = null;
+                this.dgvClones.DataSource = Trooper.GetUnitTroopers(Troopers, selectedUnit);
+                
+            }
+            else if (cboUnits.SelectedIndex == 0)
+            {
+                DoUnitUpdate = false;
+                PopulateTroopers();
+                DoUnitUpdate = true;
+            } else { }
+            DoSelectionChange = true;
+        }
+
+        private void btnSaveToFile_Click(object sender, EventArgs e)
+        {
+            if(saveFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                Trooper.FileWrite(Troopers, saveFileDialog1.FileName);
                 MessageBox.Show("Save Complete", "Save Confirmation", MessageBoxButtons.OK);
             }
 
-                //MessageBox.Show(saveFileDialog1.FileName);
+            //MessageBox.Show(saveFileDialog1.FileName);
+
         }
 
-        private void btnLoad_Click(object sender, EventArgs e)
+        private void btnLoadFromFile_Click(object sender, EventArgs e)
         {
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
                 Troopers.Clear();
                 Troopers = Trooper.LoadFromCSV(openFileDialog1.FileName);
-
                 DoSelectionChange = false;
                 PopulateTroopers();
                 DoSelectionChange = true;
