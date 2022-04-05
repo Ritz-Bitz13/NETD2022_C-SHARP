@@ -37,6 +37,7 @@ namespace Week09_MultiForms
             DoSelectionChange = false;
             PopulateTroopers();
             DoSelectionChange = true;
+            SetSaveStatus(true);
         }
 
 
@@ -54,9 +55,30 @@ namespace Week09_MultiForms
             dgvClones.Columns[2].Width = 250;
 
             if (DoUnitUpdate) PopulateUnits();
+
         }
-        #endregion
-        
+
+        private void SaveToFile(Boolean saveAs)
+        {
+            //TODO: SaveAs with existing filename
+            if (!saveAs && ssFileName.Text.Length > 4)
+            {
+                Trooper.FileWrite(Troopers, ssFileName.Text); // If we have a file name we will use the name of that file
+                MessageBox.Show("Save Complete", "Save Confirmation", MessageBoxButtons.OK);
+            }
+            else
+            {
+                // If we do not have a file name, then it will create one
+                if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+                {
+                    Trooper.FileWrite(Troopers, saveFileDialog1.FileName);
+                    MessageBox.Show("Save Complete", "Save Confirmation", MessageBoxButtons.OK);
+                    this.ssFileName.Text = saveFileDialog1.FileName;
+                }
+            }
+            SetSaveStatus(true);
+        }
+
         private void PopulateUnits()
         {
             Units.Clear();
@@ -66,6 +88,22 @@ namespace Week09_MultiForms
             this.cboUnits.DataSource = null;
             this.cboUnits.DataSource = Units;
         }
+
+        private void SetSaveStatus(Boolean isSaved)
+        {
+            if (isSaved)
+            {
+                this.ssSaveStatus.BackColor = Color.Green;
+                this.ssSaveStatus.Text = "Saved";
+            }
+            else
+            {
+                this.ssSaveStatus.BackColor = Color.Red;
+                this.ssSaveStatus.Text = "Edited";
+            }
+        }
+
+        #endregion
 
         private void dgvClone_SelectionChanged(object sender, EventArgs e)
         {
@@ -79,15 +117,9 @@ namespace Week09_MultiForms
                     frmAddEdit newF = new frmAddEdit(t);
                     newF.ShowDialog();
                     newF.Dispose();
+                    SetSaveStatus(false);   // TODO: HANDLE CANCEL BUTTON
                 }
             } 
-        }
-
-        private void btnAbout_Click(object sender, EventArgs e)
-        {
-            frmAbout newForm = new frmAbout();
-            newForm.ShowDialog();
-            newForm.Dispose();
         }
 
         private void UpdateGrid(object sender, EventArgs e)
@@ -95,13 +127,6 @@ namespace Week09_MultiForms
             DoSelectionChange = false;
             PopulateTroopers();
             DoSelectionChange = true;
-        }
-
-        private void btnAdd_Click(object sender, EventArgs e)
-        {
-            frmAddEdit frmNew = new frmAddEdit();
-            frmNew.ShowDialog();
-            frmNew.Dispose();
         }
 
         private void cboUnits_SelectedIndexChanged(object sender, EventArgs e)
@@ -120,23 +145,45 @@ namespace Week09_MultiForms
                 DoUnitUpdate = false;
                 PopulateTroopers();
                 DoUnitUpdate = true;
-            } else { }
+            } 
+            else { }
+
             DoSelectionChange = true;
         }
 
-        private void btnSaveToFile_Click(object sender, EventArgs e)
+        #region MenuItems
+        private void msHelpAbout_Click(object sender, EventArgs e)
         {
-            if(saveFileDialog1.ShowDialog() == DialogResult.OK)
-            {
-                Trooper.FileWrite(Troopers, saveFileDialog1.FileName);
-                MessageBox.Show("Save Complete", "Save Confirmation", MessageBoxButtons.OK);
-            }
-
-            //MessageBox.Show(saveFileDialog1.FileName);
-
+            frmAbout newForm = new frmAbout();
+            newForm.ShowDialog();
+            newForm.Dispose();
         }
 
-        private void btnLoadFromFile_Click(object sender, EventArgs e)
+        private void msFileSave_Click(object sender, EventArgs e)
+        {
+            SaveToFile(false);
+        }
+        
+        private void msFileSaveAs_Click(object sender, EventArgs e)
+        {
+            SaveToFile(true);
+        }
+
+        private void msFileClose_Click(object sender, EventArgs e)
+        {
+            Troopers.Clear();
+            DoSelectionChange = false;
+            PopulateTroopers();
+            DoSelectionChange = true;
+            SetSaveStatus(true);
+            ssFileName.Text = "--";
+        }
+
+        private void msFileExit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+        private void msFileOpen_Click(object sender, EventArgs e)
         {
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
@@ -145,7 +192,21 @@ namespace Week09_MultiForms
                 DoSelectionChange = false;
                 PopulateTroopers();
                 DoSelectionChange = true;
+
+                this.ssFileName.Text = openFileDialog1.FileName;  // User can see the file name with this code.
+                SetSaveStatus(true);
             }
         }
+        private void msFileAddTrooper_Click(object sender, EventArgs e)
+        {
+            frmAddEdit frmNew = new frmAddEdit();
+            frmNew.ShowDialog();
+            frmNew.Dispose();
+            SetSaveStatus(false);  //TODO: HANDLE CANCEL BUTTON
+        }
+
+        #endregion
+
+       
     }
 }
