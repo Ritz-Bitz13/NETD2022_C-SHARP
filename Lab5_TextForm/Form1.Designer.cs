@@ -180,6 +180,11 @@ namespace Lab5_TextForm
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
+            this.openFileDialog1.Filter = "Text Files|*.txt";
+            // 
+            // saveFileDialog1
+            // 
+            this.saveFileDialog1.Filter = "Text Files|*.txt";
             // 
             // statusStrip1
             // 
@@ -217,6 +222,7 @@ namespace Lab5_TextForm
             this.txtInformation.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.txtInformation.Size = new System.Drawing.Size(800, 398);
             this.txtInformation.TabIndex = 1;
+            this.toolTip1.SetToolTip(this.txtInformation, "This is where you type your information");
             this.txtInformation.TextChanged += new System.EventHandler(this.EditedText);
             // 
             // frmMain

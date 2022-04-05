@@ -67,11 +67,11 @@ namespace Lab5_TextForm
         /// <param name="e"></param>
         private void msFileSave_Click(object sender, EventArgs e)
         {
-            Document.Clear();
+            Document.Clear(); // clears the list
             Information t = new Information();
             t.Info = this.txtInformation.Text.Trim();
-            Document.Add(t);
-            SaveToFile(false);
+            Document.Add(t); // adds the file to the list
+            SaveToFile(false); // Set the savetofile is red
         }
         #endregion
 
@@ -118,7 +118,7 @@ namespace Lab5_TextForm
 
         #endregion
 
-        #region EDIT BUTTON
+        #region EDIT BUTTONS
 
         #region Copy
         /// <summary>
@@ -128,7 +128,7 @@ namespace Lab5_TextForm
         /// <param name="e"></param>
         private void msEditCopy_Click(object sender, EventArgs e)
         {
-            if (txtInformation.SelectionLength > 0)
+            if (txtInformation.SelectionLength > 0) // If the user has selected text
             {
                 txtInformation.Copy(); //This will copy the selected information
             }
@@ -143,7 +143,7 @@ namespace Lab5_TextForm
         /// <param name="e"></param>
         private void msEditCut_Click(object sender, EventArgs e)
         {
-            if (txtInformation.SelectionLength > 0)
+            if (txtInformation.SelectionLength > 0) // If the user has selected text
             {
                 txtInformation.Cut(); // This will cut the selected information
             }
@@ -172,7 +172,7 @@ namespace Lab5_TextForm
         /// <param name="e"></param>
         private void msHelpAbout_Click(object sender, EventArgs e)
         {
-            frmAbout newForm = new frmAbout();
+            frmAbout newForm = new frmAbout(); // Brings up the about form
             newForm.ShowDialog();
             newForm.Dispose();
         }
@@ -189,13 +189,13 @@ namespace Lab5_TextForm
         {
             if (isSaved)
             {
-                this.ssSaveStatus.BackColor = Color.Lime;
-                this.ssSaveStatus.Text = "Saved";
+                this.ssSaveStatus.BackColor = Color.Lime; // Green background
+                this.ssSaveStatus.Text = "Saved"; // Show the file has been saved
             }
             else
             {
-                this.ssSaveStatus.BackColor = Color.Red;
-                this.ssSaveStatus.Text = "Edited";
+                this.ssSaveStatus.BackColor = Color.Red; // Red background
+                this.ssSaveStatus.Text = "Edited"; // Show the file has changes without being saved
             }
         }
         #endregion
