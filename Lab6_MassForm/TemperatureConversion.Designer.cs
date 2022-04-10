@@ -1,7 +1,7 @@
 ﻿
-namespace Demo01_Temperature_Converter
+namespace Lab6_MassForm
 {
-    partial class formMain
+    partial class frmTemperature
     {
         /// <summary>
         ///  Required designer variable.
@@ -121,7 +121,7 @@ namespace Demo01_Temperature_Converter
             // labelUnits
             // 
             this.labelUnits.AutoSize = true;
-            this.labelUnits.Location = new System.Drawing.Point(402, 87);
+            this.labelUnits.Location = new System.Drawing.Point(402, 85);
             this.labelUnits.Name = "labelUnits";
             this.labelUnits.Size = new System.Drawing.Size(12, 15);
             this.labelUnits.TabIndex = 8;
@@ -145,11 +145,11 @@ namespace Demo01_Temperature_Converter
             this.buttonExit.Name = "buttonExit";
             this.buttonExit.Size = new System.Drawing.Size(75, 51);
             this.buttonExit.TabIndex = 10;
-            this.buttonExit.Text = "E&xit";
+            this.buttonExit.Text = "C&lose";
             this.buttonExit.UseVisualStyleBackColor = true;
             this.buttonExit.Click += new System.EventHandler(this.buttonExit_Click);
             // 
-            // formMain
+            // frmTemperature
             // 
             this.AcceptButton = this.buttonConvert;
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -167,8 +167,9 @@ namespace Demo01_Temperature_Converter
             this.Controls.Add(this.textInputTemp);
             this.Controls.Add(this.labelInputTemp);
             this.Controls.Add(this.labelTitle);
+            this.MaximumSize = new System.Drawing.Size(455, 230);
             this.MinimumSize = new System.Drawing.Size(455, 230);
-            this.Name = "formMain";
+            this.Name = "frmTemperature";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Temperature Convertor";
             this.ResumeLayout(false);

@@ -58,6 +58,7 @@ namespace Lab6_MassForm
             this.msViewStatusBar = new System.Windows.Forms.ToolStripMenuItem();
             this.msTools = new System.Windows.Forms.ToolStripMenuItem();
             this.msToolsOptions = new System.Windows.Forms.ToolStripMenuItem();
+            this.smToolsTemperature = new System.Windows.Forms.ToolStripMenuItem();
             this.msWindows = new System.Windows.Forms.ToolStripMenuItem();
             this.msWindowsNewWindow = new System.Windows.Forms.ToolStripMenuItem();
             this.msWindowsCascade = new System.Windows.Forms.ToolStripMenuItem();
@@ -73,6 +74,7 @@ namespace Lab6_MassForm
             this.msHelpAbout = new System.Windows.Forms.ToolStripMenuItem();
             this.msWeeklyCases = new System.Windows.Forms.ToolStripMenuItem();
             this.msContactTracing = new System.Windows.Forms.ToolStripMenuItem();
+            this.msTextFiles = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip = new System.Windows.Forms.ToolStrip();
             this.tsNewFile = new System.Windows.Forms.ToolStripButton();
             this.tsOpen = new System.Windows.Forms.ToolStripButton();
@@ -83,9 +85,8 @@ namespace Lab6_MassForm
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.tsHelp = new System.Windows.Forms.ToolStripButton();
             this.statusStrip = new System.Windows.Forms.StatusStrip();
-            this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
+            this.ssStatus = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.msTextFiles = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.toolStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
@@ -107,7 +108,7 @@ namespace Lab6_MassForm
             this.menuStrip.MdiWindowListItem = this.msWindows;
             this.menuStrip.Name = "menuStrip";
             this.menuStrip.Padding = new System.Windows.Forms.Padding(7, 2, 0, 2);
-            this.menuStrip.Size = new System.Drawing.Size(865, 24);
+            this.menuStrip.Size = new System.Drawing.Size(876, 24);
             this.menuStrip.TabIndex = 0;
             this.menuStrip.Text = "MenuStrip";
             // 
@@ -324,7 +325,8 @@ namespace Lab6_MassForm
             // msTools
             // 
             this.msTools.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.msToolsOptions});
+            this.msToolsOptions,
+            this.smToolsTemperature});
             this.msTools.Name = "msTools";
             this.msTools.Size = new System.Drawing.Size(46, 20);
             this.msTools.Text = "&Tools";
@@ -332,8 +334,15 @@ namespace Lab6_MassForm
             // msToolsOptions
             // 
             this.msToolsOptions.Name = "msToolsOptions";
-            this.msToolsOptions.Size = new System.Drawing.Size(116, 22);
+            this.msToolsOptions.Size = new System.Drawing.Size(203, 22);
             this.msToolsOptions.Text = "&Options";
+            // 
+            // smToolsTemperature
+            // 
+            this.smToolsTemperature.Name = "smToolsTemperature";
+            this.smToolsTemperature.Size = new System.Drawing.Size(203, 22);
+            this.smToolsTemperature.Text = "Temperature Conversion";
+            this.smToolsTemperature.Click += new System.EventHandler(this.smToolsTemperature_Click);
             // 
             // msWindows
             // 
@@ -451,6 +460,13 @@ namespace Lab6_MassForm
             this.msContactTracing.Text = "Contact Tracing";
             this.msContactTracing.Click += new System.EventHandler(this.msContactTracing_Click);
             // 
+            // msTextFiles
+            // 
+            this.msTextFiles.Name = "msTextFiles";
+            this.msTextFiles.Size = new System.Drawing.Size(66, 20);
+            this.msTextFiles.Text = "Text Files";
+            this.msTextFiles.Click += new System.EventHandler(this.msTextFiles_Click);
+            // 
             // toolStrip
             // 
             this.toolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -464,7 +480,7 @@ namespace Lab6_MassForm
             this.tsHelp});
             this.toolStrip.Location = new System.Drawing.Point(0, 24);
             this.toolStrip.Name = "toolStrip";
-            this.toolStrip.Size = new System.Drawing.Size(865, 25);
+            this.toolStrip.Size = new System.Drawing.Size(876, 25);
             this.toolStrip.TabIndex = 1;
             this.toolStrip.Text = "ToolStrip";
             // 
@@ -541,32 +557,25 @@ namespace Lab6_MassForm
             // statusStrip
             // 
             this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripStatusLabel});
-            this.statusStrip.Location = new System.Drawing.Point(0, 660);
+            this.ssStatus});
+            this.statusStrip.Location = new System.Drawing.Point(0, 644);
             this.statusStrip.Name = "statusStrip";
             this.statusStrip.Padding = new System.Windows.Forms.Padding(1, 0, 16, 0);
-            this.statusStrip.Size = new System.Drawing.Size(865, 22);
+            this.statusStrip.Size = new System.Drawing.Size(876, 22);
             this.statusStrip.TabIndex = 2;
             this.statusStrip.Text = "StatusStrip";
             // 
-            // toolStripStatusLabel
+            // ssStatus
             // 
-            this.toolStripStatusLabel.Name = "toolStripStatusLabel";
-            this.toolStripStatusLabel.Size = new System.Drawing.Size(39, 17);
-            this.toolStripStatusLabel.Text = "Status";
-            // 
-            // msTextFiles
-            // 
-            this.msTextFiles.Name = "msTextFiles";
-            this.msTextFiles.Size = new System.Drawing.Size(66, 20);
-            this.msTextFiles.Text = "Text Files";
-            this.msTextFiles.Click += new System.EventHandler(this.msTextFiles_Click);
+            this.ssStatus.Name = "ssStatus";
+            this.ssStatus.Size = new System.Drawing.Size(39, 17);
+            this.ssStatus.Text = "Status";
             // 
             // frmParent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(865, 682);
+            this.ClientSize = new System.Drawing.Size(876, 666);
             this.Controls.Add(this.statusStrip);
             this.Controls.Add(this.toolStrip);
             this.Controls.Add(this.menuStrip);
@@ -601,7 +610,7 @@ namespace Lab6_MassForm
         private System.Windows.Forms.ToolStripMenuItem msFilePrintSetup;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator7;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator8;
-        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel;
+        private System.Windows.Forms.ToolStripStatusLabel ssStatus;
         private System.Windows.Forms.ToolStripMenuItem msHelpAbout;
         private System.Windows.Forms.ToolStripMenuItem msWIndowsTileHorizontal;
         private System.Windows.Forms.ToolStripMenuItem msFile;
@@ -644,6 +653,7 @@ namespace Lab6_MassForm
         private System.Windows.Forms.ToolStripMenuItem msWeeklyCases;
         private System.Windows.Forms.ToolStripMenuItem msContactTracing;
         private System.Windows.Forms.ToolStripMenuItem msTextFiles;
+        private System.Windows.Forms.ToolStripMenuItem smToolsTemperature;
     }
 }
 

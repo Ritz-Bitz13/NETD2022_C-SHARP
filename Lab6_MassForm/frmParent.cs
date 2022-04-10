@@ -169,5 +169,13 @@ namespace Lab6_MassForm
             frm.Show(); // This will show the form but allow you to go off the form
             frm.Focus();
         }
+
+        private void smToolsTemperature_Click(object sender, EventArgs e)
+        {
+            frmTemperature frm = new frmTemperature(); //refrencing the listtropopers form 'Get'
+            frm.MdiParent = this; // Make this the current form
+            frm.Show(); // This will show the form but allow you to go off the form
+            frm.Focus();
+        }
     }
 }
