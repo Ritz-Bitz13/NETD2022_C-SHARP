@@ -1,5 +1,5 @@
 ﻿
-namespace Lab5_TextForm
+namespace Lab6_MassForm
 {
     partial class frmAbout
     {
@@ -35,7 +35,7 @@ namespace Lab5_TextForm
             // 
             // btnAccept
             // 
-            this.btnAccept.Location = new System.Drawing.Point(130, 198);
+            this.btnAccept.Location = new System.Drawing.Point(130, 208);
             this.btnAccept.Name = "btnAccept";
             this.btnAccept.Size = new System.Drawing.Size(75, 23);
             this.btnAccept.TabIndex = 0;
@@ -46,28 +46,28 @@ namespace Lab5_TextForm
             // textBox1
             // 
             this.textBox1.BackColor = System.Drawing.Color.White;
-            this.textBox1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.textBox1.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.textBox1.Location = new System.Drawing.Point(12, 12);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
             this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(193, 180);
+            this.textBox1.Size = new System.Drawing.Size(193, 190);
             this.textBox1.TabIndex = 1;
-            this.textBox1.Text = "\r\nNETD 2201\r\n\r\nMartin Barber &\r\nMichael Parisi\r\n100368442 / 100xxxxxxx\r\n\r\nLab 6: " +
-    "MultiForm Labs\r\n";
+            this.textBox1.Text = "NETD 2201\r\n\r\nMartin Barber\r\n100368442\r\n&\r\nMichael Parisi\r\n100xxxxxx\r\n\r\nLab 6: Mul" +
+    "tiForms";
             this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // frmAbout
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(217, 233);
+            this.ClientSize = new System.Drawing.Size(217, 238);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.btnAccept);
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(233, 272);
+            this.MaximumSize = new System.Drawing.Size(233, 277);
             this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(233, 272);
+            this.MinimumSize = new System.Drawing.Size(233, 277);
             this.Name = "frmAbout";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "About";

@@ -32,248 +32,41 @@ namespace Lab_1_Cases
         }
 
         #region Public Variables
-        // Making a public variable so when the number is entered it stores the information for later.
-        public int CASESCOUNT1, CASESCOUNT2, CASESCOUNT3, CASESCOUNT4, CASESCOUNT5, CASESCOUNT6, CASESCOUNT7;
+        const int MaxCaseLimit = 7;
+        int[] Cases = new int[MaxCaseLimit];
+        int counter = 0;
         #endregion
 
         #region Enter Click Button
         private void btnEnter_Click(object sender, EventArgs e)
         {
-            #region Day 1
-            // Checks to see how many Items are in the list Box.
-            if (lbxWeeklyCases.Items.Count == 0)
+            int cases;
+            lblAverageCases.Text = ""; // clears the label
+            if (Validation())
             {
-                // Checks to see if the input in the text box is a number or anything else. If anything else, it will fail and show a message box
-                // If the check passes, Store the value given into a global variable to be used at the end for average
-                if (int.TryParse(txtCases.Text.Trim(), out CASESCOUNT1))
-                {
-                    // checks if the number now checked is a positive number
-                    if (CASESCOUNT1 >= 0)
-                    {
-                        // Adds item to the Listbox
-                        lbxWeeklyCases.Items.Add(CASESCOUNT1);
-                        //Resets the txtbox & focuses it
-                        ResetInput();
-                        // changes the label in top right to the next day
-                        lblDay.Text = "Day: Monday";
-                    }
-                    else
-                        // show a messagebox that says the number is invalid because its negative
-                        MessageBox.Show("Invalid Number. Please enter a number 0 or greater");
-                        ResetInput();
-                }
-                
-                else
-                {
-                    // show a messagebox and clear the information if the input is invalid
-                    MessageBox.Show("Invalid input. Please enter a number");
-                    ResetInput();
-                }
+                cases = int.Parse(txtCases.Text.Trim());
+                Cases[counter] = cases; // add the number to the array.
+                lbxWeeklyCases.Items.Add(cases); // adds the number from the textbox to the listbox
+                ResetInput();
+                counter++; // adds to the counter for the array / day counter
+                if (counter < MaxCaseLimit)
+                    lblDay.Text = "Day: " + (counter + 1); // adds a day to the counter
             }
-            #endregion
-            #region Day 2
-            // Checks to see how many Items are in the list Box.
-            else if (lbxWeeklyCases.Items.Count == 1)
-            {
-                // Checks to see if the input in the text box is a number or anything else. If anything else, it will fail and show a message box
-                // If the check passes, Store the value given into a global variable to be used at the end for average
-                if (int.TryParse(txtCases.Text.Trim(), out CASESCOUNT2))
-                {
-                    // checks if the number now checked is a positive number
-                    if (CASESCOUNT2 >= 0)
-                    {
-                        // Adds item to the Listbox
-                        lbxWeeklyCases.Items.Add(CASESCOUNT2);
-                        //Resets the txtbox & focuses it
-                        ResetInput();
-                        // changes the label in top right to the next day
-                        lblDay.Text = "Day: Tuesday";
-                    }
-                    else
-                        // show a messagebox that says the number is invalid because its negative
-                        MessageBox.Show("Invalid Number. Please enter a number 0 or greater");
-                        ResetInput();
-                }
 
-                else
-                {
-                    // show a messagebox and clear the information if the input is invalid
-                    MessageBox.Show("Invalid input. Please enter a number");
-                    ResetInput();
-                }
-            }
-            #endregion
-            #region Day 3
-            // Checks to see how many Items are in the list Box.
-            else if (lbxWeeklyCases.Items.Count == 2)
+            if (counter == MaxCaseLimit)
             {
-                // Checks to see if the input in the text box is a number or anything else. If anything else, it will fail and show a message box
-                // If the check passes, Store the value given into a global variable to be used at the end for average
-                if (int.TryParse(txtCases.Text.Trim(), out CASESCOUNT3))
+                int total = 0;
+                double average = 0;
+                btnEnter.Enabled = false; // disable the button
+                txtCases.Enabled = false; // The textbox becomes disabled so you cant type into it
+                for (int a = 0; a < MaxCaseLimit; a++)
                 {
-                    // checks if the number now checked is a positive number
-                    if (CASESCOUNT3 >= 0)
-                    {
-                        // Adds item to the Listbox
-                        lbxWeeklyCases.Items.Add(CASESCOUNT3);
-                        //Resets the txtbox & focuses it
-                        ResetInput();
-                        // changes the label in top right to the next day
-                        lblDay.Text = "Day: Wednesday";
-                    }
-                    else
-                        // show a messagebox that says the number is invalid because its negative
-                        MessageBox.Show("Invalid Number. Please enter a number 0 or greater");
-                        ResetInput();
+                    total += Cases[a]; //run a for loop to add all the numbers from the array together
                 }
-
-                else
-                {
-                    // show a messagebox and clear the information if the input is invalid
-                    MessageBox.Show("Invalid input. Please enter a number");
-                    ResetInput();
-                }
+                average = (double)total / MaxCaseLimit; // calculates the average.
+                average = Math.Round(average, 2); // Round to 2 decimal places
+                lblAverageCases.Text = "Weekly Average: " + average; // Posts the average to the label
             }
-            #endregion
-            #region Day 4
-            // Checks to see how many Items are in the list Box.
-            else if (lbxWeeklyCases.Items.Count == 3)
-            {
-                // Checks to see if the input in the text box is a number or anything else. If anything else, it will fail and show a message box
-                // If the check passes, Store the value given into a global variable to be used at the end for average
-                if (int.TryParse(txtCases.Text.Trim(), out CASESCOUNT4))
-                {
-                    // checks if the number now checked is a positive number
-                    if (CASESCOUNT4 >= 0)
-                    {
-                        // Adds item to the Listbox
-                        lbxWeeklyCases.Items.Add(CASESCOUNT4);
-                        //Resets the txtbox & focuses it
-                        ResetInput();
-                        // changes the label in top right to the next day
-                        lblDay.Text = "Day: Thursday";
-                    }
-                    else
-                        // show a messagebox that says the number is invalid because its negative
-                        MessageBox.Show("Invalid Number. Please enter a number 0 or greater");
-                        ResetInput();
-                }
-
-                else
-                {
-                    // show a messagebox and clear the information if the input is invalid
-                    MessageBox.Show("Invalid input. Please enter a number");
-                    ResetInput();
-                }
-            }
-            #endregion
-            #region Day 5
-            // Checks to see how many Items are in the list Box.
-            else if (lbxWeeklyCases.Items.Count == 4)
-            {
-                // Checks to see if the input in the text box is a number or anything else. If anything else, it will fail and show a message box
-                // If the check passes, Store the value given into a global variable to be used at the end for average
-                if (int.TryParse(txtCases.Text.Trim(), out CASESCOUNT5))
-                {
-                    // checks if the number now checked is a positive number
-                    if (CASESCOUNT5 >= 0)
-                    {
-                        // Adds item to the Listbox
-                        lbxWeeklyCases.Items.Add(CASESCOUNT5);
-                        //Resets the txtbox & focuses it
-                        ResetInput();
-                        // changes the label in top right to the next day
-                        lblDay.Text = "Day: Friday";
-                    }
-                    else
-                        // show a messagebox that says the number is invalid because its negative
-                        MessageBox.Show("Invalid Number. Please enter a number 0 or greater");
-                        ResetInput();
-                }
-
-                else
-                {
-                    // show a messagebox and clear the information if the input is invalid
-                    MessageBox.Show("Invalid input. Please enter a number");
-                    ResetInput();
-                }
-            }
-            #endregion
-            #region Day 6
-            // Checks to see how many Items are in the list Box.
-            else if (lbxWeeklyCases.Items.Count == 5)
-            {
-                // Checks to see if the input in the text box is a number or anything else. If anything else, it will fail and show a message box
-                // If the check passes, Store the value given into a global variable to be used at the end for average
-                if (int.TryParse(txtCases.Text.Trim(), out CASESCOUNT6))
-                {
-                    // checks if the number now checked is a positive number
-                    if (CASESCOUNT6 >= 0)
-                    {
-                        // Adds item to the Listbox
-                        lbxWeeklyCases.Items.Add(CASESCOUNT6);
-                        //Resets the txtbox & focuses it
-                        ResetInput();
-                        // changes the label in top right to the next day
-                        lblDay.Text = "Day: Saturday";
-                    }
-                    else
-                        // show a messagebox that says the number is invalid because its negative
-                        MessageBox.Show("Invalid Number. Please enter a number 0 or greater");
-                        ResetInput();
-                }
-
-                else
-                {
-                    // show a messagebox and clear the information if the input is invalid
-                    MessageBox.Show("Invalid input. Please enter a number");
-                    ResetInput();
-                }
-            }
-            #endregion
-            #region Final Day
-            // Checks to see how many Items are in the list Box.
-            else if (lbxWeeklyCases.Items.Count == 6)
-            {
-                int totalCases;
-                double averageCases;
-                // Checks to see if the input in the text box is a number or anything else. If anything else, it will fail and show a message box
-                // If the check passes, Store the value given into a global variable to be used at the end for average
-                if (int.TryParse(txtCases.Text.Trim(), out CASESCOUNT7))
-                {
-                    if (CASESCOUNT7 >= 0)
-                    {
-                        // Adds item to the Listbox
-                        lbxWeeklyCases.Items.Add(CASESCOUNT7);
-                        // Sets the Week as complete
-                        lblDay.Text = "Completed Form";
-                        // Clears the textbox
-                        txtCases.Clear();
-                        //Disables the enter button and textbox to enter more numbers.
-                        txtCases.Enabled = false;
-                        btnEnter.Enabled = false;
-                        // Takes all global variables and adds them to a total
-                        totalCases = CASESCOUNT1 + CASESCOUNT2 + CASESCOUNT3 + CASESCOUNT4 + CASESCOUNT5 + CASESCOUNT6 + CASESCOUNT7;
-                        // divides the total cases by 7 to get the average for the week
-                        averageCases = totalCases / 7;
-                        // Displays information in the label below the  listbox
-                        lblAverageCases.Text = averageCases.ToString() + " Cases on Average ";
-                    }
-                    else
-                    {
-                        // show a messagebox that says the number is invalid because its negative
-                        MessageBox.Show("Invalid Number. Please enter a number 0 or greater");
-                        ResetInput();
-                    }
-                }
-                else
-                {
-                    // show a messagebox and clear the information if the input is invalid
-                    MessageBox.Show("Invalid input. Please enter a number");
-                    ResetInput();
-                }
-            }
-            #endregion
 
         }
         #endregion
@@ -286,14 +79,9 @@ namespace Lab_1_Cases
         }
         #endregion
 
-        #region Reset Button
-        private void btnReset_Click_1(object sender, EventArgs e)
-        {
-            SetDefaults();
-        }
-        #endregion
+      
 
-        #region Functions used throughout the program
+        #region Custom Methods
         /// <summary>
         /// This function will reset everything to default (how the program starts)
         /// </summary>
@@ -302,7 +90,7 @@ namespace Lab_1_Cases
             // Enable the enter button and changes textbox back from readonly if it is in that state.
             btnEnter.Enabled = true;
             txtCases.Enabled = true;
-
+            counter = 0;
             // Clears the textbox is there is any information in the box
             txtCases.Clear();
             // Deletes all information in the list box
@@ -310,8 +98,7 @@ namespace Lab_1_Cases
             // Clears the Average cases label if there is anything written
             lblAverageCases.Text = string.Empty;
             // Resets the day to Sunday
-            lblDay.Text = "Day: Sunday";
-
+            lblDay.Text = "Day: " + (counter+1);
             // Focus the curser to the Cases text box to input new variables
             txtCases.Focus();
 
@@ -327,6 +114,56 @@ namespace Lab_1_Cases
             txtCases.Focus();
         }
 
+        #region Reset Button
+        private void btnReset_Click_1(object sender, EventArgs e)
+        {
+            SetDefaults();
+        }
+        #endregion
+
+        #region Validation Function
+        /// <summary>
+        /// This will Validate the input text box to input casess. If there is something entered that isnt right, this will catch it.
+        /// </summary>
+        private bool Validation()
+        {
+            bool retVal = true;
+            int tempNumber;
+            if (txtCases.TextLength != 0)
+            {
+                if (int.TryParse(txtCases.Text.Trim(), out tempNumber))
+                {
+                    // If number is less than 0 or higher then an allowed Int number
+                    if (tempNumber >= 0) // Max number an Int can go, if anyhigher it can crash.
+                    {
+                        retVal = true;
+                        return retVal;
+                    }
+                    else
+                    {
+                        //If the textbox has a negative number, show an error
+                        retVal = false;
+                        lblAverageCases.Text = "Please enter a positive Number."; // if number is outside the range, give this error
+                        ResetInput();
+                        return retVal;
+                    }
+                }
+                else
+                {
+                    //If textbox has anything but a number in it, show this message box, Highlight the text box and refocus it
+                    retVal = false;
+                    // If there is any string characters entered, give this error or exceed the max amount of an int number.
+                    lblAverageCases.Text = "You did not enter a number. No decimals or letters";
+                    ResetInput();
+                    return retVal;
+                }
+            }
+            retVal = false;
+            lblAverageCases.Text = "You did not enter anything. Please enter a number."; // If text box is blank and you hit enter, give this error.
+            txtCases.Focus();
+            return retVal;
+        }
+        #endregion
     }
     #endregion
 

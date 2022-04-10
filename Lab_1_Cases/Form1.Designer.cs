@@ -31,7 +31,7 @@ namespace Lab_1_Cases
         {
             this.components = new System.ComponentModel.Container();
             this.lblDay = new System.Windows.Forms.Label();
-            this.btnExit = new System.Windows.Forms.Button();
+            this.btnClose = new System.Windows.Forms.Button();
             this.btnReset = new System.Windows.Forms.Button();
             this.btnEnter = new System.Windows.Forms.Button();
             this.lblAverageCases = new System.Windows.Forms.Label();
@@ -44,23 +44,23 @@ namespace Lab_1_Cases
             // lblDay
             // 
             this.lblDay.AutoSize = true;
-            this.lblDay.Location = new System.Drawing.Point(247, 38);
+            this.lblDay.Location = new System.Drawing.Point(293, 38);
             this.lblDay.Name = "lblDay";
-            this.lblDay.Size = new System.Drawing.Size(72, 15);
+            this.lblDay.Size = new System.Drawing.Size(39, 15);
             this.lblDay.TabIndex = 8;
-            this.lblDay.Text = "Day: Sunday";
+            this.lblDay.Text = "Day: 1";
             this.toolTip1.SetToolTip(this.lblDay, "The day of the week");
             // 
-            // btnExit
+            // btnClose
             // 
-            this.btnExit.Location = new System.Drawing.Point(257, 372);
-            this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(75, 23);
-            this.btnExit.TabIndex = 7;
-            this.btnExit.Text = "E&xit";
-            this.toolTip1.SetToolTip(this.btnExit, "Exit the program");
-            this.btnExit.UseVisualStyleBackColor = true;
-            this.btnExit.Click += new System.EventHandler(this.btnExit_Click_1);
+            this.btnClose.Location = new System.Drawing.Point(257, 372);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(75, 23);
+            this.btnClose.TabIndex = 7;
+            this.btnClose.Text = "&Close";
+            this.toolTip1.SetToolTip(this.btnClose, "Exit the program");
+            this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnExit_Click_1);
             // 
             // btnReset
             // 
@@ -130,7 +130,7 @@ namespace Lab_1_Cases
             this.ClientSize = new System.Drawing.Size(380, 450);
             this.Controls.Add(this.lbxWeeklyCases);
             this.Controls.Add(this.lblDay);
-            this.Controls.Add(this.btnExit);
+            this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnReset);
             this.Controls.Add(this.btnEnter);
             this.Controls.Add(this.lblAverageCases);
@@ -149,7 +149,7 @@ namespace Lab_1_Cases
         #endregion
 
         private System.Windows.Forms.Label lblDay;
-        private System.Windows.Forms.Button btnExit;
+        private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Button btnReset;
         private System.Windows.Forms.Button btnEnter;
         private System.Windows.Forms.Label lblAverageCases;

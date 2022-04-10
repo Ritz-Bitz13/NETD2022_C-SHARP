@@ -60,6 +60,7 @@ namespace Lab03_Cases_Region
             // txtCases
             // 
             this.txtCases.Location = new System.Drawing.Point(73, 25);
+            this.txtCases.MaxLength = 9;
             this.txtCases.Name = "txtCases";
             this.txtCases.Size = new System.Drawing.Size(100, 23);
             this.txtCases.TabIndex = 1;

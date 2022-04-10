@@ -50,7 +50,7 @@ namespace Lab5_TextForm
 
         #region Create File
         /// <summary>
-        /// THis will take the information from the textbox and convert it to a string.
+        /// This will take the information from the textbox and convert it to a string.
         /// </summary>
         /// <param name="info"></param>
         /// <returns></returns>
