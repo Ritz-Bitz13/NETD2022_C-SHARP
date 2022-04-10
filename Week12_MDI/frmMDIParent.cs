@@ -136,5 +136,10 @@ namespace Week12_MDI
         {
             this.ssNumTroopers.Text = numTroopers.ToString();
         }
+
+        private void msTroopers_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

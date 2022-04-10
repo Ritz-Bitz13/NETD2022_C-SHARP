@@ -381,6 +381,7 @@ namespace Week09_MultiForms
             this.tsSave.Name = "tsSave";
             this.tsSave.Size = new System.Drawing.Size(51, 22);
             this.tsSave.Text = "Save";
+            this.tsSave.Click += new System.EventHandler(this.tsSave_Click);
             // 
             // tsSaveAs
             // 

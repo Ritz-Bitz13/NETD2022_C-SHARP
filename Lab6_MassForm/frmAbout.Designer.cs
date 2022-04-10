@@ -53,7 +53,7 @@ namespace Lab6_MassForm
             this.textBox1.ReadOnly = true;
             this.textBox1.Size = new System.Drawing.Size(193, 190);
             this.textBox1.TabIndex = 1;
-            this.textBox1.Text = "NETD 2201\r\n\r\nMartin Barber\r\n100368442\r\n&\r\nMichael Parisi\r\n100xxxxxx\r\n\r\nLab 6: Mul" +
+            this.textBox1.Text = "NETD 2201\r\n\r\nMartin Barber\r\n100368442\r\n&\r\nMichael Parisi\r\n100826271\r\n\r\nLab 6: Mul" +
     "tiForms";
             this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 

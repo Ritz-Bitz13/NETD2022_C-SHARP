@@ -7,7 +7,16 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Update="ContactInformation.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="frmAbout.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="frmTextEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="frmWeeklyCases.cs">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>

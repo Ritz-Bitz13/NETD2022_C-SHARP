@@ -60,6 +60,7 @@ namespace Lab4_Contact
             // txtFirstName
             // 
             this.txtFirstName.Location = new System.Drawing.Point(253, 17);
+            this.txtFirstName.MaxLength = 20;
             this.txtFirstName.Name = "txtFirstName";
             this.txtFirstName.Size = new System.Drawing.Size(160, 23);
             this.txtFirstName.TabIndex = 1;
@@ -68,6 +69,7 @@ namespace Lab4_Contact
             // txtLastName
             // 
             this.txtLastName.Location = new System.Drawing.Point(253, 46);
+            this.txtLastName.MaxLength = 20;
             this.txtLastName.Name = "txtLastName";
             this.txtLastName.Size = new System.Drawing.Size(160, 23);
             this.txtLastName.TabIndex = 3;
@@ -76,6 +78,7 @@ namespace Lab4_Contact
             // txtEmail
             // 
             this.txtEmail.Location = new System.Drawing.Point(253, 75);
+            this.txtEmail.MaxLength = 60;
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(160, 23);
             this.txtEmail.TabIndex = 5;
@@ -84,6 +87,7 @@ namespace Lab4_Contact
             // txtPhone
             // 
             this.txtPhone.Location = new System.Drawing.Point(253, 104);
+            this.txtPhone.MaxLength = 10;
             this.txtPhone.Name = "txtPhone";
             this.txtPhone.Size = new System.Drawing.Size(160, 23);
             this.txtPhone.TabIndex = 7;

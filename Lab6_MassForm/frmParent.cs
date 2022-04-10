@@ -19,6 +19,7 @@ namespace Lab6_MassForm
             InitializeComponent();
         }
 
+        #region Menu / Tool Strip Buttons
         private void ShowNewForm(object sender, EventArgs e)
         {
             Form childForm = new Form();
@@ -37,6 +38,27 @@ namespace Lab6_MassForm
                 string FileName = openFileDialog.FileName;
             }
         }
+
+        private void tsSave_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tsPrint_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tsSearch_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tsHelp_Click(object sender, EventArgs e)
+        {
+            HelpForm();
+        }
+        #endregion
 
         private void SaveAsToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -109,10 +131,6 @@ namespace Lab6_MassForm
             HelpForm();
         }
 
-        private void tsHelp_Click(object sender, EventArgs e)
-        {
-            HelpForm();
-        }
 
         #region Custom Methods
         private void HelpForm()
@@ -125,7 +143,31 @@ namespace Lab6_MassForm
 
         private void msWeeklyCases_Click(object sender, EventArgs e)
         {
+            frmCases frm = new frmCases(); //refrencing the listtropopers form 'Get'
+            frm.MdiParent = this; // Make this the current form
+            frm.Show(); // This will show the form but allow you to go off the form
+            frm.Focus();
+        }
 
+        private void msFileSave_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void msContactTracing_Click(object sender, EventArgs e)
+        {
+            frmContactTracing frm = new frmContactTracing(); //refrencing the listtropopers form 'Get'
+            frm.MdiParent = this; // Make this the current form
+            frm.Show(); // This will show the form but allow you to go off the form
+            frm.Focus();
+        }
+
+        private void msTextFiles_Click(object sender, EventArgs e)
+        {
+            frmMain frm = new frmMain(); //refrencing the listtropopers form 'Get'
+            frm.MdiParent = this; // Make this the current form
+            frm.Show(); // This will show the form but allow you to go off the form
+            frm.Focus();
         }
     }
 }

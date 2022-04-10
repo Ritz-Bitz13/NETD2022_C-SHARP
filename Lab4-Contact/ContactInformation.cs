@@ -183,7 +183,7 @@ namespace Lab4_Contact
             if (txtPhone.TextLength == 10) // make sure there are 10 characters in the textbox
             {
                 if (double.TryParse(txtPhone.Text.Trim(), out tempNumber)) // check to make sure there is no letters in the phone number
-                    {
+                {
                     phoneNumber = tempNumber.ToString(); // convert number to a string to check if there is a decimal.
                     if (phoneNumber.Contains(".")) // If the string contains a decimal, fail the check
                     {
@@ -191,14 +191,14 @@ namespace Lab4_Contact
                     }
                     else
                     {
-                    if (tempNumber > 0) // If the number isnt negaive, pass the check.
-                        {
-                            retVal = true;
-                            return retVal; // return true
+                        if (tempNumber > 0) // If the number isnt negaive, pass the check.
+                            {
+                                retVal = true;
+                                return retVal; // return true
+                            }
+                            else
+                                retVal = false;
                         }
-                        else
-                            retVal = false;
-                    }
                         
                 }
                 else
