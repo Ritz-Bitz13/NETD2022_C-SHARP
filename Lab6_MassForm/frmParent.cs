@@ -90,12 +90,12 @@ namespace Lab6_MassForm
 
         private void ToolBarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            toolStrip.Visible = msViewToolbar.Checked;
+            //toolStrip.Visible = msViewToolbar.Checked;
         }
 
         private void StatusBarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            statusStrip.Visible = msViewStatusBar.Checked;
+            //statusStrip.Visible = msViewStatusBar.Checked;
         }
 
         private void CascadeToolStripMenuItem_Click(object sender, EventArgs e)
@@ -143,10 +143,7 @@ namespace Lab6_MassForm
 
         private void msWeeklyCases_Click(object sender, EventArgs e)
         {
-            frmCases frm = new frmCases(); //refrencing the listtropopers form 'Get'
-            frm.MdiParent = this; // Make this the current form
-            frm.Show(); // This will show the form but allow you to go off the form
-            frm.Focus();
+          
         }
 
         private void msFileSave_Click(object sender, EventArgs e)
@@ -156,11 +153,9 @@ namespace Lab6_MassForm
 
         private void msContactTracing_Click(object sender, EventArgs e)
         {
-            frmContactTracing frm = new frmContactTracing(); //refrencing the listtropopers form 'Get'
-            frm.MdiParent = this; // Make this the current form
-            frm.Show(); // This will show the form but allow you to go off the form
-            frm.Focus();
+            
         }
+
 
         private void msTextFiles_Click(object sender, EventArgs e)
         {
@@ -173,6 +168,59 @@ namespace Lab6_MassForm
         private void smToolsTemperature_Click(object sender, EventArgs e)
         {
             frmTemperature frm = new frmTemperature(); //refrencing the listtropopers form 'Get'
+            frm.MdiParent = this; // Make this the current form
+            frm.Show(); // This will show the form but allow you to go off the form
+            frm.Focus();
+        }
+
+        private void weeklyCasesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmCases frm = new frmCases(); //refrencing the listtropopers form 'Get'
+            frm.MdiParent = this; // Make this the current form
+            frm.Show(); // This will show the form but allow you to go off the form
+            frm.Focus();
+        }
+
+        private void contactTracingToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmContactTracing frm = new frmContactTracing(); //refrencing the listtropopers form 'Get'
+            frm.MdiParent = this; // Make this the current form
+            frm.Show(); // This will show the form but allow you to go off the form
+            frm.Focus();
+        }
+
+        private void msFile_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void awesomenessToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmAwesomeness frm = new frmAwesomeness(); //refrencing the listtropopers form 'Get'
+            frm.MdiParent = this; // Make this the current form
+            frm.Show(); // This will show the form but allow you to go off the form
+            frm.Focus();
+        }
+
+        private void msGPACalculate_Click(object sender, EventArgs e)
+        {
+            frmGPAGrades frm = new frmGPAGrades(); //refrencing the listtropopers form 'Get'
+            frm.MdiParent = this; // Make this the current form
+            frm.Show(); // This will show the form but allow you to go off the form
+            frm.Focus();
+        }
+
+        private void msClassEditor_Click(object sender, EventArgs e)
+        {
+            frmFavouriteGame frm = new frmFavouriteGame(); //refrencing the listtropopers form 'Get'
+            frm.MdiParent = this; // Make this the current form
+            frm.Show(); // This will show the form but allow you to go off the form
+            frm.Focus();
+        }
+
+        private void msCustomerEntry_Click(object sender, EventArgs e)
+        {
+            formCustomerEntry frm = new formCustomerEntry(); //refrencing the listtropopers form 'Get'
             frm.MdiParent = this; // Make this the current form
             frm.Show(); // This will show the form but allow you to go off the form
             frm.Focus();

@@ -137,7 +137,7 @@ namespace ICE04_Classes
         /// </summary>
         private void SetDefaults()
         {
-            nudDesignation.Value = 0; //Resets Designation Value to 0
+            nudDesignation.Value = 1; //Resets Designation Value to 0
             txtName.Clear(); // Clears txt Box
             cboConsole.SelectedIndex = -1; // Resets combo box
             cboFavourite.SelectedIndex = -1;// Resets combo box

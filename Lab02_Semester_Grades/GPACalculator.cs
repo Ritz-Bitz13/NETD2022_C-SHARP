@@ -24,9 +24,9 @@ using System.Windows.Forms;
 
 namespace Lab02_Semester_Grades
 {
-    public partial class frmMain : Form
+    public partial class frmGPAGrades : Form
     {
-        public frmMain()
+        public frmGPAGrades()
         {
             InitializeComponent();
         }

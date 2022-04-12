@@ -79,6 +79,7 @@ namespace Lab6_MassForm
             this.msFile.Name = "msFile";
             this.msFile.Size = new System.Drawing.Size(37, 20);
             this.msFile.Text = "&File";
+            this.msFile.Click += new System.EventHandler(this.msFile_Click);
             // 
             // msFileNew
             // 

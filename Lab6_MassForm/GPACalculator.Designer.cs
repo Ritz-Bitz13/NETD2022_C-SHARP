@@ -1,7 +1,7 @@
 ﻿
-namespace Lab02_Semester_Grades
+namespace Lab6_MassForm
 {
-    partial class frmMain
+    partial class frmGPAGrades
     {
         /// <summary>
         ///  Required designer variable.

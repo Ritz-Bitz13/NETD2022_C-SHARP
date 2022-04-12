@@ -1,7 +1,7 @@
 ﻿
 namespace ICE01
 {
-    partial class frmMain
+    partial class frmAwesomeness
     {
         /// <summary>
         ///  Required designer variable.

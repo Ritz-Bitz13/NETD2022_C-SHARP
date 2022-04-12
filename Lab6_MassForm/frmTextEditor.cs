@@ -112,7 +112,7 @@ namespace Lab6_MassForm
         private void msFileExit_Click(object sender, EventArgs e)
         {
             ConfirmClose(); // Check if there are any changes before closing the application
-            Application.Exit();
+            this.Close();
         }
         #endregion
 
@@ -130,7 +130,7 @@ namespace Lab6_MassForm
         {
             if (txtInformation.SelectionLength > 0) // If the user has selected text
             {
-                txtInformation.Copy(); //This will copy the selected information
+                Clipboard.SetText(txtInformation.SelectedText); //This will copy the selected information
             }
         }
         #endregion
@@ -145,7 +145,8 @@ namespace Lab6_MassForm
         {
             if (txtInformation.SelectionLength > 0) // If the user has selected text
             {
-                txtInformation.Cut(); // This will cut the selected information
+                Clipboard.SetText(txtInformation.SelectedText); // This will cut the selected information
+                txtInformation.SelectedText = string.Empty;
             }
         }
         #endregion
@@ -158,7 +159,8 @@ namespace Lab6_MassForm
         /// <param name="e"></param>
         private void msEditPaste_Click(object sender, EventArgs e)
         {
-            txtInformation.Paste(); // Paste the information
+            string data = Clipboard.GetText();
+            txtInformation.Text = txtInformation.Text.Insert(txtInformation.SelectionStart, data); // Paste the information
         }
         #endregion
 
@@ -311,5 +313,9 @@ namespace Lab6_MassForm
 
         #endregion
 
+        private void msFile_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

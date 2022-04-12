@@ -327,6 +327,7 @@ namespace Lab6_MassForm
             this.Controls.Add(this.lblLastName);
             this.Controls.Add(this.txtFirstName);
             this.Controls.Add(this.lblFirstName);
+            this.MaximumSize = new System.Drawing.Size(600, 540);
             this.MinimumSize = new System.Drawing.Size(600, 540);
             this.Name = "frmContactTracing";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

@@ -45,36 +45,26 @@ namespace Lab6_MassForm
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.msFileExit = new System.Windows.Forms.ToolStripMenuItem();
             this.msEdit = new System.Windows.Forms.ToolStripMenuItem();
-            this.msEditUndo = new System.Windows.Forms.ToolStripMenuItem();
-            this.msEditRedo = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             this.msEditCut = new System.Windows.Forms.ToolStripMenuItem();
             this.msEditCopy = new System.Windows.Forms.ToolStripMenuItem();
             this.msEditPaste = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
             this.msEditSelectAll = new System.Windows.Forms.ToolStripMenuItem();
-            this.msView = new System.Windows.Forms.ToolStripMenuItem();
-            this.msViewToolbar = new System.Windows.Forms.ToolStripMenuItem();
-            this.msViewStatusBar = new System.Windows.Forms.ToolStripMenuItem();
             this.msTools = new System.Windows.Forms.ToolStripMenuItem();
-            this.msToolsOptions = new System.Windows.Forms.ToolStripMenuItem();
             this.smToolsTemperature = new System.Windows.Forms.ToolStripMenuItem();
             this.msWindows = new System.Windows.Forms.ToolStripMenuItem();
-            this.msWindowsNewWindow = new System.Windows.Forms.ToolStripMenuItem();
             this.msWindowsCascade = new System.Windows.Forms.ToolStripMenuItem();
             this.msWIndowsTileVertical = new System.Windows.Forms.ToolStripMenuItem();
             this.msWIndowsTileHorizontal = new System.Windows.Forms.ToolStripMenuItem();
-            this.msWindowsCloseAll = new System.Windows.Forms.ToolStripMenuItem();
-            this.msWindowsArrangeIcons = new System.Windows.Forms.ToolStripMenuItem();
+            this.msWeeklyCase = new System.Windows.Forms.ToolStripMenuItem();
+            this.contactTracingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.msHelp = new System.Windows.Forms.ToolStripMenuItem();
-            this.msHelpContents = new System.Windows.Forms.ToolStripMenuItem();
-            this.msHelpIndex = new System.Windows.Forms.ToolStripMenuItem();
-            this.msHelpSearch = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
             this.msHelpAbout = new System.Windows.Forms.ToolStripMenuItem();
-            this.msWeeklyCases = new System.Windows.Forms.ToolStripMenuItem();
-            this.msContactTracing = new System.Windows.Forms.ToolStripMenuItem();
             this.msTextFiles = new System.Windows.Forms.ToolStripMenuItem();
+            this.msGPACalculate = new System.Windows.Forms.ToolStripMenuItem();
+            this.smAwesomeness = new System.Windows.Forms.ToolStripMenuItem();
+            this.msClassEditor = new System.Windows.Forms.ToolStripMenuItem();
+            this.msCustomerEntry = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip = new System.Windows.Forms.ToolStrip();
             this.tsNewFile = new System.Windows.Forms.ToolStripButton();
             this.tsOpen = new System.Windows.Forms.ToolStripButton();
@@ -97,13 +87,14 @@ namespace Lab6_MassForm
             this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.msFile,
             this.msEdit,
-            this.msView,
             this.msTools,
             this.msWindows,
             this.msHelp,
-            this.msWeeklyCases,
-            this.msContactTracing,
-            this.msTextFiles});
+            this.msTextFiles,
+            this.msGPACalculate,
+            this.smAwesomeness,
+            this.msClassEditor,
+            this.msCustomerEntry});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.MdiWindowListItem = this.msWindows;
             this.menuStrip.Name = "menuStrip";
@@ -130,6 +121,7 @@ namespace Lab6_MassForm
             this.msFile.Name = "msFile";
             this.msFile.Size = new System.Drawing.Size(37, 20);
             this.msFile.Text = "&File";
+            this.msFile.Click += new System.EventHandler(this.msFile_Click);
             // 
             // msFileNew
             // 
@@ -137,7 +129,7 @@ namespace Lab6_MassForm
             this.msFileNew.ImageTransparentColor = System.Drawing.Color.Black;
             this.msFileNew.Name = "msFileNew";
             this.msFileNew.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
-            this.msFileNew.Size = new System.Drawing.Size(146, 22);
+            this.msFileNew.Size = new System.Drawing.Size(168, 22);
             this.msFileNew.Text = "&New";
             this.msFileNew.Click += new System.EventHandler(this.ShowNewForm);
             // 
@@ -147,14 +139,14 @@ namespace Lab6_MassForm
             this.msFileOpen.ImageTransparentColor = System.Drawing.Color.Black;
             this.msFileOpen.Name = "msFileOpen";
             this.msFileOpen.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
-            this.msFileOpen.Size = new System.Drawing.Size(146, 22);
+            this.msFileOpen.Size = new System.Drawing.Size(168, 22);
             this.msFileOpen.Text = "&Open";
             this.msFileOpen.Click += new System.EventHandler(this.OpenFile);
             // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(143, 6);
+            this.toolStripSeparator3.Size = new System.Drawing.Size(165, 6);
             // 
             // msFileSave
             // 
@@ -162,21 +154,21 @@ namespace Lab6_MassForm
             this.msFileSave.ImageTransparentColor = System.Drawing.Color.Black;
             this.msFileSave.Name = "msFileSave";
             this.msFileSave.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
-            this.msFileSave.Size = new System.Drawing.Size(146, 22);
+            this.msFileSave.Size = new System.Drawing.Size(168, 22);
             this.msFileSave.Text = "&Save";
             this.msFileSave.Click += new System.EventHandler(this.msFileSave_Click);
             // 
             // msFileSaveAs
             // 
             this.msFileSaveAs.Name = "msFileSaveAs";
-            this.msFileSaveAs.Size = new System.Drawing.Size(146, 22);
+            this.msFileSaveAs.Size = new System.Drawing.Size(168, 22);
             this.msFileSaveAs.Text = "Save &As";
             this.msFileSaveAs.Click += new System.EventHandler(this.SaveAsToolStripMenuItem_Click);
             // 
             // toolStripSeparator4
             // 
             this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(143, 6);
+            this.toolStripSeparator4.Size = new System.Drawing.Size(165, 6);
             // 
             // msFilePrint
             // 
@@ -184,7 +176,7 @@ namespace Lab6_MassForm
             this.msFilePrint.ImageTransparentColor = System.Drawing.Color.Black;
             this.msFilePrint.Name = "msFilePrint";
             this.msFilePrint.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.P)));
-            this.msFilePrint.Size = new System.Drawing.Size(146, 22);
+            this.msFilePrint.Size = new System.Drawing.Size(168, 22);
             this.msFilePrint.Text = "&Print";
             // 
             // msFilePrintPreview
@@ -192,33 +184,32 @@ namespace Lab6_MassForm
             this.msFilePrintPreview.Image = ((System.Drawing.Image)(resources.GetObject("msFilePrintPreview.Image")));
             this.msFilePrintPreview.ImageTransparentColor = System.Drawing.Color.Black;
             this.msFilePrintPreview.Name = "msFilePrintPreview";
-            this.msFilePrintPreview.Size = new System.Drawing.Size(146, 22);
+            this.msFilePrintPreview.Size = new System.Drawing.Size(168, 22);
             this.msFilePrintPreview.Text = "Print Pre&view";
             // 
             // msFilePrintSetup
             // 
             this.msFilePrintSetup.Name = "msFilePrintSetup";
-            this.msFilePrintSetup.Size = new System.Drawing.Size(146, 22);
+            this.msFilePrintSetup.Size = new System.Drawing.Size(168, 22);
             this.msFilePrintSetup.Text = "Print Setup";
             // 
             // toolStripSeparator5
             // 
             this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(143, 6);
+            this.toolStripSeparator5.Size = new System.Drawing.Size(165, 6);
             // 
             // msFileExit
             // 
             this.msFileExit.Name = "msFileExit";
-            this.msFileExit.Size = new System.Drawing.Size(146, 22);
+            this.msFileExit.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
+            | System.Windows.Forms.Keys.Q)));
+            this.msFileExit.Size = new System.Drawing.Size(168, 22);
             this.msFileExit.Text = "E&xit";
             this.msFileExit.Click += new System.EventHandler(this.ExitToolsStripMenuItem_Click);
             // 
             // msEdit
             // 
             this.msEdit.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.msEditUndo,
-            this.msEditRedo,
-            this.toolStripSeparator6,
             this.msEditCut,
             this.msEditCopy,
             this.msEditPaste,
@@ -227,29 +218,6 @@ namespace Lab6_MassForm
             this.msEdit.Name = "msEdit";
             this.msEdit.Size = new System.Drawing.Size(39, 20);
             this.msEdit.Text = "&Edit";
-            // 
-            // msEditUndo
-            // 
-            this.msEditUndo.Image = ((System.Drawing.Image)(resources.GetObject("msEditUndo.Image")));
-            this.msEditUndo.ImageTransparentColor = System.Drawing.Color.Black;
-            this.msEditUndo.Name = "msEditUndo";
-            this.msEditUndo.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Z)));
-            this.msEditUndo.Size = new System.Drawing.Size(164, 22);
-            this.msEditUndo.Text = "&Undo";
-            // 
-            // msEditRedo
-            // 
-            this.msEditRedo.Image = ((System.Drawing.Image)(resources.GetObject("msEditRedo.Image")));
-            this.msEditRedo.ImageTransparentColor = System.Drawing.Color.Black;
-            this.msEditRedo.Name = "msEditRedo";
-            this.msEditRedo.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Y)));
-            this.msEditRedo.Size = new System.Drawing.Size(164, 22);
-            this.msEditRedo.Text = "&Redo";
-            // 
-            // toolStripSeparator6
-            // 
-            this.toolStripSeparator6.Name = "toolStripSeparator6";
-            this.toolStripSeparator6.Size = new System.Drawing.Size(161, 6);
             // 
             // msEditCut
             // 
@@ -293,179 +261,119 @@ namespace Lab6_MassForm
             this.msEditSelectAll.Size = new System.Drawing.Size(164, 22);
             this.msEditSelectAll.Text = "Select &All";
             // 
-            // msView
-            // 
-            this.msView.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.msViewToolbar,
-            this.msViewStatusBar});
-            this.msView.Name = "msView";
-            this.msView.Size = new System.Drawing.Size(44, 20);
-            this.msView.Text = "&View";
-            // 
-            // msViewToolbar
-            // 
-            this.msViewToolbar.Checked = true;
-            this.msViewToolbar.CheckOnClick = true;
-            this.msViewToolbar.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.msViewToolbar.Name = "msViewToolbar";
-            this.msViewToolbar.Size = new System.Drawing.Size(126, 22);
-            this.msViewToolbar.Text = "&Toolbar";
-            this.msViewToolbar.Click += new System.EventHandler(this.ToolBarToolStripMenuItem_Click);
-            // 
-            // msViewStatusBar
-            // 
-            this.msViewStatusBar.Checked = true;
-            this.msViewStatusBar.CheckOnClick = true;
-            this.msViewStatusBar.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.msViewStatusBar.Name = "msViewStatusBar";
-            this.msViewStatusBar.Size = new System.Drawing.Size(126, 22);
-            this.msViewStatusBar.Text = "&Status Bar";
-            this.msViewStatusBar.Click += new System.EventHandler(this.StatusBarToolStripMenuItem_Click);
-            // 
             // msTools
             // 
             this.msTools.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.msToolsOptions,
             this.smToolsTemperature});
             this.msTools.Name = "msTools";
             this.msTools.Size = new System.Drawing.Size(46, 20);
             this.msTools.Text = "&Tools";
             // 
-            // msToolsOptions
-            // 
-            this.msToolsOptions.Name = "msToolsOptions";
-            this.msToolsOptions.Size = new System.Drawing.Size(203, 22);
-            this.msToolsOptions.Text = "&Options";
-            // 
             // smToolsTemperature
             // 
             this.smToolsTemperature.Name = "smToolsTemperature";
-            this.smToolsTemperature.Size = new System.Drawing.Size(203, 22);
+            this.smToolsTemperature.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Alt) 
+            | System.Windows.Forms.Keys.T)));
+            this.smToolsTemperature.Size = new System.Drawing.Size(266, 22);
             this.smToolsTemperature.Text = "Temperature Conversion";
             this.smToolsTemperature.Click += new System.EventHandler(this.smToolsTemperature_Click);
             // 
             // msWindows
             // 
             this.msWindows.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.msWindowsNewWindow,
             this.msWindowsCascade,
             this.msWIndowsTileVertical,
             this.msWIndowsTileHorizontal,
-            this.msWindowsCloseAll,
-            this.msWindowsArrangeIcons});
+            this.msWeeklyCase,
+            this.contactTracingToolStripMenuItem});
             this.msWindows.Name = "msWindows";
             this.msWindows.Size = new System.Drawing.Size(68, 20);
             this.msWindows.Text = "&Windows";
             // 
-            // msWindowsNewWindow
-            // 
-            this.msWindowsNewWindow.Name = "msWindowsNewWindow";
-            this.msWindowsNewWindow.Size = new System.Drawing.Size(150, 22);
-            this.msWindowsNewWindow.Text = "&New Window";
-            this.msWindowsNewWindow.Click += new System.EventHandler(this.ShowNewForm);
-            // 
             // msWindowsCascade
             // 
             this.msWindowsCascade.Name = "msWindowsCascade";
-            this.msWindowsCascade.Size = new System.Drawing.Size(150, 22);
+            this.msWindowsCascade.Size = new System.Drawing.Size(180, 22);
             this.msWindowsCascade.Text = "&Cascade";
             this.msWindowsCascade.Click += new System.EventHandler(this.CascadeToolStripMenuItem_Click);
             // 
             // msWIndowsTileVertical
             // 
             this.msWIndowsTileVertical.Name = "msWIndowsTileVertical";
-            this.msWIndowsTileVertical.Size = new System.Drawing.Size(150, 22);
+            this.msWIndowsTileVertical.Size = new System.Drawing.Size(180, 22);
             this.msWIndowsTileVertical.Text = "Tile &Vertical";
             this.msWIndowsTileVertical.Click += new System.EventHandler(this.TileVerticalToolStripMenuItem_Click);
             // 
             // msWIndowsTileHorizontal
             // 
             this.msWIndowsTileHorizontal.Name = "msWIndowsTileHorizontal";
-            this.msWIndowsTileHorizontal.Size = new System.Drawing.Size(150, 22);
+            this.msWIndowsTileHorizontal.Size = new System.Drawing.Size(180, 22);
             this.msWIndowsTileHorizontal.Text = "Tile &Horizontal";
             this.msWIndowsTileHorizontal.Click += new System.EventHandler(this.TileHorizontalToolStripMenuItem_Click);
             // 
-            // msWindowsCloseAll
+            // msWeeklyCase
             // 
-            this.msWindowsCloseAll.Name = "msWindowsCloseAll";
-            this.msWindowsCloseAll.Size = new System.Drawing.Size(150, 22);
-            this.msWindowsCloseAll.Text = "C&lose All";
-            this.msWindowsCloseAll.Click += new System.EventHandler(this.CloseAllToolStripMenuItem_Click);
+            this.msWeeklyCase.Name = "msWeeklyCase";
+            this.msWeeklyCase.Size = new System.Drawing.Size(180, 22);
+            this.msWeeklyCase.Text = "Weekly Cases";
+            this.msWeeklyCase.Click += new System.EventHandler(this.weeklyCasesToolStripMenuItem_Click);
             // 
-            // msWindowsArrangeIcons
+            // contactTracingToolStripMenuItem
             // 
-            this.msWindowsArrangeIcons.Name = "msWindowsArrangeIcons";
-            this.msWindowsArrangeIcons.Size = new System.Drawing.Size(150, 22);
-            this.msWindowsArrangeIcons.Text = "&Arrange Icons";
-            this.msWindowsArrangeIcons.Click += new System.EventHandler(this.ArrangeIconsToolStripMenuItem_Click);
+            this.contactTracingToolStripMenuItem.Name = "contactTracingToolStripMenuItem";
+            this.contactTracingToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.contactTracingToolStripMenuItem.Text = "Contact Tracing";
+            this.contactTracingToolStripMenuItem.Click += new System.EventHandler(this.contactTracingToolStripMenuItem_Click);
             // 
             // msHelp
             // 
             this.msHelp.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.msHelpContents,
-            this.msHelpIndex,
-            this.msHelpSearch,
-            this.toolStripSeparator8,
             this.msHelpAbout});
             this.msHelp.Name = "msHelp";
             this.msHelp.Size = new System.Drawing.Size(44, 20);
             this.msHelp.Text = "&Help";
             // 
-            // msHelpContents
-            // 
-            this.msHelpContents.Name = "msHelpContents";
-            this.msHelpContents.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F1)));
-            this.msHelpContents.Size = new System.Drawing.Size(168, 22);
-            this.msHelpContents.Text = "&Contents";
-            // 
-            // msHelpIndex
-            // 
-            this.msHelpIndex.Image = ((System.Drawing.Image)(resources.GetObject("msHelpIndex.Image")));
-            this.msHelpIndex.ImageTransparentColor = System.Drawing.Color.Black;
-            this.msHelpIndex.Name = "msHelpIndex";
-            this.msHelpIndex.Size = new System.Drawing.Size(168, 22);
-            this.msHelpIndex.Text = "&Index";
-            // 
-            // msHelpSearch
-            // 
-            this.msHelpSearch.Image = ((System.Drawing.Image)(resources.GetObject("msHelpSearch.Image")));
-            this.msHelpSearch.ImageTransparentColor = System.Drawing.Color.Black;
-            this.msHelpSearch.Name = "msHelpSearch";
-            this.msHelpSearch.Size = new System.Drawing.Size(168, 22);
-            this.msHelpSearch.Text = "&Search";
-            // 
-            // toolStripSeparator8
-            // 
-            this.toolStripSeparator8.Name = "toolStripSeparator8";
-            this.toolStripSeparator8.Size = new System.Drawing.Size(165, 6);
-            // 
             // msHelpAbout
             // 
             this.msHelpAbout.Name = "msHelpAbout";
-            this.msHelpAbout.Size = new System.Drawing.Size(168, 22);
+            this.msHelpAbout.Size = new System.Drawing.Size(107, 22);
             this.msHelpAbout.Text = "&About";
             this.msHelpAbout.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
-            // 
-            // msWeeklyCases
-            // 
-            this.msWeeklyCases.Name = "msWeeklyCases";
-            this.msWeeklyCases.Size = new System.Drawing.Size(90, 20);
-            this.msWeeklyCases.Text = "Weekly Cases";
-            this.msWeeklyCases.Click += new System.EventHandler(this.msWeeklyCases_Click);
-            // 
-            // msContactTracing
-            // 
-            this.msContactTracing.Name = "msContactTracing";
-            this.msContactTracing.Size = new System.Drawing.Size(102, 20);
-            this.msContactTracing.Text = "Contact Tracing";
-            this.msContactTracing.Click += new System.EventHandler(this.msContactTracing_Click);
             // 
             // msTextFiles
             // 
             this.msTextFiles.Name = "msTextFiles";
             this.msTextFiles.Size = new System.Drawing.Size(66, 20);
-            this.msTextFiles.Text = "Text Files";
+            this.msTextFiles.Text = "Te&xt Files";
             this.msTextFiles.Click += new System.EventHandler(this.msTextFiles_Click);
+            // 
+            // msGPACalculate
+            // 
+            this.msGPACalculate.Name = "msGPACalculate";
+            this.msGPACalculate.Size = new System.Drawing.Size(98, 20);
+            this.msGPACalculate.Text = "&GPA Calculator";
+            this.msGPACalculate.Click += new System.EventHandler(this.msGPACalculate_Click);
+            // 
+            // smAwesomeness
+            // 
+            this.smAwesomeness.Name = "smAwesomeness";
+            this.smAwesomeness.Size = new System.Drawing.Size(94, 20);
+            this.smAwesomeness.Text = "&Awesomeness";
+            this.smAwesomeness.Click += new System.EventHandler(this.awesomenessToolStripMenuItem_Click);
+            // 
+            // msClassEditor
+            // 
+            this.msClassEditor.Name = "msClassEditor";
+            this.msClassEditor.Size = new System.Drawing.Size(125, 20);
+            this.msClassEditor.Text = "&Custom Class Editor";
+            this.msClassEditor.Click += new System.EventHandler(this.msClassEditor_Click);
+            // 
+            // msCustomerEntry
+            // 
+            this.msCustomerEntry.Name = "msCustomerEntry";
+            this.msCustomerEntry.Size = new System.Drawing.Size(101, 20);
+            this.msCustomerEntry.Text = "C&ustomer Entry";
+            this.msCustomerEntry.Click += new System.EventHandler(this.msCustomerEntry_Click);
             // 
             // toolStrip
             // 
@@ -606,12 +514,9 @@ namespace Lab6_MassForm
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
         private System.Windows.Forms.ToolStripMenuItem msFilePrintSetup;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator7;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator8;
         private System.Windows.Forms.ToolStripStatusLabel ssStatus;
-        private System.Windows.Forms.ToolStripMenuItem msHelpAbout;
         private System.Windows.Forms.ToolStripMenuItem msWIndowsTileHorizontal;
         private System.Windows.Forms.ToolStripMenuItem msFile;
         private System.Windows.Forms.ToolStripMenuItem msFileNew;
@@ -622,27 +527,14 @@ namespace Lab6_MassForm
         private System.Windows.Forms.ToolStripMenuItem msFilePrintPreview;
         private System.Windows.Forms.ToolStripMenuItem msFileExit;
         private System.Windows.Forms.ToolStripMenuItem msEdit;
-        private System.Windows.Forms.ToolStripMenuItem msEditUndo;
-        private System.Windows.Forms.ToolStripMenuItem msEditRedo;
         private System.Windows.Forms.ToolStripMenuItem msEditCut;
         private System.Windows.Forms.ToolStripMenuItem msEditCopy;
         private System.Windows.Forms.ToolStripMenuItem msEditPaste;
         private System.Windows.Forms.ToolStripMenuItem msEditSelectAll;
-        private System.Windows.Forms.ToolStripMenuItem msView;
-        private System.Windows.Forms.ToolStripMenuItem msViewToolbar;
-        private System.Windows.Forms.ToolStripMenuItem msViewStatusBar;
         private System.Windows.Forms.ToolStripMenuItem msTools;
-        private System.Windows.Forms.ToolStripMenuItem msToolsOptions;
         private System.Windows.Forms.ToolStripMenuItem msWindows;
-        private System.Windows.Forms.ToolStripMenuItem msWindowsNewWindow;
         private System.Windows.Forms.ToolStripMenuItem msWindowsCascade;
         private System.Windows.Forms.ToolStripMenuItem msWIndowsTileVertical;
-        private System.Windows.Forms.ToolStripMenuItem msWindowsCloseAll;
-        private System.Windows.Forms.ToolStripMenuItem msWindowsArrangeIcons;
-        private System.Windows.Forms.ToolStripMenuItem msHelp;
-        private System.Windows.Forms.ToolStripMenuItem msHelpContents;
-        private System.Windows.Forms.ToolStripMenuItem msHelpIndex;
-        private System.Windows.Forms.ToolStripMenuItem msHelpSearch;
         private System.Windows.Forms.ToolStripButton tsNewFile;
         private System.Windows.Forms.ToolStripButton tsOpen;
         private System.Windows.Forms.ToolStripButton tsSave;
@@ -650,10 +542,16 @@ namespace Lab6_MassForm
         private System.Windows.Forms.ToolStripButton tsSearch;
         private System.Windows.Forms.ToolStripButton tsHelp;
         private System.Windows.Forms.ToolTip toolTip;
-        private System.Windows.Forms.ToolStripMenuItem msWeeklyCases;
-        private System.Windows.Forms.ToolStripMenuItem msContactTracing;
         private System.Windows.Forms.ToolStripMenuItem msTextFiles;
         private System.Windows.Forms.ToolStripMenuItem smToolsTemperature;
+        private System.Windows.Forms.ToolStripMenuItem msWeeklyCase;
+        private System.Windows.Forms.ToolStripMenuItem contactTracingToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem msHelp;
+        private System.Windows.Forms.ToolStripMenuItem msHelpAbout;
+        private System.Windows.Forms.ToolStripMenuItem msGPACalculate;
+        private System.Windows.Forms.ToolStripMenuItem smAwesomeness;
+        private System.Windows.Forms.ToolStripMenuItem msClassEditor;
+        private System.Windows.Forms.ToolStripMenuItem msCustomerEntry;
     }
 }
 

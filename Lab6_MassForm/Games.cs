@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ICE04_Classes
+namespace Lab6_MassForm
 {
     class Games
     {

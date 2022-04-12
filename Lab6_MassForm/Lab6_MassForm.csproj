@@ -7,7 +7,22 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Update="Awesomeness.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="ContactInformation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="CustomClassGames.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="CustomerEntry.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="CustomerViewerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="GPACalculator.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="TemperatureConversion.cs">
