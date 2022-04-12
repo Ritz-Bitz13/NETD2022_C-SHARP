@@ -49,64 +49,67 @@ namespace Lab6_MassForm
             // 
             // labelIdentificationNumber
             // 
-            this.labelIdentificationNumber.Location = new System.Drawing.Point(38, 35);
+            this.labelIdentificationNumber.Location = new System.Drawing.Point(33, 26);
             this.labelIdentificationNumber.Name = "labelIdentificationNumber";
-            this.labelIdentificationNumber.Size = new System.Drawing.Size(150, 20);
+            this.labelIdentificationNumber.Size = new System.Drawing.Size(131, 15);
             this.labelIdentificationNumber.TabIndex = 0;
             this.labelIdentificationNumber.Text = "&ID:";
             this.labelIdentificationNumber.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // labelTitle
             // 
-            this.labelTitle.Location = new System.Drawing.Point(38, 73);
+            this.labelTitle.Location = new System.Drawing.Point(33, 55);
             this.labelTitle.Name = "labelTitle";
-            this.labelTitle.Size = new System.Drawing.Size(150, 20);
+            this.labelTitle.Size = new System.Drawing.Size(131, 15);
             this.labelTitle.TabIndex = 2;
             this.labelTitle.Text = "&Title:";
             this.labelTitle.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // labelFirstName
             // 
-            this.labelFirstName.Location = new System.Drawing.Point(38, 111);
+            this.labelFirstName.Location = new System.Drawing.Point(33, 83);
             this.labelFirstName.Name = "labelFirstName";
-            this.labelFirstName.Size = new System.Drawing.Size(150, 20);
+            this.labelFirstName.Size = new System.Drawing.Size(131, 15);
             this.labelFirstName.TabIndex = 4;
             this.labelFirstName.Text = "&First Name:";
             this.labelFirstName.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // labelLastName
             // 
-            this.labelLastName.Location = new System.Drawing.Point(38, 149);
+            this.labelLastName.Location = new System.Drawing.Point(33, 112);
             this.labelLastName.Name = "labelLastName";
-            this.labelLastName.Size = new System.Drawing.Size(150, 20);
+            this.labelLastName.Size = new System.Drawing.Size(131, 15);
             this.labelLastName.TabIndex = 6;
             this.labelLastName.Text = "&Last Name:";
             this.labelLastName.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // textBoxIdentificationNumber
             // 
-            this.textBoxIdentificationNumber.Location = new System.Drawing.Point(194, 32);
+            this.textBoxIdentificationNumber.Location = new System.Drawing.Point(170, 24);
+            this.textBoxIdentificationNumber.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxIdentificationNumber.Name = "textBoxIdentificationNumber";
             this.textBoxIdentificationNumber.ReadOnly = true;
-            this.textBoxIdentificationNumber.Size = new System.Drawing.Size(150, 27);
+            this.textBoxIdentificationNumber.Size = new System.Drawing.Size(132, 23);
             this.textBoxIdentificationNumber.TabIndex = 1;
             this.toolTip.SetToolTip(this.textBoxIdentificationNumber, "Displays the customer\'s identification number");
             // 
             // textBoxFirstName
             // 
-            this.textBoxFirstName.Location = new System.Drawing.Point(194, 108);
+            this.textBoxFirstName.Location = new System.Drawing.Point(170, 81);
+            this.textBoxFirstName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxFirstName.Name = "textBoxFirstName";
             this.textBoxFirstName.ReadOnly = true;
-            this.textBoxFirstName.Size = new System.Drawing.Size(150, 27);
+            this.textBoxFirstName.Size = new System.Drawing.Size(132, 23);
             this.textBoxFirstName.TabIndex = 5;
             this.toolTip.SetToolTip(this.textBoxFirstName, "Displays the customer\'s first name");
             // 
             // textBoxLastName
             // 
-            this.textBoxLastName.Location = new System.Drawing.Point(194, 146);
+            this.textBoxLastName.Location = new System.Drawing.Point(170, 110);
+            this.textBoxLastName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxLastName.Name = "textBoxLastName";
             this.textBoxLastName.ReadOnly = true;
-            this.textBoxLastName.Size = new System.Drawing.Size(150, 27);
+            this.textBoxLastName.Size = new System.Drawing.Size(132, 23);
             this.textBoxLastName.TabIndex = 7;
             this.toolTip.SetToolTip(this.textBoxLastName, "Displays the customer\'s last name");
             // 
@@ -115,9 +118,10 @@ namespace Lab6_MassForm
             this.checkBoxVip.AutoSize = true;
             this.checkBoxVip.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.checkBoxVip.Enabled = false;
-            this.checkBoxVip.Location = new System.Drawing.Point(155, 185);
+            this.checkBoxVip.Location = new System.Drawing.Point(136, 139);
+            this.checkBoxVip.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.checkBoxVip.Name = "checkBoxVip";
-            this.checkBoxVip.Size = new System.Drawing.Size(55, 24);
+            this.checkBoxVip.Size = new System.Drawing.Size(46, 19);
             this.checkBoxVip.TabIndex = 8;
             this.checkBoxVip.Text = "&VIP:";
             this.toolTip.SetToolTip(this.checkBoxVip, "Checked if the customer is a VIP");
@@ -126,9 +130,10 @@ namespace Lab6_MassForm
             // buttonPrevious
             // 
             this.buttonPrevious.Enabled = false;
-            this.buttonPrevious.Location = new System.Drawing.Point(24, 251);
+            this.buttonPrevious.Location = new System.Drawing.Point(21, 188);
+            this.buttonPrevious.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonPrevious.Name = "buttonPrevious";
-            this.buttonPrevious.Size = new System.Drawing.Size(94, 29);
+            this.buttonPrevious.Size = new System.Drawing.Size(82, 22);
             this.buttonPrevious.TabIndex = 10;
             this.buttonPrevious.Text = "&Previous";
             this.toolTip.SetToolTip(this.buttonPrevious, "Click to view the previous customer");
@@ -137,9 +142,10 @@ namespace Lab6_MassForm
             // 
             // buttonExit
             // 
-            this.buttonExit.Location = new System.Drawing.Point(144, 250);
+            this.buttonExit.Location = new System.Drawing.Point(126, 188);
+            this.buttonExit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonExit.Name = "buttonExit";
-            this.buttonExit.Size = new System.Drawing.Size(94, 29);
+            this.buttonExit.Size = new System.Drawing.Size(82, 22);
             this.buttonExit.TabIndex = 11;
             this.buttonExit.Text = "E&xit";
             this.toolTip.SetToolTip(this.buttonExit, "Click to exit the application");
@@ -148,9 +154,10 @@ namespace Lab6_MassForm
             // 
             // buttonNext
             // 
-            this.buttonNext.Location = new System.Drawing.Point(264, 250);
+            this.buttonNext.Location = new System.Drawing.Point(231, 188);
+            this.buttonNext.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonNext.Name = "buttonNext";
-            this.buttonNext.Size = new System.Drawing.Size(94, 29);
+            this.buttonNext.Size = new System.Drawing.Size(82, 22);
             this.buttonNext.TabIndex = 12;
             this.buttonNext.Text = "&Next";
             this.toolTip.SetToolTip(this.buttonNext, "Click to view the next customer");
@@ -159,9 +166,10 @@ namespace Lab6_MassForm
             // 
             // buttonFirst
             // 
-            this.buttonFirst.Location = new System.Drawing.Point(71, 299);
+            this.buttonFirst.Location = new System.Drawing.Point(62, 224);
+            this.buttonFirst.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonFirst.Name = "buttonFirst";
-            this.buttonFirst.Size = new System.Drawing.Size(94, 29);
+            this.buttonFirst.Size = new System.Drawing.Size(82, 22);
             this.buttonFirst.TabIndex = 13;
             this.buttonFirst.Text = "Fi&rst";
             this.toolTip.SetToolTip(this.buttonFirst, "Click to view the first customer");
@@ -170,9 +178,10 @@ namespace Lab6_MassForm
             // 
             // buttonLast
             // 
-            this.buttonLast.Location = new System.Drawing.Point(217, 299);
+            this.buttonLast.Location = new System.Drawing.Point(190, 224);
+            this.buttonLast.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonLast.Name = "buttonLast";
-            this.buttonLast.Size = new System.Drawing.Size(94, 29);
+            this.buttonLast.Size = new System.Drawing.Size(82, 22);
             this.buttonLast.TabIndex = 14;
             this.buttonLast.Text = "L&ast";
             this.toolTip.SetToolTip(this.buttonLast, "Click to view the last customer");
@@ -196,19 +205,20 @@ namespace Lab6_MassForm
             "Ms.",
             "Mx.",
             "Sir"});
-            this.comboBoxTitle.Location = new System.Drawing.Point(193, 70);
+            this.comboBoxTitle.Location = new System.Drawing.Point(169, 52);
+            this.comboBoxTitle.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBoxTitle.Name = "comboBoxTitle";
-            this.comboBoxTitle.Size = new System.Drawing.Size(151, 28);
+            this.comboBoxTitle.Size = new System.Drawing.Size(133, 23);
             this.comboBoxTitle.TabIndex = 3;
             this.toolTip.SetToolTip(this.comboBoxTitle, "Displays the customer\'s title");
             // 
             // formCustomerViewer
             // 
             this.AcceptButton = this.buttonNext;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.buttonExit;
-            this.ClientSize = new System.Drawing.Size(382, 353);
+            this.ClientSize = new System.Drawing.Size(334, 265);
             this.Controls.Add(this.comboBoxTitle);
             this.Controls.Add(this.buttonLast);
             this.Controls.Add(this.buttonFirst);
@@ -223,8 +233,11 @@ namespace Lab6_MassForm
             this.Controls.Add(this.labelFirstName);
             this.Controls.Add(this.labelTitle);
             this.Controls.Add(this.labelIdentificationNumber);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(350, 304);
             this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(350, 304);
             this.Name = "formCustomerViewer";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Customer Viewer";

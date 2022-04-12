@@ -88,15 +88,6 @@ namespace Lab6_MassForm
         {
         }
 
-        private void ToolBarToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            //toolStrip.Visible = msViewToolbar.Checked;
-        }
-
-        private void StatusBarToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            //statusStrip.Visible = msViewStatusBar.Checked;
-        }
 
         private void CascadeToolStripMenuItem_Click(object sender, EventArgs e)
         {

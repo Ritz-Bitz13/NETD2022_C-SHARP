@@ -57,7 +57,7 @@ namespace Lab6_MassForm
             // 
             // lblTitle
             // 
-            this.lblTitle.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.lblTitle.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lblTitle.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.lblTitle.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
@@ -216,8 +216,8 @@ namespace Lab6_MassForm
             this.dgvGames.AllowUserToDeleteRows = false;
             this.dgvGames.AllowUserToResizeColumns = false;
             this.dgvGames.AllowUserToResizeRows = false;
-            this.dgvGames.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
+            this.dgvGames.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvGames.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvGames.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
@@ -298,6 +298,8 @@ namespace Lab6_MassForm
             this.Controls.Add(this.dgvGames);
             this.Controls.Add(this.gbxSelection);
             this.Controls.Add(this.lblTitle);
+            this.MaximumSize = new System.Drawing.Size(769, 489);
+            this.MinimumSize = new System.Drawing.Size(769, 489);
             this.Name = "frmFavouriteGame";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Favourite Game";

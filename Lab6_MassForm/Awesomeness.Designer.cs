@@ -30,7 +30,7 @@ namespace Lab6_MassForm
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAwesomeness));
             this.lblAwesome = new System.Windows.Forms.Label();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.btnYes = new System.Windows.Forms.Button();
@@ -72,7 +72,7 @@ namespace Lab6_MassForm
             this.btnNo.Click += new System.EventHandler(this.btnNo_Click);
             this.btnNo.MouseEnter += new System.EventHandler(this.btnNo_MouseEnter);
             // 
-            // frmMain
+            // frmAwesomeness
             // 
             this.AcceptButton = this.btnYes;
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -83,7 +83,9 @@ namespace Lab6_MassForm
             this.Controls.Add(this.btnYes);
             this.Controls.Add(this.lblAwesome);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "frmMain";
+            this.MaximumSize = new System.Drawing.Size(360, 300);
+            this.MinimumSize = new System.Drawing.Size(360, 300);
+            this.Name = "frmAwesomeness";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Awesomeness - Martin";
             this.toolTip1.SetToolTip(this, "This is the Form to say that Martin is awesome!");
