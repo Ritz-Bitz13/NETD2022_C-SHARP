@@ -89,6 +89,7 @@ namespace Lab6_MassForm
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Awesomeness - Martin";
             this.toolTip1.SetToolTip(this, "This is the Form to say that Martin is awesome!");
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Closed);
             this.ResumeLayout(false);
 
         }

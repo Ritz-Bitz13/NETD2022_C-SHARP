@@ -332,6 +332,7 @@ namespace Lab6_MassForm
             this.Name = "frmContactTracing";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Contact Tracing";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Closed);
             this.Load += new System.EventHandler(this.frmContactTracing_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvTracing)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudID)).EndInit();

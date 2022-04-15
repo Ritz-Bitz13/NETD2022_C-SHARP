@@ -20,6 +20,7 @@ namespace Week12_MDI
         #region Singlaton Pattern
         //This will only allow 1 of the forms to be open at the same time.
         private static frmListTroopers trooperListInstance;
+
         public static frmListTroopers Instance
         {
             get

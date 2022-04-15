@@ -34,6 +34,18 @@ namespace Lab6_MassForm
         List<ContactTracing> Contacts = new List<ContactTracing>();
         int count = 1; // counts the amount of contacts input to the Data Grid Viewer.
 
+        private static frmContactTracing ContactInstance;
+
+        public static frmContactTracing Instance
+        {
+            get
+            {
+                if (ContactInstance == null)
+                    ContactInstance = new frmContactTracing();
+                return ContactInstance;
+            }
+        }
+
         #endregion
 
         #region Form Load
@@ -277,6 +289,13 @@ namespace Lab6_MassForm
         }
         #endregion
 
+        #endregion
+
+        #region Close Form for only 1 form open at a time
+        private void Closed(object sender, FormClosedEventArgs e)
+        {
+            ContactInstance = null;
+        }
         #endregion
     }
 }

@@ -142,6 +142,7 @@ namespace Lab6_MassForm
             this.Name = "frmCases";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Average Weekly Cases";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Closed);
             this.ResumeLayout(false);
             this.PerformLayout();
 

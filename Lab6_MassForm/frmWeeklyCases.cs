@@ -31,6 +31,20 @@ namespace Lab6_MassForm
             InitializeComponent();
         }
 
+        #region Single Form Instance
+        private static frmCases CasesInstance;
+
+        public static frmCases Instance
+        {
+            get
+            {
+                if (CasesInstance == null)
+                    CasesInstance = new frmCases();
+                return CasesInstance;
+            }
+        }
+        #endregion
+
         #region Global Variables
         const int MaxCaseLimit = 7;
         int[] Cases = new int[MaxCaseLimit];
@@ -169,7 +183,14 @@ namespace Lab6_MassForm
         #endregion
 
         #endregion
+
+        #region Closing the form
+        private void Closed(object sender, FormClosedEventArgs e)
+        {
+            CasesInstance = null;
+        }
+        #endregion
     }
-    
+
 
 }

@@ -37,6 +37,19 @@ namespace Lab6_MassForm
         List<Games> Game = new List<Games>(); // List for the games being put into the list
 
         bool isValid = true; // Checking validation. If isValid is false, there is a problem with the information being put in.
+
+        private static frmFavouriteGame GameInstance;
+
+        public static frmFavouriteGame Instance
+        {
+            get
+            {
+                if (GameInstance == null)
+                    GameInstance = new frmFavouriteGame();
+                return GameInstance;
+            }
+        }
+
         #endregion
 
         #region Form Load
@@ -201,6 +214,13 @@ namespace Lab6_MassForm
         }
         #endregion
 
+        #endregion
+
+        #region Close form for Parent for to only have 1 instance
+        private void Closed(object sender, FormClosedEventArgs e)
+        {
+            GameInstance = null;
+        }
         #endregion
     }
 }

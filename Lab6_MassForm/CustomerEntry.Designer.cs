@@ -261,6 +261,7 @@ namespace Lab6_MassForm
             this.Name = "formCustomerEntry";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Customer Entry";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Closed);
             this.Load += new System.EventHandler(this.FormLoad);
             this.ResumeLayout(false);
             this.PerformLayout();

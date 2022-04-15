@@ -172,6 +172,7 @@ namespace Lab6_MassForm
             this.Name = "frmTemperature";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Temperature Convertor";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Closed);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -32,6 +32,20 @@ namespace Lab6_MassForm
 
         #region Global Variables
         public static List<Information> Document = new List<Information>();
+
+        private static frmMain textInstance;
+
+        public static frmMain Instance
+        {
+            get
+            {
+                if (textInstance == null)
+                    textInstance = new frmMain();
+                return textInstance;
+            }
+        }
+
+
         #endregion
 
         #region FILE BUTTONS
@@ -317,5 +331,12 @@ namespace Lab6_MassForm
         {
 
         }
+
+        #region Closing the form
+        private void Closed(object sender, FormClosedEventArgs e)
+        {
+            textInstance = null;
+        }
+        #endregion
     }
 }

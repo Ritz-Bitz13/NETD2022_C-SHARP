@@ -238,6 +238,7 @@ namespace Lab6_MassForm
             this.Name = "frmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Text Editor, Select a file to Open";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Closed);
             this.Load += new System.EventHandler(this.DisableMenu);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();

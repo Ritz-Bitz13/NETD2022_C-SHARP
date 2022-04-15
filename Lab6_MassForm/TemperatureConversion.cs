@@ -16,6 +16,18 @@ namespace Lab6_MassForm
         const double CONVERT_MULTIPLIER = 1.8;
         const double CONVERT_ADDER = 32.0;
 
+        private static frmTemperature temperatureInstance;
+
+        public static frmTemperature Instance
+        {
+            get
+            {
+                if (temperatureInstance == null)
+                    temperatureInstance = new frmTemperature();
+                return temperatureInstance;
+            }
+        }
+
         public frmTemperature()
         {
             InitializeComponent();
@@ -81,5 +93,12 @@ namespace Lab6_MassForm
                 textInputTemp.SelectAll();
             }
         }
+
+        #region Closing the form, only 1 allowed
+        private void Closed(object sender, FormClosedEventArgs e)
+        {
+            temperatureInstance = null;
+        }
+        #endregion
     }
 }

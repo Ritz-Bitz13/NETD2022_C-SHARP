@@ -28,6 +28,18 @@ namespace Lab6_MassForm
             InitializeComponent();
         }
 
+        //This will only allow 1 of the forms to be open at the same time.
+        private static frmAwesomeness AwesomeInstance;
+        public static frmAwesomeness Instance
+        {
+            get
+            {
+                if (AwesomeInstance == null)
+                    AwesomeInstance = new frmAwesomeness();
+                return AwesomeInstance;
+            }
+        }
+
         private void btnYes_Click(object sender, EventArgs e)
         {
             // When the YEs button is clicked, a message box will pop up and say that I am indeed awesome. then close the program
@@ -53,6 +65,11 @@ namespace Lab6_MassForm
         private void btnNo_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Cheater! Using Alt + N (Or ESC) is just mean!", "You Cheated!");
+        }
+
+        private void Closed(object sender, FormClosedEventArgs e)
+        {
+            AwesomeInstance = null;
         }
     }
 }

@@ -34,6 +34,19 @@ namespace Lab6_MassForm
 
         #region "Event Handlers"
 
+        private static formCustomerEntry EntryInstance;
+
+        public static formCustomerEntry Instance
+        {
+            get
+            {
+                if (EntryInstance == null)
+                    EntryInstance = new formCustomerEntry();
+                return EntryInstance;
+            }
+        }
+
+
         /// <summary>
         /// When the form loads, instantiate some customers and add them to a list so they can be viewed later.
         /// </summary>
@@ -243,8 +256,14 @@ namespace Lab6_MassForm
         }
 
 
+
         #endregion
 
-       
+        #region Close For only 1 instance on the Form
+        private void Closed(object sender, FormClosedEventArgs e)
+        {
+            EntryInstance = null;
+        }
+        #endregion
     }
 }

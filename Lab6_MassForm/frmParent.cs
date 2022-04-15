@@ -150,7 +150,7 @@ namespace Lab6_MassForm
 
         private void msTextFiles_Click(object sender, EventArgs e)
         {
-            frmMain frm = new frmMain(); //refrencing the listtropopers form 'Get'
+            frmMain frm = frmMain.Instance; //refrencing the listtropopers form 'Get'
             frm.MdiParent = this; // Make this the current form
             frm.Show(); // This will show the form but allow you to go off the form
             frm.Focus();
@@ -158,7 +158,7 @@ namespace Lab6_MassForm
 
         private void smToolsTemperature_Click(object sender, EventArgs e)
         {
-            frmTemperature frm = new frmTemperature(); //refrencing the listtropopers form 'Get'
+            frmTemperature frm = frmTemperature.Instance; //refrencing the listtropopers form 'Get'
             frm.MdiParent = this; // Make this the current form
             frm.Show(); // This will show the form but allow you to go off the form
             frm.Focus();
@@ -166,7 +166,7 @@ namespace Lab6_MassForm
 
         private void weeklyCasesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmCases frm = new frmCases(); //refrencing the listtropopers form 'Get'
+            frmCases frm = frmCases.Instance; //refrencing the listtropopers form 'Get'
             frm.MdiParent = this; // Make this the current form
             frm.Show(); // This will show the form but allow you to go off the form
             frm.Focus();
@@ -174,7 +174,7 @@ namespace Lab6_MassForm
 
         private void contactTracingToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmContactTracing frm = new frmContactTracing(); //refrencing the listtropopers form 'Get'
+            frmContactTracing frm = frmContactTracing.Instance; //refrencing the listtropopers form 'Get'
             frm.MdiParent = this; // Make this the current form
             frm.Show(); // This will show the form but allow you to go off the form
             frm.Focus();
@@ -187,7 +187,7 @@ namespace Lab6_MassForm
 
         private void awesomenessToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmAwesomeness frm = new frmAwesomeness(); //refrencing the listtropopers form 'Get'
+            frmAwesomeness frm = frmAwesomeness.Instance; //refrencing the listtropopers form 'Get'
             frm.MdiParent = this; // Make this the current form
             frm.Show(); // This will show the form but allow you to go off the form
             frm.Focus();
@@ -195,7 +195,7 @@ namespace Lab6_MassForm
 
         private void msGPACalculate_Click(object sender, EventArgs e)
         {
-            frmGPAGrades frm = new frmGPAGrades(); //refrencing the listtropopers form 'Get'
+            frmGPAGrades frm = frmGPAGrades.Instance; //refrencing the listtropopers form 'Get'
             frm.MdiParent = this; // Make this the current form
             frm.Show(); // This will show the form but allow you to go off the form
             frm.Focus();
@@ -203,7 +203,7 @@ namespace Lab6_MassForm
 
         private void msClassEditor_Click(object sender, EventArgs e)
         {
-            frmFavouriteGame frm = new frmFavouriteGame(); //refrencing the listtropopers form 'Get'
+            frmFavouriteGame frm = frmFavouriteGame.Instance; //refrencing the listtropopers form 'Get'
             frm.MdiParent = this; // Make this the current form
             frm.Show(); // This will show the form but allow you to go off the form
             frm.Focus();
@@ -211,7 +211,7 @@ namespace Lab6_MassForm
 
         private void msCustomerEntry_Click(object sender, EventArgs e)
         {
-            formCustomerEntry frm = new formCustomerEntry(); //refrencing the listtropopers form 'Get'
+            formCustomerEntry frm = formCustomerEntry.Instance; //refrencing the listtropopers form 'Get'
             frm.MdiParent = this; // Make this the current form
             frm.Show(); // This will show the form but allow you to go off the form
             frm.Focus();

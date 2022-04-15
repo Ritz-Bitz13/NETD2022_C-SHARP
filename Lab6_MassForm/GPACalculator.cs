@@ -31,6 +31,18 @@ namespace Lab6_MassForm
             InitializeComponent();
         }
 
+        private static frmGPAGrades GPAInstance;
+
+        public static frmGPAGrades Instance
+        {
+            get
+            {
+                if (GPAInstance == null)
+                    GPAInstance = new frmGPAGrades();
+                return GPAInstance;
+            }
+        }
+
         #region Global Variables and Arrays
         // GLOBAL VARIABLES & ARRAYS
         int minValue = 0;
@@ -343,6 +355,13 @@ namespace Lab6_MassForm
             }
             // Enable the calculate button
             btnCalculate.Enabled = true;
+        }
+        #endregion
+
+        #region Closing the Form
+        private void Closed(object sender, FormClosedEventArgs e)
+        {
+            GPAInstance = null;
         }
         #endregion
     }

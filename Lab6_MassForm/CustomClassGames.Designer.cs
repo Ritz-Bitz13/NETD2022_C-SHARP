@@ -303,6 +303,7 @@ namespace Lab6_MassForm
             this.Name = "frmFavouriteGame";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Favourite Game";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Closed);
             this.Load += new System.EventHandler(this.frmFavouriteGame_Load);
             this.gbxSelection.ResumeLayout(false);
             this.gbxSelection.PerformLayout();
