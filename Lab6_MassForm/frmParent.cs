@@ -40,6 +40,7 @@ namespace Lab6_MassForm
         #region New Form
         private void ShowNewForm(object sender, EventArgs e)
         {
+            // This will open a new form
             Form childForm = new Form();
             childForm.MdiParent = this;
             childForm.Text = "Window " + childFormNumber++;
@@ -50,6 +51,7 @@ namespace Lab6_MassForm
         #region Open File
         private void OpenFile(object sender, EventArgs e)
         {
+            // Uses the method open Files to open a file on the text Editor
             OpenFilesMethod();
         }
         #endregion
@@ -57,6 +59,7 @@ namespace Lab6_MassForm
         #region File Save
         private void msFileSave_Click(object sender, EventArgs e)
         {
+            // This will save Items in the text editor
             SavePressed();
         }
         #endregion
@@ -64,6 +67,7 @@ namespace Lab6_MassForm
         #region Tool Strip Save
         private void tsSave_Click(object sender, EventArgs e)
         {
+            // This will save Items in the text editor
             SavePressed();
         }
         #endregion
@@ -71,19 +75,15 @@ namespace Lab6_MassForm
         #region Save As
         private void msSaveAs(object sender, EventArgs e)
         {
-            SaveFileDialog saveFileDialog = new SaveFileDialog();
-            saveFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
-            saveFileDialog.Filter = "Text Files (*.txt)|*.txt|All Files (*.*)|*.*";
-            if (saveFileDialog.ShowDialog(this) == DialogResult.OK)
-            {
-                string FileName = saveFileDialog.FileName;
-            }
+            // This will save Items in the text editor
+            SavePressed();
         }
         #endregion
 
         #region Exit Button
         private void msFileExit_Click(object sender, EventArgs e)
         {
+            // This will exit the program if the user says yes
             if (MessageBox.Show("Would you like to close the application?", "Close", MessageBoxButtons.YesNo) == DialogResult.Yes);
             {
                 Application.Exit();
@@ -127,6 +127,8 @@ namespace Lab6_MassForm
         #region ~~ Extra Button ~~ (Temperature Calculation Form)
         private void smToolsTemperature_Click(object sender, EventArgs e)
         {
+            // This will open the temperature calcualtion form
+
             frmTemperature frm = frmTemperature.Instance; //refrencing the listtropopers form 'Get'
             frm.MdiParent = this; // Make this the current form
             frm.Show(); // This will show the form but allow you to go off the form
@@ -139,27 +141,29 @@ namespace Lab6_MassForm
         #region Cascade
         private void CascadeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            LayoutMdi(MdiLayout.Cascade);
+            LayoutMdi(MdiLayout.Cascade); // This will cascade the forms that are open
         }
         #endregion
 
         #region Tile Vertical
         private void TileVerticalToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            LayoutMdi(MdiLayout.TileVertical);
+            LayoutMdi(MdiLayout.TileVertical); // This will Stack the forms vertical that are open
         }
         #endregion
 
         #region Tile Horizontal
         private void TileHorizontalToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            LayoutMdi(MdiLayout.TileHorizontal);
+            LayoutMdi(MdiLayout.TileHorizontal); // This will Stack the forms Horizontal that are open
         }
         #endregion
 
         #region Weekly Cases Form
         private void msWindowsWeeklyCases(object sender, EventArgs e)
         {
+            // This will open the Weekly Cases form
+
             frmCases frm = frmCases.Instance; //refrencing the listtropopers form 'Get'
             frm.MdiParent = this; // Make this the current form
             frm.Show(); // This will show the form but allow you to go off the form
@@ -196,6 +200,7 @@ namespace Lab6_MassForm
         #region Text Editor Form
         private void msTextFiles_Click(object sender, EventArgs e)
         {
+            // This will open the TextEditor Form
             frmMain frm = frmMain.Instance; //refrencing the listtropopers form 'Get'
             frm.MdiParent = this; // Make this the current form
             frm.Show(); // This will show the form but allow you to go off the form
@@ -207,6 +212,8 @@ namespace Lab6_MassForm
         #region GPA Calculator Form
         private void msGPACalculate_Click(object sender, EventArgs e)
         {
+            // This will open the GPA grade calculator
+
             frmGPAGrades frm = frmGPAGrades.Instance; //refrencing the listtropopers form 'Get'
             frm.MdiParent = this; // Make this the current form
             frm.Show(); // This will show the form but allow you to go off the form
@@ -217,6 +224,8 @@ namespace Lab6_MassForm
         #region Awesomeness Form
         private void ssAwesomeness(object sender, EventArgs e)
         {
+            // This will open the first ICE, Awesomeness
+
             frmAwesomeness frm = frmAwesomeness.Instance; //refrencing the listtropopers form 'Get'
             frm.MdiParent = this; // Make this the current form
             frm.Show(); // This will show the form but allow you to go off the form
@@ -227,6 +236,8 @@ namespace Lab6_MassForm
         #region Custom Class Form
         private void msClassEditor_Click(object sender, EventArgs e)
         {
+            //This will oppen the Class Editor
+
             frmFavouriteGame frm = frmFavouriteGame.Instance; //refrencing the listtropopers form 'Get'
             frm.MdiParent = this; // Make this the current form
             frm.Show(); // This will show the form but allow you to go off the form
@@ -237,6 +248,8 @@ namespace Lab6_MassForm
         #region Customer Entry Form
         private void msCustomerEntry_Click(object sender, EventArgs e)
         {
+            // This will open the Customer Entry Form
+
             formCustomerEntry frm = formCustomerEntry.Instance; //refrencing the listtropopers form 'Get'
             frm.MdiParent = this; // Make this the current form
             frm.Show(); // This will show the form but allow you to go off the form
@@ -287,6 +300,9 @@ namespace Lab6_MassForm
         #endregion
 
         #region Open files
+        /// <summary>
+        /// This will open the file dialog and you can open a text file to open in the text editor
+        /// </summary>
         private void OpenFilesMethod()
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
@@ -294,7 +310,7 @@ namespace Lab6_MassForm
             openFileDialog.Filter = "Text Files (*.txt)|*.txt|All Files (*.*)|*.*";
             if (openFileDialog.ShowDialog(this) == DialogResult.OK)
             {
-                // If the textbox form is open and the active child. open the file
+                // If the textbox form is open AND is the active child. open the file
                 if (frmMain.Instance == ActiveMdiChild)
                 {
                     frmMain.Instance.Close();
@@ -304,6 +320,8 @@ namespace Lab6_MassForm
                     frm.Show();
                     frm.Focus();
                 }
+
+                // If the Text Editor form is open BUT is not the focused form, it will close the form and reopen it to focus, along with the files.
                 else if (frmMain.Opened == true)
                 {
                     frmMain.Instance.Close();
