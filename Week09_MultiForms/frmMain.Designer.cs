@@ -365,6 +365,7 @@ namespace Week09_MultiForms
             this.tsOpen.Name = "tsOpen";
             this.tsOpen.Size = new System.Drawing.Size(56, 22);
             this.tsOpen.Text = "Open";
+            this.tsOpen.Click += new System.EventHandler(this.tsOpen_Click);
             // 
             // tsAddTrooper
             // 

@@ -212,5 +212,10 @@ namespace Week09_MultiForms
         {
 
         }
+
+        private void tsOpen_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

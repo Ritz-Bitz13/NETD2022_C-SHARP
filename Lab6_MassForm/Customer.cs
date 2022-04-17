@@ -15,7 +15,7 @@ namespace Lab6_MassForm
     /// <summary>
     /// A class designed to as a record of an individual customer, including a little information that describes their importance.
     /// </summary>
-    class Customer
+    public class Customer
     {
         // Static private variable to hold the number of customers.
         private static int customerCount = 0;

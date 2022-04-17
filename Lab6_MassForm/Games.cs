@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Lab6_MassForm
 {
-    class Games
+    public class Games
     {
         public int Designation { get; set; }
         public String GameName { get; set; }

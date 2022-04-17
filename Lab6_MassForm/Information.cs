@@ -30,7 +30,10 @@ namespace Lab6_MassForm
         public Information(String info)
         {
             Info = info;
+
         }
+
+        public static List<Information> Document = new List<Information>();
         #endregion
 
         #region FileWrite
@@ -54,7 +57,7 @@ namespace Lab6_MassForm
         /// </summary>
         /// <param name="info"></param>
         /// <returns></returns>
-        private static String CreateFileCVS(List<Information> info)
+        public static String CreateFileCVS(List<Information> info)
         {
             String documents = string.Empty;
 
@@ -65,6 +68,8 @@ namespace Lab6_MassForm
 
             return documents;
         }
+
+
         #endregion
     }
 }

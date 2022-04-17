@@ -44,6 +44,7 @@ namespace Lab6_MassForm
                 return textInstance;
             }
         }
+        bool activeform;
 
 
         #endregion
@@ -79,7 +80,7 @@ namespace Lab6_MassForm
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void msFileSave_Click(object sender, EventArgs e)
+        public void msFileSave_Click(object sender, EventArgs e)
         {
             Document.Clear(); // clears the list
             Information t = new Information();
@@ -95,7 +96,7 @@ namespace Lab6_MassForm
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void msFileSaveAs_Click(object sender, EventArgs e)
+        public void msFileSaveAs_Click(object sender, EventArgs e)
         {
             Document.Clear();
             Information t = new Information();
@@ -201,7 +202,7 @@ namespace Lab6_MassForm
         /// Sets the save status to edited or saved
         /// </summary>
         /// <param name="isSaved"></param>
-        private void SetSaveStatus(Boolean isSaved)
+        public void SetSaveStatus(Boolean isSaved)
         {
             if (isSaved)
             {
@@ -221,7 +222,7 @@ namespace Lab6_MassForm
         /// If the file has a file name it will automatically save, if not, it will ask you to save it to a file.
         /// </summary>
         /// <param name="saveAs"></param>
-        private void SaveToFile(Boolean saveAs)
+        public void SaveToFile(Boolean saveAs)
         {
             //TODO: SaveAs with existing filename
             if (!saveAs && ssFileName.Text.Length > 4)
@@ -338,5 +339,20 @@ namespace Lab6_MassForm
             textInstance = null;
         }
         #endregion
+
+        public void active(object sender, EventArgs e)
+        {
+            activeform = true;
+        }
+
+        public void notactive(object sender, EventArgs e)
+        {
+            activeform = false;
+        }
+
+        private void textchanged(object sender, EventArgs e)
+        {
+            SetSaveStatus(false); // Sets the save status to Edited because the text has changed in the textbox.
+        }
     }
 }

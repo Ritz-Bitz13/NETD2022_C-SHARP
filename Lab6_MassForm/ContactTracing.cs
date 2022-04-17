@@ -21,7 +21,7 @@ namespace Lab6_MassForm
     /// <summary>
     /// This is the class Contact Tracing, Which will store the information for every contact.
     /// </summary>
-    class ContactTracing
+    public class ContactTracing
     {
         #region Class
         public int ID { get; set; }

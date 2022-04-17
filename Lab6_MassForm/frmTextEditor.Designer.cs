@@ -45,12 +45,12 @@ namespace Lab6_MassForm
             this.msHelp = new System.Windows.Forms.ToolStripMenuItem();
             this.msHelpAbout = new System.Windows.Forms.ToolStripMenuItem();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.txtInformation = new System.Windows.Forms.TextBox();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.ssSaveStatus = new System.Windows.Forms.ToolStripStatusLabel();
             this.ssFileName = new System.Windows.Forms.ToolStripStatusLabel();
+            this.txtInformation = new System.Windows.Forms.RichTextBox();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -85,7 +85,7 @@ namespace Lab6_MassForm
             // 
             this.msFileNew.Name = "msFileNew";
             this.msFileNew.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
-            this.msFileNew.Size = new System.Drawing.Size(180, 22);
+            this.msFileNew.Size = new System.Drawing.Size(157, 22);
             this.msFileNew.Text = "&New";
             this.msFileNew.Click += new System.EventHandler(this.msFileNew_Click);
             // 
@@ -93,7 +93,7 @@ namespace Lab6_MassForm
             // 
             this.msFileOpen.Name = "msFileOpen";
             this.msFileOpen.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
-            this.msFileOpen.Size = new System.Drawing.Size(180, 22);
+            this.msFileOpen.Size = new System.Drawing.Size(157, 22);
             this.msFileOpen.Text = "&Open";
             this.msFileOpen.Click += new System.EventHandler(this.msFileOpen_Click);
             // 
@@ -101,21 +101,21 @@ namespace Lab6_MassForm
             // 
             this.msFileSave.Name = "msFileSave";
             this.msFileSave.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
-            this.msFileSave.Size = new System.Drawing.Size(180, 22);
+            this.msFileSave.Size = new System.Drawing.Size(157, 22);
             this.msFileSave.Text = "Save";
             this.msFileSave.Click += new System.EventHandler(this.msFileSave_Click);
             // 
             // msFileSaveAs
             // 
             this.msFileSaveAs.Name = "msFileSaveAs";
-            this.msFileSaveAs.Size = new System.Drawing.Size(180, 22);
+            this.msFileSaveAs.Size = new System.Drawing.Size(157, 22);
             this.msFileSaveAs.Text = "Save &As..";
             this.msFileSaveAs.Click += new System.EventHandler(this.msFileSaveAs_Click);
             // 
             // msFileClose
             // 
             this.msFileClose.Name = "msFileClose";
-            this.msFileClose.Size = new System.Drawing.Size(180, 22);
+            this.msFileClose.Size = new System.Drawing.Size(157, 22);
             this.msFileClose.Text = "Close";
             this.msFileClose.Click += new System.EventHandler(this.msFileClose_Click);
             // 
@@ -124,7 +124,7 @@ namespace Lab6_MassForm
             this.msFileExit.Name = "msFileExit";
             this.msFileExit.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Alt) 
             | System.Windows.Forms.Keys.X)));
-            this.msFileExit.Size = new System.Drawing.Size(180, 22);
+            this.msFileExit.Size = new System.Drawing.Size(157, 22);
             this.msFileExit.Text = "E&xit";
             this.msFileExit.Click += new System.EventHandler(this.msFileExit_Click);
             // 
@@ -178,21 +178,6 @@ namespace Lab6_MassForm
             this.msHelpAbout.Text = "About";
             this.msHelpAbout.Click += new System.EventHandler(this.msHelpAbout_Click);
             // 
-            // txtInformation
-            // 
-            this.txtInformation.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtInformation.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtInformation.Location = new System.Drawing.Point(0, 27);
-            this.txtInformation.Multiline = true;
-            this.txtInformation.Name = "txtInformation";
-            this.txtInformation.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtInformation.Size = new System.Drawing.Size(800, 398);
-            this.txtInformation.TabIndex = 1;
-            this.toolTip1.SetToolTip(this.txtInformation, "This is where you type your information");
-            this.txtInformation.TextChanged += new System.EventHandler(this.EditedText);
-            // 
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
@@ -226,6 +211,18 @@ namespace Lab6_MassForm
             this.ssFileName.Size = new System.Drawing.Size(17, 17);
             this.ssFileName.Text = "--";
             // 
+            // txtInformation
+            // 
+            this.txtInformation.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtInformation.Location = new System.Drawing.Point(0, 27);
+            this.txtInformation.Name = "txtInformation";
+            this.txtInformation.Size = new System.Drawing.Size(800, 398);
+            this.txtInformation.TabIndex = 3;
+            this.txtInformation.Text = "";
+            this.txtInformation.TextChanged += new System.EventHandler(this.textchanged);
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -238,6 +235,8 @@ namespace Lab6_MassForm
             this.Name = "frmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Text Editor, Select a file to Open";
+            this.Activated += new System.EventHandler(this.active);
+            this.Deactivate += new System.EventHandler(this.notactive);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Closed);
             this.Load += new System.EventHandler(this.DisableMenu);
             this.menuStrip1.ResumeLayout(false);
@@ -271,7 +270,7 @@ namespace Lab6_MassForm
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel ssSaveStatus;
         private System.Windows.Forms.ToolStripStatusLabel ssFileName;
-        private System.Windows.Forms.TextBox txtInformation;
+        internal System.Windows.Forms.RichTextBox txtInformation;
     }
 }
 

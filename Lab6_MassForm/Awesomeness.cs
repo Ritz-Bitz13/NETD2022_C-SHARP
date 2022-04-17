@@ -44,7 +44,7 @@ namespace Lab6_MassForm
         {
             // When the YEs button is clicked, a message box will pop up and say that I am indeed awesome. then close the program
             MessageBox.Show("Yes, Martin Barber is awesome, aren't they!");
-            Application.Exit();
+            this.Close();
         }
 
         private void btnNo_MouseEnter(object sender, EventArgs e)
