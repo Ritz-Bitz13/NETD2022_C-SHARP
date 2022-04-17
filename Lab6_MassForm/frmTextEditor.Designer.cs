@@ -142,7 +142,7 @@ namespace Lab6_MassForm
             // 
             this.msEditCopy.Name = "msEditCopy";
             this.msEditCopy.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.C)));
-            this.msEditCopy.Size = new System.Drawing.Size(144, 22);
+            this.msEditCopy.Size = new System.Drawing.Size(180, 22);
             this.msEditCopy.Text = "&Copy";
             this.msEditCopy.Click += new System.EventHandler(this.msEditCopy_Click);
             // 
@@ -150,7 +150,7 @@ namespace Lab6_MassForm
             // 
             this.msEditCut.Name = "msEditCut";
             this.msEditCut.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.X)));
-            this.msEditCut.Size = new System.Drawing.Size(144, 22);
+            this.msEditCut.Size = new System.Drawing.Size(180, 22);
             this.msEditCut.Text = "Cu&t";
             this.msEditCut.Click += new System.EventHandler(this.msEditCut_Click);
             // 
@@ -158,7 +158,7 @@ namespace Lab6_MassForm
             // 
             this.msEditPaste.Name = "msEditPaste";
             this.msEditPaste.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.V)));
-            this.msEditPaste.Size = new System.Drawing.Size(144, 22);
+            this.msEditPaste.Size = new System.Drawing.Size(180, 22);
             this.msEditPaste.Text = "&Paste";
             this.msEditPaste.Click += new System.EventHandler(this.msEditPaste_Click);
             // 
@@ -235,8 +235,6 @@ namespace Lab6_MassForm
             this.Name = "frmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Text Editor, Select a file to Open";
-            this.Activated += new System.EventHandler(this.active);
-            this.Deactivate += new System.EventHandler(this.notactive);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Closed);
             this.Load += new System.EventHandler(this.DisableMenu);
             this.menuStrip1.ResumeLayout(false);

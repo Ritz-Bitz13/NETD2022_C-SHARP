@@ -34,6 +34,11 @@ namespace Lab6_MassForm
         public static List<Information> Document = new List<Information>();
 
         private static frmMain textInstance;
+        public static string passingText;
+
+        public static string selectedText;
+        public static bool Opened = false;
+
 
         public static frmMain Instance
         {
@@ -41,6 +46,7 @@ namespace Lab6_MassForm
             {
                 if (textInstance == null)
                     textInstance = new frmMain();
+                  
                 return textInstance;
             }
         }
@@ -141,7 +147,7 @@ namespace Lab6_MassForm
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void msEditCopy_Click(object sender, EventArgs e)
+        public void msEditCopy_Click(object sender, EventArgs e)
         {
             if (txtInformation.SelectionLength > 0) // If the user has selected text
             {
@@ -248,13 +254,13 @@ namespace Lab6_MassForm
         /// <summary>
         /// This is the method to open up files in the text box
         /// </summary>
-        private void OpenFiles()
+        public void OpenFiles()
         {
             OpenFileDialog openFile = new OpenFileDialog();
             openFile.Filter = "txt files (*.txt) | *.txt|All Files(*.*)|**.*";
             if (openFile.ShowDialog() == DialogResult.OK)
             {
-                ssFileName.Text = openFile.FileName;
+                //ssFileName.Text = openFile.FileName;
                 txtInformation.Text = File.ReadAllText(openFile.FileName);
             }
         }
@@ -298,6 +304,7 @@ namespace Lab6_MassForm
             msFile.Visible = false;
             msEdit.Visible = false;
             msHelp.Visible = false;
+            txtInformation.Text = passingText;
         }
         #endregion
 
@@ -337,22 +344,29 @@ namespace Lab6_MassForm
         private void Closed(object sender, FormClosedEventArgs e)
         {
             textInstance = null;
+            passingText = ""; // This clears the passingtext so it does not carry over if you open a new text file
+            Opened = false;
         }
         #endregion
 
         public void active(object sender, EventArgs e)
         {
-            activeform = true;
+            selectedText = txtInformation.SelectedText;
         }
 
         public void notactive(object sender, EventArgs e)
         {
-            activeform = false;
+            passingText = txtInformation.Text;
+            Document.Clear();
+            Information t = new Information();
+            t.Info = this.txtInformation.Text.Trim();
+            Document.Add(t);
         }
 
         private void textchanged(object sender, EventArgs e)
         {
-            SetSaveStatus(false); // Sets the save status to Edited because the text has changed in the textbox.
+            passingText = txtInformation.Text;
+            selectedText = txtInformation.SelectedText;
         }
     }
 }

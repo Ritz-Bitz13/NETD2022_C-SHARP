@@ -94,7 +94,7 @@ namespace Lab6_MassForm
             this.menuStrip.MdiWindowListItem = this.msWindows;
             this.menuStrip.Name = "menuStrip";
             this.menuStrip.Padding = new System.Windows.Forms.Padding(7, 2, 0, 2);
-            this.menuStrip.Size = new System.Drawing.Size(1234, 24);
+            this.menuStrip.Size = new System.Drawing.Size(1198, 24);
             this.menuStrip.TabIndex = 0;
             this.menuStrip.Text = "MenuStrip";
             // 
@@ -238,7 +238,7 @@ namespace Lab6_MassForm
             this.smToolsTemperature.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Alt) 
             | System.Windows.Forms.Keys.T)));
             this.smToolsTemperature.Size = new System.Drawing.Size(266, 22);
-            this.smToolsTemperature.Text = "Temperature Conversion";
+            this.smToolsTemperature.Text = "&Temperature Conversion";
             this.smToolsTemperature.Click += new System.EventHandler(this.smToolsTemperature_Click);
             // 
             // msWindows
@@ -256,35 +256,35 @@ namespace Lab6_MassForm
             // msWindowsCascade
             // 
             this.msWindowsCascade.Name = "msWindowsCascade";
-            this.msWindowsCascade.Size = new System.Drawing.Size(157, 22);
+            this.msWindowsCascade.Size = new System.Drawing.Size(180, 22);
             this.msWindowsCascade.Text = "&Cascade";
             this.msWindowsCascade.Click += new System.EventHandler(this.CascadeToolStripMenuItem_Click);
             // 
             // msWIndowsTileVertical
             // 
             this.msWIndowsTileVertical.Name = "msWIndowsTileVertical";
-            this.msWIndowsTileVertical.Size = new System.Drawing.Size(157, 22);
+            this.msWIndowsTileVertical.Size = new System.Drawing.Size(180, 22);
             this.msWIndowsTileVertical.Text = "Tile &Vertical";
             this.msWIndowsTileVertical.Click += new System.EventHandler(this.TileVerticalToolStripMenuItem_Click);
             // 
             // msWIndowsTileHorizontal
             // 
             this.msWIndowsTileHorizontal.Name = "msWIndowsTileHorizontal";
-            this.msWIndowsTileHorizontal.Size = new System.Drawing.Size(157, 22);
+            this.msWIndowsTileHorizontal.Size = new System.Drawing.Size(180, 22);
             this.msWIndowsTileHorizontal.Text = "Tile &Horizontal";
             this.msWIndowsTileHorizontal.Click += new System.EventHandler(this.TileHorizontalToolStripMenuItem_Click);
             // 
             // msWeeklyCase
             // 
             this.msWeeklyCase.Name = "msWeeklyCase";
-            this.msWeeklyCase.Size = new System.Drawing.Size(157, 22);
+            this.msWeeklyCase.Size = new System.Drawing.Size(180, 22);
             this.msWeeklyCase.Text = "W&eekly Cases";
             this.msWeeklyCase.Click += new System.EventHandler(this.msWindowsWeeklyCases);
             // 
             // contactTracingToolStripMenuItem
             // 
             this.contactTracingToolStripMenuItem.Name = "contactTracingToolStripMenuItem";
-            this.contactTracingToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
+            this.contactTracingToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.contactTracingToolStripMenuItem.Text = "Contact &Tracing";
             this.contactTracingToolStripMenuItem.Click += new System.EventHandler(this.msContactTracing);
             // 
@@ -299,7 +299,7 @@ namespace Lab6_MassForm
             // msHelpAbout
             // 
             this.msHelpAbout.Name = "msHelpAbout";
-            this.msHelpAbout.Size = new System.Drawing.Size(107, 22);
+            this.msHelpAbout.Size = new System.Drawing.Size(180, 22);
             this.msHelpAbout.Text = "&About";
             this.msHelpAbout.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
@@ -349,7 +349,7 @@ namespace Lab6_MassForm
             this.tsHelp});
             this.toolStrip.Location = new System.Drawing.Point(0, 24);
             this.toolStrip.Name = "toolStrip";
-            this.toolStrip.Size = new System.Drawing.Size(1234, 25);
+            this.toolStrip.Size = new System.Drawing.Size(1198, 25);
             this.toolStrip.TabIndex = 1;
             this.toolStrip.Text = "ToolStrip";
             // 
@@ -404,10 +404,10 @@ namespace Lab6_MassForm
             this.ssStatus,
             this.toolStripStatusLabel1,
             this.ssFileName});
-            this.statusStrip.Location = new System.Drawing.Point(0, 750);
+            this.statusStrip.Location = new System.Drawing.Point(0, 650);
             this.statusStrip.Name = "statusStrip";
             this.statusStrip.Padding = new System.Windows.Forms.Padding(1, 0, 16, 0);
-            this.statusStrip.Size = new System.Drawing.Size(1234, 22);
+            this.statusStrip.Size = new System.Drawing.Size(1198, 22);
             this.statusStrip.TabIndex = 2;
             this.statusStrip.Text = "StatusStrip";
             // 
@@ -433,7 +433,7 @@ namespace Lab6_MassForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1234, 772);
+            this.ClientSize = new System.Drawing.Size(1198, 672);
             this.Controls.Add(this.statusStrip);
             this.Controls.Add(this.toolStrip);
             this.Controls.Add(this.menuStrip);

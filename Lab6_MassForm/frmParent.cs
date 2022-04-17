@@ -32,10 +32,10 @@ namespace Lab6_MassForm
         {
             InitializeComponent();
         }
-        #endregion
+#endregion
 
 
-        #region All Menu / File Buttons
+        #region ~~ File Buttons ~~
 
         #region New Form
         private void ShowNewForm(object sender, EventArgs e)
@@ -50,39 +50,21 @@ namespace Lab6_MassForm
         #region Open File
         private void OpenFile(object sender, EventArgs e)
         {
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
-            openFileDialog.Filter = "Text Files (*.txt)|*.txt|All Files (*.*)|*.*";
-            if (openFileDialog.ShowDialog(this) == DialogResult.OK)
-            {
-                frmMain frm = new frmMain(); //refrencing the listtropopers form 'Get'
-                frm.MdiParent = this; // Make this the current form
-                frm.Show(); // This will show the form but allow syou to go off the form
-                frm.Focus();
-
-                string FileName = openFileDialog.FileName;
-            }
+            OpenFilesMethod();
         }
         #endregion
 
         #region File Save
         private void msFileSave_Click(object sender, EventArgs e)
         {
-
+            SavePressed();
         }
         #endregion
 
         #region Tool Strip Save
         private void tsSave_Click(object sender, EventArgs e)
         {
-            if (frmMain.Instance == ActiveMdiChild)
-            {
-                MessageBox.Show("Active form is Lab5");
-            }
-            else
-            {
-                MessageBox.Show("Im Sorry, You can not save unless the focused form is the Text editor.", "Error");
-            }
+            SavePressed();
         }
         #endregion
 
@@ -111,11 +93,12 @@ namespace Lab6_MassForm
 
         #endregion
 
-        #region All Edit Buttons
+        #region ~~ Edit Buttons ~~
 
         #region Cut
         private void CutToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            Clipboard.SetText(frmMain.selectedText);
         }
         #endregion
 
@@ -128,6 +111,7 @@ namespace Lab6_MassForm
         #region Paste
         private void PasteToolStripMenuItem_Click(object sender, EventArgs e)
         {
+
         }
         #endregion
 
@@ -140,7 +124,7 @@ namespace Lab6_MassForm
 
         #endregion
 
-        #region Extra Button (Temperature Calculation Form)
+        #region ~~ Extra Button ~~ (Temperature Calculation Form)
         private void smToolsTemperature_Click(object sender, EventArgs e)
         {
             frmTemperature frm = frmTemperature.Instance; //refrencing the listtropopers form 'Get'
@@ -150,7 +134,7 @@ namespace Lab6_MassForm
         }
         #endregion
 
-        #region Windows Button
+        #region ~~ Windows Button ~~
 
         #region Cascade
         private void CascadeToolStripMenuItem_Click(object sender, EventArgs e)
@@ -195,7 +179,7 @@ namespace Lab6_MassForm
 
         #endregion
 
-        #region Help Buttons
+        #region ~~ Help Buttons ~~
         // This is on the Tool Strip
         private void tsHelp_Click(object sender, EventArgs e)
         {
@@ -209,17 +193,18 @@ namespace Lab6_MassForm
         }
         #endregion
 
-        #region Text Editor
+        #region Text Editor Form
         private void msTextFiles_Click(object sender, EventArgs e)
         {
             frmMain frm = frmMain.Instance; //refrencing the listtropopers form 'Get'
             frm.MdiParent = this; // Make this the current form
             frm.Show(); // This will show the form but allow you to go off the form
+            frmMain.Opened = true; // sets the variable to true because the form is opened
             frm.Focus();
         }
         #endregion
 
-        #region GPA Calculator
+        #region GPA Calculator Form
         private void msGPACalculate_Click(object sender, EventArgs e)
         {
             frmGPAGrades frm = frmGPAGrades.Instance; //refrencing the listtropopers form 'Get'
@@ -249,7 +234,7 @@ namespace Lab6_MassForm
         }
         #endregion
 
-        #region Customer Entry
+        #region Customer Entry Form
         private void msCustomerEntry_Click(object sender, EventArgs e)
         {
             formCustomerEntry frm = formCustomerEntry.Instance; //refrencing the listtropopers form 'Get'
@@ -260,24 +245,88 @@ namespace Lab6_MassForm
         #endregion
 
         #region Custom Methods
+
+        #region Help Button Pressed
+        /// <summary>
+        /// When you hit the help button it will open the about form
+        /// </summary>
         private void HelpForm()
         {
             frmAbout newForm = new frmAbout(); // Brings up the about form
             newForm.ShowDialog();
             newForm.Dispose();
         }
+        #endregion
 
+        #region Save Button Pressed Method
+        /// <summary>
+        /// This will take the information on the rich text box from Lab 5 and save it to a document
+        /// </summary>
         private void SavePressed()
         {
             if (frmMain.Instance == ActiveMdiChild)
             {
-                MessageBox.Show("Active form is Lab5");
+                MessageBox.Show("Text editor is the main form. Saving Commencing", "Saving");
+                SaveFileDialog saveFileDialog = new SaveFileDialog();
+                saveFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
+                saveFileDialog.Filter = "Text Files (*.txt)|*.txt|All Files (*.*)|*.*";
+                if (saveFileDialog.ShowDialog(this) == DialogResult.OK)
+                {
+                    string FileName = saveFileDialog.FileName;
+                    FileStream fs = new FileStream(FileName, FileMode.Create, FileAccess.Write);
+                    StreamWriter sw = new StreamWriter(fs);
+                    sw.Write(frmMain.passingText);
+                    sw.Close();
+                }
             }
             else
             {
                 MessageBox.Show("Im Sorry, You can not save unless the focused form is the Text editor.", "Error");
             }
         }
+        #endregion
+
+        #region Open files
+        private void OpenFilesMethod()
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
+            openFileDialog.Filter = "Text Files (*.txt)|*.txt|All Files (*.*)|*.*";
+            if (openFileDialog.ShowDialog(this) == DialogResult.OK)
+            {
+                // If the textbox form is open and the active child. open the file
+                if (frmMain.Instance == ActiveMdiChild)
+                {
+                    frmMain.Instance.Close();
+                    frmMain.passingText = File.ReadAllText(openFileDialog.FileName);
+                    frmMain frm = frmMain.Instance;
+                    frm.MdiParent = this;
+                    frm.Show();
+                    frm.Focus();
+                }
+                else if (frmMain.Opened == true)
+                {
+                    frmMain.Instance.Close();
+                    frmMain.passingText = File.ReadAllText(openFileDialog.FileName);
+                    frmMain frm = frmMain.Instance;
+                    frm.MdiParent = this;
+                    frm.Show();
+                    frm.Focus();
+                }
+                // If the textform is NOT open. Then open the file and make it the focus.
+                else
+                {
+                    frmMain.passingText = File.ReadAllText(openFileDialog.FileName);
+                    frmMain frm = frmMain.Instance;
+                    frm.MdiParent = this;
+                    frm.Show();
+                    frm.Focus(); ;
+                }
+            }
+        }
+
+        #endregion
+
         #endregion
 
     }
